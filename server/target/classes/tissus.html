@@ -1,0 +1,111 @@
+<HTML>
+    <body>
+    <meta charset='utf-8'>
+        <style>
+        img{
+            margin:50px;
+            border: solid grey 5px;
+        }
+
+        #formDimension input[type=text]{
+            border-radius: 1px;
+        }
+
+        .groupeDim{
+            display: inline-block;
+            margin-left:50px;
+            margin-right:50px;
+        }
+
+        .groupeDim label, .groupeDim input{
+            display: block;
+            font-family: Impact;
+        }
+
+        #imagesModeles
+
+        </style>
+            <article class="Article2"> 
+                <div id="imagesModeles">
+                    <img id="imgTissus1" src="../../../Images/tissus1.png" alt="t1" height=120px>
+                    <img id="imgTissus2" src="../../../Images/tissus2.png" alt="t2" height=120px>
+                    <img id="imgTissus3" src="../../../Images/tissus3.png" alt="t3" height=120px>
+                    <img id="imgTissus4" src="../../../Images/tissus4.png" alt="t4" height=120px>
+                    <img id="imgTissus5" src="../../../Images/tissus5.png" alt="t5" height=120px>
+                    <img id="imgTissus6" src="../../../Images/tissus6.png" alt="t2" height=120px>
+                    <img id="imgTissus7" src="../../../Images/tissus7.png" alt="t3" height=120px>
+                    <img id="imgTissus8" src="../../../Images/tissus8.png" alt="t4" height=120px>
+                    <img id="imgTissus9" src="../../../Images/tissus9.png" alt="t5" height=120px>
+                </div>
+            </article>
+            <script>
+                var selection;
+                
+                document.getElementById('imgTissus1').onclick = function() {
+                    reset();
+                    selection='imgTissus1';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus2').onclick = function() {
+                    reset();
+                    selection='imgTissus2';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus3').onclick = function() {
+                    reset();
+                    selection='imgTissus3';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus4').onclick = function() {
+                    reset();
+                    selection='imgTissus4';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus5').onclick = function() {
+                    reset();
+                    selection='imgTissus5';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus6').onclick = function() {
+                    reset();
+                    selection='imgTissus6';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus7').onclick = function() {
+                    reset();
+                    selection='imgTissus7';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus8').onclick = function() {
+                    reset();
+                    selection='imgTissus8';
+                    this.style.border="solid 5px black";
+                }
+                
+                document.getElementById('imgTissus9').onclick = function() {
+                    reset();
+                    selection='imgTissus9';
+                    this.style.border="solid 5px black";
+                }
+                
+                var reset = function(){
+                    document.getElementById('imgTissus1').style.border="solid 5px grey";
+                    document.getElementById('imgTissus2').style.border="solid 5px grey";
+                    document.getElementById('imgTissus3').style.border="solid 5px grey";
+                    document.getElementById('imgTissus4').style.border="solid 5px grey";
+                    document.getElementById('imgTissus5').style.border="solid 5px grey";
+                    document.getElementById('imgTissus6').style.border="solid 5px grey";
+                    document.getElementById('imgTissus7').style.border="solid 5px grey";
+                    document.getElementById('imgTissus8').style.border="solid 5px grey";
+                    document.getElementById('imgTissus9').style.border="solid 5px grey";
+                };
+            </script>
+    </body>
+</HTML>

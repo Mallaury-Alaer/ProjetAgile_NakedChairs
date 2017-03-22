@@ -5,8 +5,14 @@
     <meta charset='utf-8'>
     <style>
     img{
-        margin:50px;
+        margin:40px;
         border: solid grey 5px;
+    }
+
+    #formDimension{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
     }
 
     #formDimension input[type=text]{
@@ -24,7 +30,20 @@
         font-family: Impact;
     }
 
-    #imagesModeles
+    #imagesModeles{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #imagesTab , #imagesBergeres , #imagesChaises , #imagesFauteuils , #imagesCabriolets{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+
+
 
     </style>
 </head>
@@ -32,24 +51,60 @@
 
     <article class="Article1"> 
         <div id="imagesModeles">
+        <p>Modèle</p>
             <img id="imgTabouret" src="../../../Images/Tabouret-rond.jpeg" alt="Tabourets et poufs" height=180px>
             <img id="imgBergere" src="../../../Images/Bergère-Louis-XV.jpeg" alt="Bergères" height=180px>
             <img id="imgChaise" src="../../../Images/Chaises-Marie-Antoinette.jpeg" alt="Chaises" height=180px>
-            <img id="imgFauteuil" src="../../../Images/Fauteuil Gondole dauphin.jpeg" alt="Fauteuils" height=180px>
+            <img id="imgFauteuil" src="../../../Images/Siege-gondole-Louis-XVI.jpeg" alt="Fauteuils" height=180px>
             <img id="imgCabriolet" src="../../../Images/Regence Montespan.jpeg" alt="Cabriolets" height=180px>
+        </div>
+
+        <div id="imagesTab">
+            <img id="imgTab" src="../../../Images/Tabouret-rond.jpeg" alt="Tabouret" height=120px>
+            <img id="imgReposePied" src="../../../Images/repose-pied-louis-XVI.jpeg" alt="Repose pied" height=120px>
+        </div>
+
+        <div id="imagesBergeres">
+            <img id="imgBergere1" src="../../../Images/Bergère-Louis-XV.jpeg" alt="Bergère 1" height=120px>
+            <img id="imgBergere2" src="../../../Images/Bergère-Louis-XVI.jpeg" alt="Bergère 2" height=120px>
+            <img id="imgBergere3" src="../../../Images/Bergere-Jacob-Louis-XV.jpeg" alt="Bergère 3" height=120px>
+        </div>
+
+        <div id="imagesChaises">
+            <img id="imgChaise1" src="../../../Images/Chaises-Marie-Antoinette.jpeg" alt="Chaise 1" height=120px>
+            <img id="imgChaise2" src="../../../Images/Chaise-dos-Canné-louis-XVI.jpeg" alt="Chaise 2" height=120px>
+            <img id="imgChaise3" src="../../../Images/Chaise-os-de-mouton-haut-dos-garni.jpeg" alt="Chaise 3" height=120px>
+            <img id="imgChaise4" src="../../../Images/PaperArtist_2017-03-20_22-44-36.jpeg" alt="Chaise 4" height=120px>
+            <img id="imgChaise5" src="../../../Images/PaperArtist_2017-03-20_22-44-21.jpeg" alt="Chaise 5" height=120px>
+        </div>
+
+        <div id="imagesFauteuils">
+            <img id="imgFauteuil1" src="../../../Images/Siege-gondole-Louis-XVI.jpeg" alt="Fauteuil 1" height=120px>
+            <img id="imgFauteuil2" src="../../../Images/Fauteuil-Godron.jpeg" alt="Fauteuil 2" height=120px>
+            <img id="imgFauteuil3" src="../../../Images/PaperArtist_2017-03-21_14-16-29.jpeg" alt="Fauteuil 3" height=120px>
+        </div>
+
+         <div id="imagesCabriolets">
+            <img id="imgCabriolet1" src="../../../Images/Fauteuil-directoire-bec-de-canne.jpeg" alt="Cabriolet 1" height=120px>
+            <img id="imgCabriolet2" src="../../../Images/Regence-Montespan.jpeg" alt="Cabriolet 2" height=120px>
+            <img id="imgCabriolet3" src="../../../Images/Fauteuil-Marie-Antoinette-à-Clocheton.jpeg" alt="Cabriolet 3" height=120px>
+            <img id="imgCabriolet4" src="../../../Images/Fauteuil-Louis-Philippe-Napoleon.jpeg" alt="Cabriolet 4" height=120px>
+            <img id="imgCabriolet5" src="../../../Images/Fauteuil-Consulat-Haut.jpeg" alt="Cabriolet 5" height=120px>
+            <img id="imgCabriolet6" src="../../../Images/Fauteuil-Cabriolet-Fleurette.jpeg" alt="Cabriolet 6" height=120px>
+            <img id="imgCabriolet7" src="../../../Images/Fauteuil-Crosse-Haut.jpeg" alt="Cabriolet 7" height=120px>
         </div>
         
        <form id="formDimension" method="post" action="">
         <div class="groupeDim">
-            <label for="hauteur">Hauteur du dossier :</label>
+            <label for="hauteur">Hauteur du dossier</label>
             <input type="text" name="hauteur" id="hauteur" />
         </div>  
         <div class="groupeDim">
-            <label for="largeur">Largeur du dossier :</label>
+            <label for="largeur">Largeur du dossier</label>
             <input type="text" name="largeur" id="largeur" /> 
         </div>  
         <div class="groupeDim">
-            <label for="circ">Circonférence de l'assise :</label>
+            <label for="circ">Circonférence de l'assise</label>
             <input type="text" name="circ" id="circ" />
         </div>  
         </form>
@@ -58,50 +113,58 @@
 
     <script>
         var modeleChoisi;
+        document.getElementById('imagesTab').style.display = "none";
+        document.getElementById('imagesBergeres').style.display = "none";
+        document.getElementById('imagesChaises').style.display = "none";
+        document.getElementById('imagesFauteuils').style.display = "none";
+        document.getElementById('imagesCabriolets').style.display = "none";
 
         document.getElementById('imgTabouret').onclick = function() {
-            modeleChoisi="Tabouret";
+            modeleChoisi="Tabouret";     
+            reset();
             this.style.border="solid 5px black";
-            document.getElementById('imgBergere').style.border="solid 5px grey";
-            document.getElementById('imgChaise').style.border="solid 5px grey";
-            document.getElementById('imgFauteuil').style.border="solid 5px grey";
-            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+            document.getElementById('imagesTab').style.display = "block";
         }
 
         document.getElementById('imgBergere').onclick = function() {
-            modeleChoisi="Bergere";
+            modeleChoisi="Bergere";     
+            reset();
             this.style.border="solid 5px black";
-            document.getElementById('imgTabouret').style.border="solid 5px grey";
-            document.getElementById('imgChaise').style.border="solid 5px grey";
-            document.getElementById('imgFauteuil').style.border="solid 5px grey";
-            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+            document.getElementById('imagesBergeres').style.display = "block";
         }
 
         document.getElementById('imgChaise').onclick = function() {
-            modeleChoisi="Chaise";
+            modeleChoisi="Chaise";     
+            reset();
             this.style.border="solid 5px black";
-            document.getElementById('imgTabouret').style.border="solid 5px grey";
-            document.getElementById('imgBergere').style.border="solid 5px grey";
-            document.getElementById('imgFauteuil').style.border="solid 5px grey";
-            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+            document.getElementById('imagesChaises').style.display = "block";
         }
 
         document.getElementById('imgFauteuil').onclick = function() {
-            modeleChoisi="Fauteuil";
+            modeleChoisi="Fauteuil";     
+            reset();
             this.style.border="solid 5px black";
-            document.getElementById('imgTabouret').style.border="solid 5px grey";
-            document.getElementById('imgBergere').style.border="solid 5px grey";
-            document.getElementById('imgChaise').style.border="solid 5px grey";
-            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+            document.getElementById('imagesFauteuils').style.display = "block";
         }
 
         document.getElementById('imgCabriolet').onclick = function() {
-            modeleChoisi="Cabriolet";
+            modeleChoisi="Cabriolet";            
+            reset();
             this.style.border="solid 5px black";
+            document.getElementById('imagesCabriolets').style.display = "block";
+        }
+
+        function reset(){
+            document.getElementById('imgCabriolet').style.border="solid 5px grey";
             document.getElementById('imgTabouret').style.border="solid 5px grey";
             document.getElementById('imgBergere').style.border="solid 5px grey";
             document.getElementById('imgFauteuil').style.border="solid 5px grey";
-            document.getElementById('imgChaise').style.border="solid 5px grey";
+            document.getElementById('imgChaise').style.border="solid 5px grey";  
+            document.getElementById('imagesTab').style.display = "none";        
+            document.getElementById('imagesBergeres').style.display = "none";
+            document.getElementById('imagesChaises').style.display = "none";
+            document.getElementById('imagesFauteuils').style.display = "none";
+            document.getElementById('imagesCabriolets').style.display = "none";
         }
     </script>
 

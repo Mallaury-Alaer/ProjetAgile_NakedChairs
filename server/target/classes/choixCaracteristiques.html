@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Caractéristiques du modèle</title>
+    <meta charset='utf-8'>
+    <style>
+    img{
+        margin:50px;
+        border: solid grey 5px;
+    }
+
+    #formDimension input[type=text]{
+        border-radius: 1px;
+    }
+
+    .groupeDim{
+        display: inline-block;
+        margin-left:50px;
+        margin-right:50px;
+    }
+
+    .groupeDim label, .groupeDim input{
+        display: block;
+        font-family: Impact;
+    }
+
+    #imagesModeles
+
+    </style>
+</head>
+<body>
+
+    <article class="Article1"> 
+        <div id="imagesModeles">
+            <img id="imgTabouret" src="../../../Images/Tabouret-rond.jpeg" alt="Tabourets et poufs" height=180px>
+            <img id="imgBergere" src="../../../Images/Bergère-Louis-XV.jpeg" alt="Bergères" height=180px>
+            <img id="imgChaise" src="../../../Images/Chaises-Marie-Antoinette.jpeg" alt="Chaises" height=180px>
+            <img id="imgFauteuil" src="../../../Images/Fauteuil Gondole dauphin.jpeg" alt="Fauteuils" height=180px>
+            <img id="imgCabriolet" src="../../../Images/Regence Montespan.jpeg" alt="Cabriolets" height=180px>
+        </div>
+        
+       <form id="formDimension" method="post" action="">
+        <div class="groupeDim">
+            <label for="hauteur">Hauteur du dossier :</label>
+            <input type="text" name="hauteur" id="hauteur" />
+        </div>  
+        <div class="groupeDim">
+            <label for="largeur">Largeur du dossier :</label>
+            <input type="text" name="largeur" id="largeur" /> 
+        </div>  
+        <div class="groupeDim">
+            <label for="circ">Circonférence de l'assise :</label>
+            <input type="text" name="circ" id="circ" />
+        </div>  
+        </form>
+
+    </article>
+
+    <script>
+        var modeleChoisi;
+
+        document.getElementById('imgTabouret').onclick = function() {
+            modeleChoisi="Tabouret";
+            this.style.border="solid 5px black";
+            document.getElementById('imgBergere').style.border="solid 5px grey";
+            document.getElementById('imgChaise').style.border="solid 5px grey";
+            document.getElementById('imgFauteuil').style.border="solid 5px grey";
+            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+        }
+
+        document.getElementById('imgBergere').onclick = function() {
+            modeleChoisi="Bergere";
+            this.style.border="solid 5px black";
+            document.getElementById('imgTabouret').style.border="solid 5px grey";
+            document.getElementById('imgChaise').style.border="solid 5px grey";
+            document.getElementById('imgFauteuil').style.border="solid 5px grey";
+            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+        }
+
+        document.getElementById('imgChaise').onclick = function() {
+            modeleChoisi="Chaise";
+            this.style.border="solid 5px black";
+            document.getElementById('imgTabouret').style.border="solid 5px grey";
+            document.getElementById('imgBergere').style.border="solid 5px grey";
+            document.getElementById('imgFauteuil').style.border="solid 5px grey";
+            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+        }
+
+        document.getElementById('imgFauteuil').onclick = function() {
+            modeleChoisi="Fauteuil";
+            this.style.border="solid 5px black";
+            document.getElementById('imgTabouret').style.border="solid 5px grey";
+            document.getElementById('imgBergere').style.border="solid 5px grey";
+            document.getElementById('imgChaise').style.border="solid 5px grey";
+            document.getElementById('imgCabriolet').style.border="solid 5px grey";
+        }
+
+        document.getElementById('imgCabriolet').onclick = function() {
+            modeleChoisi="Cabriolet";
+            this.style.border="solid 5px black";
+            document.getElementById('imgTabouret').style.border="solid 5px grey";
+            document.getElementById('imgBergere').style.border="solid 5px grey";
+            document.getElementById('imgFauteuil').style.border="solid 5px grey";
+            document.getElementById('imgChaise').style.border="solid 5px grey";
+        }
+    </script>
+
+</body>
+</html>

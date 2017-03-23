@@ -8,7 +8,21 @@ public class TissuDto {
 
     private String nom;
     private double longueur,largeur;
+	private String type;
+	private String luminosite;
     
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getLuminosite() {
+		return luminosite;
+	}
+	public void setLuminosite(String luminosite) {
+		this.luminosite = luminosite;
+	}
 	public String getNom() {
 		return nom;
 	}

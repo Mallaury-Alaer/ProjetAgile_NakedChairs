@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Code local -->
+    <script src="tissu.js"></script>
+</head>
+<body>
+<button type="button" id="Aff">Afficher BDD</button>
+<div id=tissu> 
+
+</div>
+<button type="button" id="Add">Ajouter Tissu</button>
+<form action="">
+	<label> Nom nouveau tissu : </label>
+	<input type="text" id="newName">
+	<br>
+	<label> Longueur nouveau tissu : </label>
+	<input type="text" id="newLong">
+	<br>
+	<label> Largeur nouveau tissu : </label>
+	<input type="text" id="newLarg">
+	<br>	
+</form>
+ <script type="text/javascript">
+			$(document).ready(function() {
+				$("#Aff").click(function () {afficher("http://localhost:8080/v1/tissu")});
+				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),"http://localhost:8080/v1/tissu")});
+
+			});
+
+    </script>
+</body>
+</html>

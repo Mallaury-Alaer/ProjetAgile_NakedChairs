@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: fr.iutinfo.skeleton.api.UserResourceTest
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 1.656 sec <<< FAILURE!
-list_all_must_be_ordered(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.106 sec  <<< FAILURE!
+Tests run: 14, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 1.29 sec <<< FAILURE!
+list_all_must_be_ordered(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.125 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<foo> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -40,7 +40,7 @@ java.lang.AssertionError: expected:<foo> but was:<null>
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-create_should_return_the_user_with_valid_id(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.085 sec  <<< FAILURE!
+create_should_return_the_user_with_valid_id(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.079 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<{"[id":1,"name":"thomas"]> but was:<{"[email":"thomas","id":]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -76,7 +76,7 @@ org.junit.ComparisonFailure: expected:<{"[id":1,"name":"thomas"]> but was:<{"[em
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-read_should_return_a_user_as_object(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.103 sec  <<< FAILURE!
+read_should_return_a_user_as_object(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.086 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<foo> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -114,7 +114,7 @@ java.lang.AssertionError: expected:<foo> but was:<null>
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-list_should_search_in_name_field(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.08 sec  <<< FAILURE!
+list_should_search_in_name_field(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.097 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<bar> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -152,7 +152,7 @@ java.lang.AssertionError: expected:<bar> but was:<null>
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-read_user_should_return_good_alias(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.073 sec  <<< ERROR!
+read_user_should_return_good_alias(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.071 sec  <<< ERROR!
 javax.ws.rs.NotFoundException: HTTP 404 Not Found
 	at org.glassfish.jersey.client.JerseyInvocation.convertToException(JerseyInvocation.java:1020)
 	at org.glassfish.jersey.client.JerseyInvocation.translate(JerseyInvocation.java:819)
@@ -197,7 +197,7 @@ javax.ws.rs.NotFoundException: HTTP 404 Not Found
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-read_user_should_return_good_email(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.074 sec  <<< ERROR!
+read_user_should_return_good_email(fr.iutinfo.skeleton.api.UserResourceTest)  Time elapsed: 0.078 sec  <<< ERROR!
 javax.ws.rs.NotFoundException: HTTP 404 Not Found
 	at org.glassfish.jersey.client.JerseyInvocation.convertToException(JerseyInvocation.java:1020)
 	at org.glassfish.jersey.client.JerseyInvocation.translate(JerseyInvocation.java:819)

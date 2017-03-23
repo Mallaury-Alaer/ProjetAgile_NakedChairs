@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="14" failures="4" name="fr.iutinfo.skeleton.api.UserResourceTest" time="1.66" errors="2" skipped="0">
+<testsuite tests="14" failures="4" name="fr.iutinfo.skeleton.api.UserResourceTest" time="1.29" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk-8-oracle-x64/jre/lib/amd64"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/infoetu/lesaged/gitAgiles/ProjetAgile_NakedChairs"/>
+    <property name="user.dir" value="/tmp/workspace_v2/Projet"/>
     <property name="java.runtime.version" value="1.8.0_71-b15"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/jdk-8-oracle-x64/jre/lib/endorsed"/>
@@ -31,12 +31,12 @@
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="3.16.0-4-amd64"/>
-    <property name="user.home" value="/home/infoetu/lesaged"/>
+    <property name="user.home" value="/home/infoetu/speleerv"/>
     <property name="user.timezone" value="Europe/Paris"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="user.name" value="lesaged"/>
+    <property name="user.name" value="speleerv"/>
     <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -58,14 +58,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_alias_field" time="0.479"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="after_delete_read_user_sould_return_204" time="0.084"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="delete_unexisting_should_return_404" time="0.088"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_read_user_with_same_salt" time="0.069"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="should_delete_user" time="0.088"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_email_field" time="0.125"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_hashed_password" time="0.074"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_all_must_be_ordered" time="0.106">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_alias_field" time="0.143"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="after_delete_read_user_sould_return_204" time="0.102"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="delete_unexisting_should_return_404" time="0.062"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_read_user_with_same_salt" time="0.077"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="should_delete_user" time="0.075"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_email_field" time="0.12"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_hashed_password" time="0.054"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_all_must_be_ordered" time="0.125">
     <failure message="expected:&lt;foo&gt; but was:&lt;null&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;foo&gt; but was:&lt;null&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -104,13 +104,13 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>11:53:24.239 [Worker: RequestDispatcher: Thread-83] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+    <system-out>14:58:04.915 [Worker: RequestDispatcher: Thread-127] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:04 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="create_should_return_the_user_with_valid_id" time="0.085">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="create_should_return_the_user_with_valid_id" time="0.079">
     <failure message="expected:&lt;{&quot;[id&quot;:1,&quot;name&quot;:&quot;thomas&quot;]&gt; but was:&lt;{&quot;[email&quot;:&quot;thomas&quot;,&quot;id&quot;:]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;{&quot;[id&quot;:1,&quot;name&quot;:&quot;thomas&quot;]&gt; but was:&lt;{&quot;[email&quot;:&quot;thomas&quot;,&quot;id&quot;:]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -147,13 +147,13 @@ INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>11:53:24.321 [Worker: RequestDispatcher: Thread-92] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+    <system-out>14:58:04.996 [Worker: RequestDispatcher: Thread-136] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:04 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_should_return_a_user_as_object" time="0.103">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_should_return_a_user_as_object" time="0.086">
     <failure message="expected:&lt;foo&gt; but was:&lt;null&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;foo&gt; but was:&lt;null&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -192,13 +192,13 @@ INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>11:53:24.440 [Worker: RequestDispatcher: Thread-101] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+    <system-out>14:58:05.090 [Worker: RequestDispatcher: Thread-145] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:05 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_name_field" time="0.08">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_search_in_name_field" time="0.097">
     <failure message="expected:&lt;bar&gt; but was:&lt;null&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;bar&gt; but was:&lt;null&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -237,15 +237,15 @@ INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
-    <system-out>11:53:24.514 [Worker: RequestDispatcher: Thread-110] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
-11:53:24.515 [Worker: RequestDispatcher: Thread-110] DEBUG fr.iutinfo.skeleton.api.UserResource - Search users with query: ba
+    <system-out>14:58:05.183 [Worker: RequestDispatcher: Thread-154] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+14:58:05.184 [Worker: RequestDispatcher: Thread-154] DEBUG fr.iutinfo.skeleton.api.UserResource - Search users with query: ba
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:05 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_return_all_users" time="0.108"/>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_good_alias" time="0.073">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="list_should_return_all_users" time="0.106"/>
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_good_alias" time="0.071">
     <error message="HTTP 404 Not Found" type="javax.ws.rs.NotFoundException">javax.ws.rs.NotFoundException: HTTP 404 Not Found
 	at org.glassfish.jersey.client.JerseyInvocation.convertToException(JerseyInvocation.java:1020)
 	at org.glassfish.jersey.client.JerseyInvocation.translate(JerseyInvocation.java:819)
@@ -291,13 +291,13 @@ INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>11:53:24.707 [Worker: RequestDispatcher: Thread-128] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+    <system-out>14:58:05.374 [Worker: RequestDispatcher: Thread-171] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:05 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>
-  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_good_email" time="0.074">
+  <testcase classname="fr.iutinfo.skeleton.api.UserResourceTest" name="read_user_should_return_good_email" time="0.078">
     <error message="HTTP 404 Not Found" type="javax.ws.rs.NotFoundException">javax.ws.rs.NotFoundException: HTTP 404 Not Found
 	at org.glassfish.jersey.client.JerseyInvocation.convertToException(JerseyInvocation.java:1020)
 	at org.glassfish.jersey.client.JerseyInvocation.translate(JerseyInvocation.java:819)
@@ -343,9 +343,9 @@ INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>11:53:24.785 [Worker: RequestDispatcher: Thread-137] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
+    <system-out>14:58:05.453 [Worker: RequestDispatcher: Thread-179] DEBUG fr.iutinfo.skeleton.auth.AuthFilter - authorizationHeader : null
 </system-out>
-    <system-err>mars 23, 2017 11:53:24 AM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
+    <system-err>mars 23, 2017 2:58:05 PM org.glassfish.jersey.test.simple.SimpleTestContainerFactory$SimpleTestContainer &lt;init&gt;
 INFOS: Creating SimpleTestContainer configured at the base URI http://localhost:9998/
 </system-err>
   </testcase>

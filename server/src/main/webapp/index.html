@@ -27,6 +27,11 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="ressources/bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="all.js"></script>
+    
+ 
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -63,8 +68,9 @@
                   </ul>
                 </li>
                 <li class = "connexion"><a class="url-nav" href="connexion.html">Connexion</a></li>
-                <li class = "connexion"><a class="url-nav" href="nouveau_compte.html">Inscription</a></li>
-              </ul>
+                <li class = "deconnexion"><a class="url-nav" href="index.html">Deconnexion</a></li>
+                <script>$('#navbar ul li:nth-child(7)').hide();</script>
+                </ul>
             </div>
           </div>
         </nav>

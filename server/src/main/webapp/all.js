@@ -9,6 +9,7 @@ function getUserGeneric(name, url) {
 }
 
 function getForAll() {
+	// envoie vers accueil
 	getSecure("v1/secure/who");
 }
 
@@ -40,6 +41,10 @@ function getByAnnotation() {
      }
  }
 
+function annuler(){
+	document.location.href="connexion.html"; 
+}
+
 function postUserBdd(name, alias, email, pwd) {
     postUserGeneric(name, alias, email, pwd, "v1/user/");
 }
@@ -59,9 +64,11 @@ function postUserGeneric(name, alias, email, pwd, url) {
 			"id" : 0
 		}),
 		success : function(data, textStatus, jqXHR) {
+			document.location.href="connexion.html"; 
 			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
+			$('#error').show();
 			console.log('postUser error: ' + textStatus);
 		}
 	});
@@ -91,3 +98,4 @@ function afficheListUsers(data) {
 	html = html + "</ul>";
 	$("#reponse").html(html);
 }
+

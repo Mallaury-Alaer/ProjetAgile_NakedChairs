@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Jersey Skeleton</title>
+    <meta charset='utf-8'>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+ <script src="all.js"></script>
+</head>
+<body>
+
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<h1>Inscription</h1>
+
+					<input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+					<input type="hidden" name="user"id="aliasdb" value="user" placeholder="Surnom"class="form-control" /> 
+					<input type="text" name="emaildb"id="emaildb" placeholder="Email" class="form-control" /> 
+					<p id='error'">email invalide ou existant</p> 
+					<script>
+					$('#error').hide();
+					</script>
+					<input type="password" name="user" id="passwddb"placeholder="Mot de passe ?" class="form-control" />
+				</div>
+
+				<div class="btn-group" role="group">
+				 	<!-- 
+					<button type="button" id="get-bdd" class="btn btn-default">Lire</button>
+					-->
+					<button type="button" id="post-bdd" class="btn btn-primary">S'enregistrer</button>
+					<button type="button" id="quitter" class="btn btn-primary">Annuler</button>
+					 <!--
+					<button type="button" id="list-bdd" class="btn btn-warning">Lister</button>
+					-->
+					
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				$("#get-bdd").click(function () {getUserBdd($('#nom').val(), $('#aliasdb').val())});
+				$("#post-bdd").click(function () {
+					postUserBdd(
+				    $('#emaildb').val(),
+				    $('#aliasdb').val(),
+				    $('#nom').val(),
+				    $('#passwddb').val())});
+				$("#list-bdd").click(function () {listUsersBdd()});
+				$("#quitter").click(function() { annuler()});
+			});
+				
+			
+
+    </script>
+
+
+
+
+
+</body>
+</html>

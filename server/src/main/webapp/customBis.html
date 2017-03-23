@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Caractéristiques du modèle</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- A test
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../bootstrap-3.3.7/docs/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../../bootstrap-3.3.7/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../../bootstrap-3.3.7/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+
+    .question{
+        /*Pour centrer horizontalement**/
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        /*Pour centrer verticalement*/
+        margin-top: 50vh;
+        transform: translateY(-50%);      
+
+        font-family: Arial;
+    }
+
+    .question p{     
+        font-size:200%;
+    }
+
+
+    .question input{     
+        font-size:150%;
+        margin:10px;
+        border-radius: 8px;
+    }
+
+    .question input:hover {
+        color: #FF1493;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    html{ 
+        position: relative;
+        min-height: 100%;
+    }
+
+    footer{
+        width:70%;
+        height: 50px;
+        bottom: 0px;
+        position: absolute;
+        text-align: center;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="../../../bootstrap-3.3.7/docs/examples/carousel/nakedchair.html"><img src="../../../Images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="current"><a href="../../../bootstrap-3.3.7/docs/examples/carousel/nakedchair.html">Welcome</a></li>
+                <li><a class="url-nav" href="#about">About Us</a></li>
+                <li><a class="url-nav" href="#blog">Blog Chairs in the Nude</a></li>
+                <li><a class="url-nav" href="#styleup">Style up your Seats</a></li>
+                <li class="dropdown">
+                  <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                    <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
+                    <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <article class="question" id="Article1"> 
+        <p>Votre siège possède t-il un dossier ?</p>
+        <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
+        <input name="non" type="button" value="NON" onclick="dos(this.name)">
+    </article>
+
+    <article class="question" id="Article2"> 
+        <p>Votre siège possède t-il des accoudoirs ?</p>
+        <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
+        <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+    </article>
+
+    <article class="question" id="Article3"> 
+        <p>Votre assise est ronde ou rectangulaire ?</p>
+        <input name="rond" type="button" value="Ronde" onclick="assis(this.name)">
+        <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+    </article>
+    
+
+    <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Naked Chairs &middot; 
+          <a href="https://fr-fr.facebook.com/"><img src="../../../Images/facebook.png" alt="Facebook" height=30px width=30px/></a>
+          <a href="https://www.instagram.com/?hl=fr"><img src="../../../Images/instagram.png" alt="Instagram" height=30px width=30px/></a>
+          <a href="https://fr.pinterest.com/"><img src="../../../Images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
+      </footer>
+
+    <script>
+        var dossier="";
+        var accoudoir="";
+        var assise="";
+
+
+        document.getElementById("Article2").style.display="none";
+        document.getElementById("Article3").style.display="none";
+
+        function dos(nom){
+            dossier=nom;
+            document.getElementById("Article1").style.display="none";
+            document.getElementById("Article2").style.display="block";
+        }
+
+        function accoud(nom){
+            accoudoir=nom;
+            document.getElementById("Article2").style.display="none";
+            document.getElementById("Article3").style.display="block";
+        }
+
+        function assis(nom){
+            assise=nom;
+            document.getElementById("Article3").style.display="none";
+        }
+    </script>
+
+</body>
+</html>

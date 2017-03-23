@@ -18,24 +18,24 @@ public class Helper {
         dao.createUserTable();
     }
 
-    static User createUserWithName(String name) {
-        User user = new User(0, name);
+    static User createUserWithName(String email) {
+        User user = new User(0, email);
         return createUser(user);
     }
 
-    static User createUserWithAlias(String name, String alias) {
-        User user = new User(0, name, alias);
+    static User createUserWithAlias(String email, String role) {
+        User user = new User(0, email, role);
         return createUser(user);
     }
 
-    static User createUserWithEmail(String name, String email) {
-        User user = new User(0, name);
-        user.setEmail(email);
+    static User createUserWithEmail(String email, String name) {
+        User user = new User(0, email);
+        user.setName(name);
         return createUser(user);
     }
 
-    public static User createUserWithPassword(String name, String passwd, String salt) {
-        User user = new User(0, name);
+    public static User createUserWithPassword(String email, String passwd, String salt) {
+        User user = new User(0, email);
         user.setSalt(salt);
         user.setPassword(passwd);
         logger.debug("createUserWithPassword Hash : " + user.getPasswdHash());
@@ -49,10 +49,10 @@ public class Helper {
     }
 
 
-    private static User createFullUSer(String name, String alias, String email, String paswword) {
-        User user = new User(0, name);
-        user.setAlias(alias);
-        user.setEmail(email);
+    private static User createFullUSer(String name, String role, String email, String paswword) {
+        User user = new User(0, email);
+        user.setrole(role);
+        user.setName(name);
         user.setPassword(paswword);
         int id = dao.insert(user);
         user.setId(id);

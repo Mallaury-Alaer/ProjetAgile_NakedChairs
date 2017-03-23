@@ -8,7 +8,7 @@ On a finaliser la connexion et la bade de donné des stocks
 ## Ce que nous allons faire durant le prochain sprint
 L'admin devra gerer le stock et les fournisseurs
 Refaire l'interface des chaises
-
+ 
 ## PDCA 
 ### Qu'avons nous testé durant ce sprint ? 
 On a testé si l'inscription et la connexion fonctionnait et un début d'interface des chaises

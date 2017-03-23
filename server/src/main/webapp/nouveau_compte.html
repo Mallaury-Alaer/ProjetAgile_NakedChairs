@@ -38,7 +38,6 @@
                   </ul>
                 </li>
                 <li class = "connexion"><a class="url-nav" href="connexion.html">Connexion</a></li>
-                <li class = "connexion"><a class="current" href="nouveau_compte.html">Inscription</a></li>
               </ul>
             </div>
           </div>
@@ -55,7 +54,7 @@
 
 					<input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
 					<input type="hidden" name="user"id="aliasdb" value="user" placeholder="Surnom"class="form-control" /> 
-					<input type="text" name="emaildb"id="emaildb" placeholder="Email" class="form-control" /> 
+					<input type="text" name="email"id="email" placeholder="Email" class="form-control" /> 
 					<p id='error'>email invalide ou existant</p> 
 					<script>
 					$('#error').hide();
@@ -82,12 +81,12 @@
 
 	   <script type="text/javascript">
 			$(document).ready(function() {
-				$("#get-bdd").click(function () {getUserBdd($('#nom').val(), $('#aliasdb').val())});
+				$("#get-bdd").click(function () {getUserBdd($('#email').val(), $('#aliasdb').val())});
 				$("#post-bdd").click(function () {
 					postUserBdd(
-				    $('#emaildb').val(),
-				    $('#aliasdb').val(),
 				    $('#nom').val(),
+				    $('#aliasdb').val(),
+				    $('#email').val(),
 				    $('#passwddb').val())});
 				$("#list-bdd").click(function () {listUsersBdd()});
 				$("#quitter").click(function() { annuler()});

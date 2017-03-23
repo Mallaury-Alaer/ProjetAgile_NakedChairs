@@ -40,7 +40,7 @@ public class UserResourceTest extends JerseyTest {
     public void read_user_should_return_good_alias() {
         createRms();
         UserDto user = target(PATH + "/Richard Stallman").request().get(UserDto.class);
-        assertEquals("RMS", user.getAlias());
+        assertEquals("RMS", user.getrole());
     }
 
     @Test
@@ -54,14 +54,14 @@ public class UserResourceTest extends JerseyTest {
     public void read_user_should_read_user_with_same_salt() {
         String expectedSalt = "graindesel";
         createUserWithPassword("Mark Shuttleworth", "motdepasse", expectedSalt);
-        User user = dao.findByName("Mark Shuttleworth");
+        User user = dao.findByEmail("Mark Shuttleworth");
         assertEquals(expectedSalt, user.getSalt());
     }
 
     @Test
     public void read_user_should_return_hashed_password() throws NoSuchAlgorithmException {
         createUserWithPassword("Loïc Dachary", "motdepasse", "grain de sable");
-        User user = dao.findByName("Loïc Dachary");
+        User user = dao.findByEmail("Loïc Dachary");
         assertEquals("dfeb21109fe5eab1b1db7369844921c44b87b44669b0742f3f73bd166b474779", user.getPasswdHash());
     }
 

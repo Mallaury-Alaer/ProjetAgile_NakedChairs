@@ -1,9 +1,9 @@
-function getUserBdd(name) {
-	getUserGeneric(name, "v1/user/");
+function getUserBdd(email) {
+	getUserGeneric(email, "v1/user/");
 }
 
-function getUserGeneric(name, url) {
-	$.getJSON(url + name, function(data) {
+function getUserGeneric(email, url) {
+	$.getJSON(url + email, function(data) {
 		afficheUser(data);
 	});
 }
@@ -17,39 +17,49 @@ function getByAnnotation() {
 	getSecure("v1/secure/byannotation");
 }
 
- function getSecure(url) {
- if($("#userlogin").val() != "") {
-     $.ajax
-     ({
-       type: "GET",
-       url: url,
-       dataType: 'json',
-       beforeSend : function(req) {
-        req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
-       },
-       success: function (data) {
-        afficheUser(data);
-       },
-       error : function(jqXHR, textStatus, errorThrown) {
-       			alert('error: ' + textStatus);
-       		}
-     });
-     } else {
-     $.getJSON(url, function(data) {
-     	    afficheUser(data);
-        });
-     }
- }
+function getSecure(url) {
+	if($("#userlogin").val() != "") {
+		$.ajax
+		({
+			type: "GET",
+			url: url,
+			dataType: 'json',
+			beforeSend : function(req) {
+				req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
+			},
+			success: function (data,jqXHR, textStatus, errorThrown) {
+				$('.connexion').hide();
+				$('.deconnexion').show();
+				if(data.role=="admin"){
+					document.location.href="admin.html"; 
+				}
+				else{
+					// Probleme, on n'arrive pas a cacher connexion et montrer deconnexion apres connection réussi
+					
+					document.location.href="index.html";
+					}
+				
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('error: ' + textStatus);
+			}
+		});
+	} else {
+		$.getJSON(url, function(data) {
+			afficheUser(data);
+		});
+	}
+}
 
 function annuler(){
 	document.location.href="connexion.html"; 
 }
 
-function postUserBdd(name, alias, email, pwd) {
-    postUserGeneric(name, alias, email, pwd, "v1/user/");
+function postUserBdd(name, role, email, pwd) {
+    postUserGeneric(name, role, email, pwd, "v1/user/");
 }
 
-function postUserGeneric(name, alias, email, pwd, url) {
+function postUserGeneric(name, role, email, pwd, url) {
 	console.log("postUserGeneric " + url)
 	$.ajax({
 		type : 'POST',
@@ -58,7 +68,7 @@ function postUserGeneric(name, alias, email, pwd, url) {
 		dataType : "json",
 		data : JSON.stringify({
 			"name" : name,
-			"alias" : alias,
+			"role" : role,
 			"email" : email,
 			"password" : pwd,
 			"id" : 0
@@ -86,7 +96,7 @@ function listUsersGeneric(url) {
 
 function afficheUser(data) {
 	console.log(data);
-	$("#reponse").html(data.id + " : <b>" + data.alias + "</b> (" + data.name + ")");
+	
 }
 
 function afficheListUsers(data) {
@@ -95,7 +105,5 @@ function afficheListUsers(data) {
 	for (index = 0; index < data.length; ++index) {
 		html = html + "<li>"+ data[index].name + "</li>";
 	}
-	html = html + "</ul>";
-	$("#reponse").html(html);
 }
 

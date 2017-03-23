@@ -1,9 +1,9 @@
-function getUserBdd(name) {
-	getUserGeneric(name, "v1/user/");
+function getUserBdd(email) {
+	getUserGeneric(email, "v1/user/");
 }
 
-function getUserGeneric(name, url) {
-	$.getJSON(url + name, function(data) {
+function getUserGeneric(email, url) {
+	$.getJSON(url + email, function(data) {
 		afficheUser(data);
 	});
 }

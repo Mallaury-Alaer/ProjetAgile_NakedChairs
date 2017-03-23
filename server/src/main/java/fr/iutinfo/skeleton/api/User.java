@@ -14,7 +14,7 @@ public class User implements Principal {
     final static Logger logger = LoggerFactory.getLogger(User.class);
     private static User anonymous = new User(-1, "Anonymous", "anonym");
     private String name;
-    private String alias;
+    private String role;
     private int id = 0;
     private String email;
     private String password;
@@ -22,16 +22,25 @@ public class User implements Principal {
     private String salt;
     private String search;
 
-    public User(int id, String name) {
+    public User(int id, String email) {
         this.id = id;
-        this.name = name;
+        this.email = email;
+        this.role="user";
     }
 
-    public User(int id, String name, String alias) {
+    public User(int id, String email, String role) {
+        this.id = id;
+        this.email = email;
+        this.role = role;
+    }
+    
+    public User(int id, String name, String email, String role, String password) {
         this.id = id;
         this.name = name;
-        this.alias = alias;
-    }
+        this.email=email;
+        this.role = role;
+        this.setPassword(password);    
+        }
 
     public User() {
     }
@@ -100,20 +109,20 @@ public class User implements Principal {
         if (getClass() != arg.getClass())
             return false;
         User user = (User) arg;
-        return name.equals(user.name) && alias.equals(user.alias) && email.equals(user.email) && passwdHash.equals(user.getPasswdHash()) && salt.equals((user.getSalt()));
+        return name.equals(user.name) && role.equals(user.role) && email.equals(user.email) && passwdHash.equals(user.getPasswdHash()) && salt.equals((user.getSalt()));
     }
 
     @Override
     public String toString() {
-        return id + ": " + alias + ", " + name + " <" + email + ">";
+        return id + ": " + role + ", " + name + " <" + email + ">";
     }
 
-    public String getAlias() {
-        return alias;
+    public String getrole() {
+        return role;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setrole(String role) {
+        this.role = role;
     }
 
     public String getSalt() {
@@ -149,7 +158,7 @@ public class User implements Principal {
     }
 
     public String getSearch() {
-        search = name + " " + alias + " " + email;
+        search = name + " " + role + " " + email;
         return search;
     }
 
@@ -158,7 +167,7 @@ public class User implements Principal {
     }
 
     public void initFromDto(UserDto dto) {
-        this.setAlias(dto.getAlias());
+        this.setrole(dto.getrole());
         this.setEmail(dto.getEmail());
         this.setId(dto.getId());
         this.setName(dto.getName());
@@ -167,7 +176,7 @@ public class User implements Principal {
 
     public UserDto convertToDto() {
         UserDto dto = new UserDto();
-        dto.setAlias(this.getAlias());
+        dto.setrole(this.getrole());
         dto.setEmail(this.getEmail());
         dto.setId(this.getId());
         dto.setName(this.getName());

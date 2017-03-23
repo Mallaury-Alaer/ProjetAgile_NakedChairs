@@ -7,20 +7,20 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import java.util.List;
 
 public interface UserDao {
-    @SqlUpdate("create table users (id integer primary key autoincrement, name varchar(100), alias varchar(100), email varchar(100), passwdHash varchar(64), salt varchar(64), search varchar(1024))")
+    @SqlUpdate("create table users (id integer primary key autoincrement, name varchar(100), role varchar(100), email varchar(100) UNIQUE, passwdHash varchar(64), salt varchar(64), search varchar(1024))")
     void createUserTable();
 
-    @SqlUpdate("insert into users (name,alias,email, passwdHash, salt, search) values (:name, :alias, :email, :passwdHash, :salt, :search)")
+    @SqlUpdate("insert into users (name,role,email, passwdHash, salt, search) values (:name, :role, :email, :passwdHash, :salt, :search)")
     @GetGeneratedKeys
     int insert(@BindBean() User user);
 
-    @SqlQuery("select * from users where name = :name")
+    @SqlQuery("select * from users where email = :email")
     @RegisterMapperFactory(BeanMapperFactory.class)
-    User findByName(@Bind("name") String name);
+    User findByEmail(@Bind("email") String email);
 
-    @SqlQuery("select * from users where search like :name")
+    @SqlQuery("select * from users where search like :email")
     @RegisterMapperFactory(BeanMapperFactory.class)
-    List<User> search(@Bind("name") String name);
+    List<User> search(@Bind("email") String email);
 
     @SqlUpdate("drop table if exists users")
     void dropUserTable();

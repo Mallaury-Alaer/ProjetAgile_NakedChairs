@@ -4,7 +4,6 @@
     <title>Caractéristiques du modèle</title>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- A test
@@ -100,13 +99,17 @@
         border-radius: 8px;
     }
 
-    #btnValiderDim{         
+    .btnValider{        
         font-size:120%;
         margin:10px;
         border-radius: 8px;
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
     }
 
-    #btnValiderDim:hover{
+    .btnValider:hover{
         color: #FF1493;
         box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
     }
@@ -242,7 +245,7 @@
 	        </div> 
 
             <div>
-                <input id="btnValiderDim" name="validerDimension" type="button" value="Valider" onclick="validerDim()">
+                <input class="btnValider" name="validerDimension" type="button" value="Valider" onclick="validerDim()">
             </div>
         </form>
         <input class="retour" name="retourArt5" type="button" value="Question précédente" onclick="retour(this.name)">
@@ -258,14 +261,10 @@
       <img id="Tissu7" src="ressources/images-chaises/tissus7.png" alt="Tissu7" height=120px onclick="tissus(this.id)">
       <img id="Tissu8" src="ressources/images-chaises/tissus8.png" alt="Tissu8" height=120px onclick="tissus(this.id)">
       <img id="Tissu9" src="ressources/images-chaises/tissus9.png" alt="Tissu9" height=120px onclick="tissus(this.id)">
-        <input name="envoi" type="button" value="Valider" onclick="envoieRest()">
+        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="">
         <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
-<!--
-    <input name="oui" type="button" value="J'aime" onclick="tissus(this.name)">
-    <input name="non" type="button" value="Je n'aime pas" onclick="tissus(this.name)">
-    
--->
+
     <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -291,6 +290,10 @@
 
         var couleurs = [];
 
+        var nbClassique=0;
+        var nbTemporaire=0;
+        var nbClair=0;
+        var nbSombre=0;
 
         document.getElementById("Article2").style.display="none";
         document.getElementById("Article3").style.display="none";
@@ -399,20 +402,57 @@
         }
 
         function tissus(id){
+        	var dejaSelectionne;
+        	var type;
+        	var luminosite;
+
             if(couleurs.indexOf(id)!=-1){
                 document.getElementById(id).style.border="solid 5px grey";
                 var index = couleurs.indexOf(id);
                 couleurs.splice(index,1);
+                dejaSelectionne=true;
             }else{
                 document.getElementById(id).style.border="solid 5px #FF1493";
                 couleurs.push(id);
+                dejaSelectionne=false;
             }
 
             $.getJSON("http://localhost:8080/v1/tissu", function(data) {
-                if(data[0].nom === id){
-                    console.log(data[0].type);
-                }
+            	for(var i=0; i<data.length;i++){		
+	                if(data[i].nom === id){
+	                    type=data[i].type;
+	                    luminosite=data[i].luminosite;
+	                }
+            	}
             });
+
+            if(type=="classique"){
+            	if(!dejaSelectionne){
+            		nbClassique++;
+            	}else{
+            		nbClassique--;
+            	}
+            }else{
+            	if(!dejaSelectionne){
+            		nbTemporaire++;
+            	}else{
+            		nbTemporaire--;
+            	}
+            }
+
+            if(luminosite=="clair"){           	
+            	if(!dejaSelectionne){
+            		nbClair++;
+            	}else{
+            		nbClair--;
+            	}
+            }else{       	
+            	if(!dejaSelectionne){
+            		nbSombre++;
+            	}else{
+            		nbSombre--;
+            	}
+            }
 
         }
 

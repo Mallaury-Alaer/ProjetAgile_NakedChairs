@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Caractéristiques du modèle</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- A test
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="ressources/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="ressources/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="ressources/bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+
+    .question{
+        /*Pour centrer horizontalement**/
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        /*Pour centrer verticalement*/
+        margin-top: 50vh;
+        transform: translateY(-50%);      
+
+        font-family: Arial;
+    }
+
+    .question p{     
+        font-size:200%;
+    }
+
+
+    .question input{     
+        font-size:150%;
+        margin:10px;
+        border-radius: 8px;
+    }
+
+    .question input:hover {
+        color: #FF1493;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    .dimension{
+    	/*Pour centrer horizontalement**/
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        /*Pour centrer verticalement*/
+        margin-top: 50vh;
+        transform: translateY(-50%);      
+
+        font-family: Arial;
+        
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;*/
+    }
+
+    .groupeDim input{
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    html{ 
+        position: relative;
+        min-height: 100%;
+    }
+
+    footer{
+        width:70%;
+        height: 50px;
+        bottom: 0px;
+        position: absolute;
+        text-align: center;
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="ressources/bootstrap/docs/examples/carousel/nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="current"><a href="ressources/bootstrap/docs/examples/carousel/nakedchair.html">Welcome</a></li>
+                <li><a class="url-nav" href="#about">About Us</a></li>
+                <li><a class="url-nav" href="#blog">Blog Chairs in the Nude</a></li>
+                <li><a class="url-nav" href="#styleup">Style up your Seats</a></li>
+                <li class="dropdown">
+                  <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                    <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
+                    <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <article class="question" id="Article1"> 
+        <p>Votre siège possède t-il un dossier ?</p>
+        <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
+        <input name="non" type="button" value="NON" onclick="dos(this.name)">
+    </article>
+
+    <article class="question" id="Article2"> 
+        <p>Le dossier est-il ovale ou rectangulaire ?</p>
+        <input name="ovale" type="button" value="Ovale" onclick="formeDos(this.name)">
+        <input name="rectangulaire" type="button" value="Rectangulaire" onclick="formeDos(this.name)">
+    </article>
+
+    <article class="question" id="Article3"> 
+        <p>Votre siège possède t-il des accoudoirs ?</p>
+        <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
+        <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+    </article>
+
+    <article class="question" id="Article4"> 
+        <p>L'assise est-elle ronde ou rectangulaire ?</p>
+        <input name="ronde" type="button" value="Ronde" onclick="assis(this.name)">
+        <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+    </article>
+
+    <article class="dimension" id="Article5"> 
+        <p>Veuillez entrer les dimensions de votre siège :</p>
+        <form id="formDimension" method="post" action="">
+	        <div class="groupeDim">
+	            <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
+	            <input type="text" name="hauteur" id="hauteur" />
+	        </div>  
+	        <div class="groupeDim">
+	            <label for="largeur" id="labellargeur">Largeur du dossier</label>
+	            <input type="text" name="largeur" id="largeur" /> 
+	        </div>  
+	        <div class="groupeDim">
+	            <label for="circ" id="labelcirc">Circonférence de l'assise</label>
+	            <input type="text" name="circ" id="circ" />
+	        </div> 
+	        <div class="groupeDim">
+	            <label for="epaisseur" id="labelepaisseur">Epaisseur de l'assise</label>
+	            <input type="text" name="epaisseur" id="epaisseur" />
+	        </div>   
+	        <div class="groupeDim">
+	            <label for="profondeur" id="labelprofondeur">Profondeur de l'assise</label>
+	            <input type="text" name="profondeur" id="profondeur" />
+	        </div>  
+	        <div class="groupeDim">
+	            <label for="largeurA" id="labellargeurA">Largeur de l'assise</label>
+	            <input type="text" name="largeurA" id="largeurA" />
+	        </div> 
+	        <div class="groupeDim">
+	            <label for="diametre" id="labeldiametre">Diamètre de l'assise</label>
+	            <input type="text" name="diametre" id="diametre" />
+	        </div>   
+        </form>
+    </article>
+    
+
+    <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Naked Chairs &middot; 
+          <a href="https://fr-fr.facebook.com/"><img src="ressources/images/facebook.png" alt="Facebook" height=30px width=30px/></a>
+          <a href="https://www.instagram.com/?hl=fr"><img src="ressources/images/instagram.png" alt="Instagram" height=30px width=30px/></a>
+          <a href="https://fr.pinterest.com/"><img src="ressources/images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
+      </footer>
+
+    <script>
+        var dossier="";
+        var formeDossier="";
+        var accoudoir="";
+        var assise="";
+
+        document.getElementById("Article2").style.display="none";
+        document.getElementById("Article3").style.display="none";
+        document.getElementById("Article4").style.display="none";
+        document.getElementById("Article5").style.display="none";
+
+        document.getElementById("largeur").style.display="none";
+        document.getElementById("hauteur").style.display="none";
+        document.getElementById("profondeur").style.display="none";
+        document.getElementById("largeurA").style.display="none";
+        document.getElementById("diametre").style.display="none";
+
+        document.getElementById("labellargeur").style.display="none";
+        document.getElementById("labelhauteur").style.display="none";
+        document.getElementById("labelprofondeur").style.display="none";
+        document.getElementById("labellargeurA").style.display="none";
+        document.getElementById("labeldiametre").style.display="none";
+
+        function dos(nom){
+            dossier=nom;
+            document.getElementById("Article1").style.display="none";
+            if(dossier=="oui"){
+            	document.getElementById("Article2").style.display="block";
+        	}else{
+            	document.getElementById("Article3").style.display="block";  		
+        	}
+        }
+
+        function formeDos(nom){
+            formeDossier=nom;
+            document.getElementById("Article2").style.display="none";
+            document.getElementById("Article3").style.display="block";
+        }
+
+        function accoud(nom){
+            accoudoir=nom;
+            document.getElementById("Article3").style.display="none";
+            document.getElementById("Article4").style.display="block";
+        }
+
+        function assis(nom){
+            assise=nom;
+            document.getElementById("Article4").style.display="none";
+            document.getElementById("Article5").style.display="block";
+            if(dossier=="oui"){      	
+        		document.getElementById("largeur").style.display="block";
+        		document.getElementById("hauteur").style.display="block";
+        		document.getElementById("labellargeur").style.display="block";
+        		document.getElementById("labelhauteur").style.display="block";
+
+            }
+            if(assise=="ronde"){
+        		document.getElementById("diametre").style.display="block";
+        		document.getElementById("labeldiametre").style.display="block";
+            }else if(assise=="rectangulaire"){
+        		document.getElementById("profondeur").style.display="block";
+        		document.getElementById("largeurA").style.display="block";
+        		document.getElementById("labelprofondeur").style.display="block";
+        		document.getElementById("labellargeurA").style.display="block";
+            }
+        }
+    </script>
+
+</body>
+</html>

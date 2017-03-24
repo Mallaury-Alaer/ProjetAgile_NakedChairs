@@ -26,7 +26,7 @@ public interface UserDao {
     void dropUserTable();
 
     @SqlUpdate("delete from users where email = :email")
-    void delete(@Bind("email") int email);
+    void delete(@Bind("email") String email);
 
     @SqlQuery("select * from users order by id")
     @RegisterMapperFactory(BeanMapperFactory.class)

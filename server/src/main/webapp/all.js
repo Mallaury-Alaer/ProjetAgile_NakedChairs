@@ -117,8 +117,10 @@ function listOnlyUsersGeneric(url) {
 		});
 }
 
+
 function afficheOnlyUsers(data) {
 	var html = '<h1>Utilisateur</h1><table><tr><th>Nom</th><th>Email</th></tr>';
+	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
 		if(data[index].role=="user"){
@@ -127,12 +129,32 @@ function afficheOnlyUsers(data) {
 			html = html + "<td>"+ data[index].email + "</td>";
 			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
 			html = html + "</tr>";
-			$("#delete-user"+index).click(function(){console.log(data[index].email)}); 
+			//correct 
+			js+= "$(\"#delete-user"+index+"\").click(function(){" +
+					"$.ajax({"+ 
+					 "type : \'DELETE\',"+
+					 "contentType : \'application/json\',"+
+					 "url : \"v1/user/"+data[index].email+"\","+
+					 "dataType : \"json\","+
+					 "data : JSON.stringify({ \"email\" :\""+ data[index].email+"\" }),"+
+					 "success : function(data, textStatus, jqXHR) {"+
+					 "listOnlyUsersBdd();"+
+					 "},"+
+					 "error : function(jqXHR, textStatus, errorThrown) {"+
+					 "}"+
+					 "})"+
+				"});";
+								 
+				//console.log(js);
 			}
 		}
 	$("#reponse").html(html+"</table>");
-	
-}
+	js+= "});  </script>";
+	$("#test").html(js);
+	}
+
+
+
 
 function listOnlyFournisseurBdd() {
 	listOnlyFournisseurGeneric("v1/user/");
@@ -146,6 +168,7 @@ function listOnlyFournisseurGeneric(url) {
 
 function afficheOnlyFournisseur(data) {
 	var html = '<h1>Fournisseur</h1><table><tr><th>Nom</th><th>Email</th><th>Fournis</th></tr>';
+	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
 		if(data[index].role=="fournisseur"){
@@ -153,9 +176,26 @@ function afficheOnlyFournisseur(data) {
 			html = html + "<td>"+ data[index].name + "</td>";
 			html = html + "<td>"+ data[index].email + "</td>";
 			html = html + "<td>nothing</td>";
+			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
 			html = html + "</tr>";
+			js+= "$(\"#delete-user"+index+"\").click(function(){" +
+					"$.ajax({"+ 
+					 "type : \'DELETE\',"+
+					 "contentType : \'application/json\',"+
+					 "url : \"v1/user/"+data[index].email+"\","+
+					 "dataType : \"json\","+
+					 "data : JSON.stringify({ \"email\" :\""+ data[index].email+"\" }),"+
+					 "success : function(data, textStatus, jqXHR) {"+
+					 "listOnlyFournisseurBdd();"+
+					 "},"+
+					 "error : function(jqXHR, textStatus, errorThrown) {"+
+					 "}"+
+					 "})"+
+				"});";
 			}
 		}
 	$("#reponse").html(html+"</table>");
+	js+= "});  </script>";
+	$("#test").html(js);
 }
 

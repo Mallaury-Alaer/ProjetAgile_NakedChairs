@@ -8,11 +8,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import fr.iutinfo.skeleton.common.dto.TissuDto;
@@ -31,11 +35,21 @@ public class TissuResource {
     }
     
     @GET
-    public List<TissuDto> getAllUsers() {
+    public List<TissuDto> getAllTissus() {
         List<Tissu> tissu;
         tissu = dao.affiche();
 
         return tissu.stream().map(Tissu::convertToDto).collect(Collectors.toList());
+    }
+    
+    @GET
+    @Path("/{nom}")
+    public TissuDto getOneTissu(@PathParam("nom") String nom) {
+        Tissu tissu = dao.findByName(nom);
+        if (tissu == null) {
+            throw new WebApplicationException(404);
+        }
+        return tissu.convertToDto();
     }
     
     @POST
@@ -44,6 +58,12 @@ public class TissuResource {
         tissu.initFromDto(dto);
         dao.insert(tissu);
         return dto;
+    }
+    
+    @DELETE
+    @Path("/{nom}")
+    public void deleteTissu(@PathParam("nom") String nom) {
+        dao.delete(nom);
     }
 
 }

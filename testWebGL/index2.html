@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+<div id="container" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;text-align:center;width:960px;padding:20px;"></div>
+<!--<div id="container"></div>-->
+<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+<script>
+var renderer, scene, camera, mesh, mesh2, mesh3, mesh4, mesh5, mesh6, mesh7, mesh8, mesh9, mesh10, skybox;
+init();
+animate();
+
+function init(){
+  renderer = new THREE.WebGLRenderer();
+  renderer.setSize( window.innerWidth/2, window.innerHeight/2);
+  document.getElementById('container').appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 10000 );
+  camera.position.set(0, 0.5, 50);
+  scene.add(camera);
+
+/*Skybox*/
+  var geometry = new THREE.BoxGeometry(20, 20, 1);//Type d'objet
+  var texture = new THREE.TextureLoader().load( 'mur.png' );//Texture
+  var material = new THREE.MeshPhongMaterial( { map: texture } );//Application de la texture
+   skybox = new THREE.Mesh(geometry, material);//Création de l'objet
+  scene.add(skybox);//Ajout de l'objet à la scène
+
+  /*cubes*/
+  geometry = new THREE.BoxGeometry(2, 0.4, 2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'tissus1.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh = new THREE.Mesh( geometry, material );
+  mesh.position.set(0,0.5,10);
+  scene.add( mesh );
+
+  geometry = new THREE.BoxGeometry(0.3, 2.4, 2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'tissus1.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh2 = new THREE.Mesh( geometry, material );
+  mesh2.position.set(0.57,1.6,6);
+  scene.add( mesh2 );
+
+
+  geometry = new THREE.BoxGeometry(0.2, 1.8, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh3 = new THREE.Mesh( geometry, material );
+  mesh3.position.set(-1.25,-0.5,10);
+  scene.add( mesh3 );
+
+  geometry = new THREE.BoxGeometry(0.2, 1.8, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh4 = new THREE.Mesh( geometry, material );
+  mesh4.position.set(1.3,-0.5,8);
+  scene.add( mesh4 );
+
+  geometry = new THREE.BoxGeometry(0.2, 1.8, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh5 = new THREE.Mesh( geometry, material );
+  mesh5.position.set(0.2,-0.5,11);
+  scene.add( mesh5 );
+
+  geometry = new THREE.BoxGeometry(0.2, 1.8, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh6 = new THREE.Mesh( geometry, material );
+  mesh6.position.set(-0.22,-0.53,6);
+  scene.add( mesh6 );
+
+
+  geometry = new THREE.BoxGeometry(2, 0.2, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh7 = new THREE.Mesh( geometry, material );
+  mesh7.position.set(0.82,1.2,8);
+  scene.add( mesh7 );
+
+  geometry = new THREE.BoxGeometry(2, 0.2, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh8 = new THREE.Mesh( geometry, material );
+  mesh8.position.set(-0.85,1.22,6);
+  scene.add( mesh8 );
+
+
+  geometry = new THREE.BoxGeometry(0.2, 0.6, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh9 = new THREE.Mesh( geometry, material );
+  mesh9.position.set(-1.25,0.95,10);
+  scene.add( mesh9 );
+
+  geometry = new THREE.BoxGeometry(0.2, 0.6, 0.2);//Type d'objet
+  texture = new THREE.TextureLoader().load( 'bois.png' );//Texture
+  material = new THREE.MeshPhongMaterial( { map: texture});//Application de la texture
+  mesh10 = new THREE.Mesh( geometry, material );
+  mesh10.position.set(0.22,0.95,11);
+  scene.add( mesh10 );
+
+
+  /*lumiere*/
+  var lumiere = new THREE.DirectionalLight( 0xffffff, 1.2 );
+  lumiere.position.set( 0, -300, 400 );
+  scene.add( lumiere );
+}
+function animate(){
+  requestAnimationFrame( animate );
+  mesh.rotation.y = 1;
+  mesh2.rotation.y = 1;
+  mesh3.rotation.y = 1;
+  mesh4.rotation.y = 1;
+  mesh5.rotation.y = 1;
+  mesh6.rotation.y = 1;
+  mesh7.rotation.y = 1;
+  mesh8.rotation.y = 1;
+  mesh9.rotation.y = 1;
+  mesh10.rotation.y = 1;
+  renderer.render( scene, camera );
+}
+</script>
+
+</script>
+
+</body>
+
+</html>

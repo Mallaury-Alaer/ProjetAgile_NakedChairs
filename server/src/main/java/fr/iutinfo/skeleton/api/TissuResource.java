@@ -31,6 +31,7 @@ public class TissuResource {
         if (!tableExist("tissu")) {
             dao.createUserTable();
             dao.insert(new Tissu("Tissu1",10,10,"classique","vif",10,10,1));
+            dao.insert(new Tissu("Tissu2",10,10,"classique","vif",10,10,1));
         }
     }
     

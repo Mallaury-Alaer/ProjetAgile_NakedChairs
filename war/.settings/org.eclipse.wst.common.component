@@ -9,7 +9,7 @@
         <dependent-module archiveName="common-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/common/common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="cli-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cli/cli">
+        <dependent-module archiveName="cli-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/command-line-interface/command-line-interface">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="client-library-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/client-library/client-library">

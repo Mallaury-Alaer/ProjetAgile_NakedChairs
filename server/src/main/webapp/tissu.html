@@ -29,12 +29,18 @@
 	<br>
 	<label> Largeur nouveau tissu : </label>
 	<input type="text" id="newLarg">
+	<br>
+	<label> Type nouveau tissu : </label>
+	<input type="text" id="newType">
+	<br>	
+	<label> Luminosite nouveau tissu : </label>
+	<input type="text" id="newLum">
 	<br>	
 </form>
  <script type="text/javascript">
 			$(document).ready(function() {
 				$("#Aff").click(function () {afficher("http://localhost:8080/v1/tissu")});
-				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),"http://localhost:8080/v1/tissu")});
+				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),$("#newType").val(),$("#newLum").val(),"http://localhost:8080/v1/tissu")});
 
 			});
 

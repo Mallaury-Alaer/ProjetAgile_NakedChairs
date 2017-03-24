@@ -27,16 +27,24 @@
         
         <STYLE>
             .titre{
-                margin-top:90px;
                 margin-left:230px;
-                font-size:50;
             }
-            .informations{
+            .titre > p {
+                font-size: 25px;
+            }
+            .informations {
+                border: dotted 2px crimson;
+                padding: 20 20 20 20;
                 font-size:23;
-                margin-left:230px;
+                width: 650px;
             }
-            .addresse{
-                font-size:16;
+            
+            .informations > p {
+                color: lightslategray;
+            }
+            
+            #soustitre{
+                font-size: 16px;
             }
         </STYLE>
     </HEAD>
@@ -46,7 +54,7 @@
             <nav class="navbar navbar-inverse navbar-static-top">
               <div class="container">
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+                  <a class="navbar-brand" href="index.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
@@ -57,7 +65,7 @@
                     <li class="dropdown">
                       <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                        <li><a class="url-nav" href="#">Naked Chairs Premium</a></li>
                         <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
                         <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                       </ul>
@@ -70,32 +78,48 @@
             </nav>
           </div>
         </div>
+        
+          <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
         <div class="titre">
+            <h2 class="featurette-heading">Modifier mon profil</h2>
             <p>Mes informations personnelles</p>
-        </div>
         <div class="informations">
-            <p>Prenom</p>
-            <textarea rows="1" cols="35"></textarea>
-            <br>
-            <p>Nom</p>
-            <textarea rows="1" cols="35"></textarea>
-            <br>
+            <h2>Sur le site</h2>
+            <p>Pseudo :</p>
+            <input type="text" id="pseudo" placeholder =""/>
             <p>Adresse Mail</p>
-            <textarea rows="1" cols="70"></textarea>
-            <br><br>
-            <div class="addresse">
-                <p>Rue/Av</p>
-                <textarea rows="1" cols="70"></textarea>
-                <br><br>
-                <p>Complement d'adresse (Bat, res, etage, ...)</p>
-                <textarea rows="1" cols="70"></textarea>
-                <br><br>
-                <p>Ville</p>
-                <textarea rows="1" cols="70"></textarea>
-                <br><br>
-                <p>Code postal</p>
-                <textarea rows="1" cols="70"></textarea>
+            <input type="email" id="email" placeholder ="xyz@exemple.com"/>
+            <p>Mot de passe :</p>
+            <input type="password" id="mdp" placeholder=""/>
+            <p>Nouveau mot de passe :</p>
+            <span id="soustitre">Uniquement si vous désirez changer votre mot de passe.</span><br />
+            <input type="password" id="new_mdp" placeholder=""/>
+            <p>Confirmer le nouveau mot de passe :</p>
+            <input type="password" id="new_mdp_confirm" placeholder=""/>
+            <hr />
+            <h2>Adresse de livraison</h2>
+            <p>Nom :</p>
+            <input type="text" id="nom" size="25" placeholder=""/>
+            <p>Prénom :</p>
+            <input type="text" id="prenom" size="25" placeholder=""/>
+            <p>Rue/Avenue :</p>
+            <input type="text" size="2" id="numadresse" placeholder=""/> <input type="text" id="adresse" placeholder=""/>
+            <p>Complément d'adresse (Bâtiment, résidence, étage, ...) :</p>
+            <input type="text" id="cpltadresse" placeholder="" size="25"/>
+            <p>Ville :</p>
+            <input type="text" id="ville" size="25" placeholder=""/>
+            <p>Code postal :</p>
+            <input type="text" id="codepostal" size="5" placeholder=""/>
+            <hr />
+            <h2>Image de couverture:</h2>
+            <p>Héberger une image:</p> <input type="file" id="inputfile">
+            <span id="soustitre">Formats PNG et JPEG autorisés.</span>
+			<hr />
             </div>
+            <h2>Valider ou annuler les modifications</h2>
+            <p><button type="button" class="btn btn-primary">Valider</button> <button type="button" class="btn btn-default">Annuler</button></p>
         </div>
     </BODY>
 </HTML>

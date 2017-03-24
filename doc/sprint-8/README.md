@@ -1,23 +1,34 @@
 # Rétrospective de sprint
 
-Nom du scrum master du sprint : 
+Nom du scrum master du sprint : ALAER Mallaury 
 
 ## Ce que nous avons fait durant ce sprint
 Donnez ici la liste des histoires utilisateurs que vous avez livrés durant ce sprint.
+-Statistiques tissus
+-Interface applications android (contact, stock, profils, agents)
+-Interface administrateur: vois l'ensemble des utilisateurs
 
 ## Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
+-Envoyer toutes les informations relatives au choix des tissus et du modele de la chaise vers un panier
+-Ajout caracteristiques BDD
+-Amelioration interface administrateur
 
 ## PDCA 
-### Qu'avons nous testé durant ce sprint ? 
+### Qu'avons nous testé durant ce sprint ?
+-Travail en binome
+-Travail sur Android en parallele
 
 ### Qu'avons nous observé ? 
 
-### Quelle décision prenons nous suite à cette expérience ? 
+### Quelle décision prenons nous suite à cette expérience ?
+Continuer
 
-### Qu'allons nous tester durant les 2 prochaines heures ? 
+### Qu'allons nous tester durant les 2 prochaines heures ?
+Maintenir le rythme
 
 ### À quoi verra-t-on que celà à fonctionné ?
+Avancement de l'application web et de l'application Android
 
 # Mémo
 N'oubliez pas d'ajouter une photo du radiateur d'information au moment de la rétrospective.

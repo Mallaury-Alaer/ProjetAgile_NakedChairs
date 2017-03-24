@@ -15,7 +15,7 @@ public interface TissuDAO {
     @SqlUpdate("create table tissu (nom varchar(100) primary key, longueur double,largeur double,type varchar(100),luminosite varchar(100),phousse double,pmetre double,resistance integer)")
     void createUserTable();
     
-    @SqlUpdate("insert into tissu (nom,longueur,largeur,type,luminosite,phousse,pmetre,resistance) values (:nom, :longueur , :largeur, :type, :luminosite, :phousse , :pmetre; :resistance)")
+    @SqlUpdate("insert into tissu (nom,longueur,largeur,type,luminosite,phousse,pmetre,resistance) values (:nom, :longueur , :largeur, :type, :luminosite, :phousse , :pmetre , :resistance);")
     @GetGeneratedKeys
     int insert(@BindBean() Tissu tissu);
     

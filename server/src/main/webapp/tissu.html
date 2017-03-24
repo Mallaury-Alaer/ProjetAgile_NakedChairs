@@ -37,11 +37,20 @@
 	<input type="text" id="newLum">
 	<br>	
 </form>
+<br>
+<br>
+<br>
+<br>
+<form action="">
+<label> Nom du Tissu a supprimer</label>
+	<input type="text" id="DelName">
+</form>
+<button type="button" id="Delete">Supprimer </button>
  <script type="text/javascript">
 			$(document).ready(function() {
 				$("#Aff").click(function () {afficher("http://localhost:8080/v1/tissu")});
 				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),$("#newType").val(),$("#newLum").val(),"http://localhost:8080/v1/tissu")});
-
+				$("#Delete").click(function () {del($("#DelName").val(),"http://localhost:8080/v1/tissu")})
 			});
 
     </script>

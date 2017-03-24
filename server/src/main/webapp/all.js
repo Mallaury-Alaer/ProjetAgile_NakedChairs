@@ -104,6 +104,58 @@ function afficheListUsers(data) {
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
 		html = html + "<li>"+ data[index].name + "</li>";
-	}
+		}
+}
+
+function listOnlyUsersBdd() {
+	listOnlyUsersGeneric("v1/user/");
+}
+
+function listOnlyUsersGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheOnlyUsers(data)
+		});
+}
+
+function afficheOnlyUsers(data) {
+	var html = '<h1>Utilisateur</h1><table><tr><th>Nom</th><th>Email</th></tr>';
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+		if(data[index].role=="user"){
+			html = html + "<tr>";
+			html = html + "<td>"+ data[index].name + "</td>";
+			html = html + "<td>"+ data[index].email + "</td>";
+			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
+			html = html + "</tr>";
+			$("#delete-user"+index).click(function(){console.log(data[index].email)}); 
+			}
+		}
+	$("#reponse").html(html+"</table>");
+	
+}
+
+function listOnlyFournisseurBdd() {
+	listOnlyFournisseurGeneric("v1/user/");
+}
+
+function listOnlyFournisseurGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheOnlyFournisseur(data)
+		});
+}
+
+function afficheOnlyFournisseur(data) {
+	var html = '<h1>Fournisseur</h1><table><tr><th>Nom</th><th>Email</th><th>Fournis</th></tr>';
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+		if(data[index].role=="fournisseur"){
+			html = html + "<tr>";
+			html = html + "<td>"+ data[index].name + "</td>";
+			html = html + "<td>"+ data[index].email + "</td>";
+			html = html + "<td>nothing</td>";
+			html = html + "</tr>";
+			}
+		}
+	$("#reponse").html(html+"</table>");
 }
 

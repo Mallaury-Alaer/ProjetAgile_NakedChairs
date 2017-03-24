@@ -41,6 +41,7 @@ public class User implements Principal {
         this.role = role;
         this.setPassword(password);    
         }
+    
 
     public User() {
     }

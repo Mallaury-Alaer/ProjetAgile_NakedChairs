@@ -2,8 +2,17 @@
 <html lang="fr">
 <head>
     <style>
+    
+    td, th {
+    border: inset;
+}
+
+    .navvertical{
+    list-style: none;
+	margin-right:84%;
+    }
+    
 .navvertical ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
     width: 200px;
@@ -77,8 +86,8 @@
 
           <div class="container">
               <ul class="navvertical">
-                <li><a class="url-nav" href="client.html">clients</a></li>
-                <li><a class="url-nav" href="fournisseurs.html">fournisseurs</a></li>
+                <li><button type="button" id="listUser-bdd" class="btn listerusers">Clients</button></li>
+                <li><button type="button" id="listFournisseur-bdd" class="btn listerFournisseur">Fournisseurs</button></li>
                 <li><a class="url-nav" href="commandes.html">commandes</a></li>
                 
               </ul>
@@ -88,15 +97,13 @@
     </div>
 
     </div>
-	<!--
+	<
     <div class="row" style="margin-top: 1em;">
-        <div class="panel panel-info">
-            <div class="panel-heading">Réponse</div>
             <div class="panel-body" id="reponse">
             </div>
         </div>
     </div>
-	-->
+	
           <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -115,5 +122,14 @@
     <script src="ressources/bootstrap/docs/assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ressources/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+ <script type="text/javascript">
+			$(document).ready(function() {
+				$("#listUser-bdd").click(function () {listOnlyUsersBdd()});
+				$("#listFournisseur-bdd").click(function () {listOnlyFournisseurBdd()});
+			});
+    </script> 
+
+
 </body>
 </html>

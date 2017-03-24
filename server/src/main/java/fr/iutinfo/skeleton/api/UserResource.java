@@ -25,6 +25,13 @@ public class UserResource {
             logger.debug("Crate table users");
             dao.createUserTable();
             dao.insert(new User(0, "dieu","admin@admin.admin", "admin","mdp"));
+            dao.insert(new User(0, "Ikea","ikea@gmail.com", "fournisseur","ok1"));
+            dao.insert(new User(0, "Sainthimat","sainthimat@hotmail.com", "fournisseur","ok2"));
+            dao.insert(new User(0, "Micromania","micromania@facebook.com", "fournisseur","ok3"));
+            dao.insert(new User(0, "Dylan","dylan@orange.fr", "user","ok01"));
+            dao.insert(new User(0, "Maxime","max@gmail.com", "user","ok02"));
+ 
+
         }
     }
 

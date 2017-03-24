@@ -19,9 +19,17 @@ public interface TissuDAO {
     @GetGeneratedKeys
     int insert(@BindBean() Tissu tissu);
     
-    @SqlQuery("select * from tissu")
+    @SqlQuery("select * from tissu order by nom")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<Tissu> affiche();
+    
+    @SqlQuery("select * from tissu where nom = :nom")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+    Tissu findByName(@Bind("nom") String nom);
+    
+    @SqlUpdate("delete from tissu where nom = :nom")
+    void delete(@Bind("nom") String nom);
+    
     
     void close();
 

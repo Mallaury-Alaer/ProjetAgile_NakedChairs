@@ -36,5 +36,22 @@ function add(nom,long,larg,type,luminosite,url){
 			console.log('postUser error: ' + textStatus);
 		}
 	});
-	
+}
+
+function del(nom,url){
+	$.ajax({
+		type : 'DELETE',
+		contentType : 'application/json',
+		url : url +"/" +nom,
+		dataType : "json",
+		data : JSON.stringify({
+			"nom" : nom,
+		}),
+		success : function(data, textStatus, jqXHR) {
+			console.log(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
 }

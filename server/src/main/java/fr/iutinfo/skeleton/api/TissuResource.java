@@ -30,7 +30,7 @@ public class TissuResource {
     public TissuResource() throws SQLException {
         if (!tableExist("tissu")) {
             dao.createUserTable();
-            dao.insert(new Tissu("Tissu1",10,10,"classique","vif"));
+            dao.insert(new Tissu("Tissu1",10,10,"classique","vif",10,10,1));
         }
     }
     

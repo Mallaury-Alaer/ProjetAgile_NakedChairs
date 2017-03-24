@@ -12,10 +12,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface TissuDAO {
 	
-    @SqlUpdate("create table tissu (nom varchar(100) primary key, longueur double,largeur double,type varchar(100),luminosite varchar(100))")
+    @SqlUpdate("create table tissu (nom varchar(100) primary key, longueur double,largeur double,type varchar(100),luminosite varchar(100),phousse double,pmetre double,resistance integer)")
     void createUserTable();
     
-    @SqlUpdate("insert into tissu (nom,longueur,largeur,type,luminosite) values (:nom, :longueur , :largeur, :type, :luminosite)")
+    @SqlUpdate("insert into tissu (nom,longueur,largeur,type,luminosite,phousse,pmetre,resistance) values (:nom, :longueur , :largeur, :type, :luminosite, :phousse , :pmetre; :resistance)")
     @GetGeneratedKeys
     int insert(@BindBean() Tissu tissu);
     

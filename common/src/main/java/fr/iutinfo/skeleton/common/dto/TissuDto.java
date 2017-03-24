@@ -4,13 +4,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TissuDto {
-    final static Logger logger = LoggerFactory.getLogger(UserDto.class);
+    final static Logger logger = LoggerFactory.getLogger(TissuDto.class);
 
     private String nom;
-    private double longueur,largeur;
+    private double longueur,largeur,phousse,pmetre;
 	private String type;
 	private String luminosite;
+	private int resistance;
     
+	public double getPhousse() {
+		return phousse;
+	}
+	public void setPhousse(double phousse) {
+		this.phousse = phousse;
+	}
+	public double getPmetre() {
+		return pmetre;
+	}
+	public void setPmetre(double pmetre) {
+		this.pmetre = pmetre;
+	}
+	public int getResistance() {
+		return resistance;
+	}
+	public void setResistance(int resistance) {
+		this.resistance = resistance;
+	}
 	public String getType() {
 		return type;
 	}

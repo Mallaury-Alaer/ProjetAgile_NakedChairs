@@ -10,7 +10,7 @@ function afficher(url){
 function afficheTissu(data){
 	var retour="";
 	for (index = 0; index < data.length; ++index) {
-		retour += "<li>" +data[index].nom + " : <b> longueur : "+data[index].longueur+ " : <b> largeur : "+data[index].largeur +" Type: "+data[index].type+" luminosite :"+data[index].luminosite+"</li>";
+		retour += "<li>" +data[index].nom + " : <b> longueur : "+data[index].longueur+ " : <b> largeur : "+data[index].largeur +" Type: "+data[index].type+" luminosite :"+data[index].luminosite+" prix housse :"+data[index].phousse+" prix metre :"+data[index].pmetre+" resistance: "+data[index].resistance+"</li>";
 	}
 	$("#tissu").html(retour);
 

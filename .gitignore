@@ -13,3 +13,8 @@ data.db
 
 # maven shade plugin
 dependency-reduced-pom.xml
+war/target
+server/target
+common/target
+client-library/target
+command-line-interface/target

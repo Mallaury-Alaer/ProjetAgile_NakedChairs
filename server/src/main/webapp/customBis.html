@@ -114,7 +114,21 @@
         box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
     }
 
-    #Article6 img{  
+
+    .tissusGouts {   
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        margin-top:100px;
+        font-family: Arial;
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
+    }
+
+    .tissusGouts img{  
         border: solid grey 5px;
         margin:35px;
     }
@@ -251,7 +265,7 @@
         <input class="retour" name="retourArt5" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
-    <article class="question" id="Article6"> 
+    <article class="tissusGouts" id="Article6"> 
       <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
       <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
       <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
@@ -261,8 +275,12 @@
       <img id="Tissu7" src="ressources/images-chaises/tissus7.png" alt="Tissu7" height=120px onclick="tissus(this.id)">
       <img id="Tissu8" src="ressources/images-chaises/tissus8.png" alt="Tissu8" height=120px onclick="tissus(this.id)">
       <img id="Tissu9" src="ressources/images-chaises/tissus9.png" alt="Tissu9" height=120px onclick="tissus(this.id)">
-        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="">
+        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="tissusGouts()">
         <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="tissusGouts" id="Article7"> 
+      
     </article>
 
     <!-- FOOTER -->
@@ -300,6 +318,7 @@
         document.getElementById("Article4").style.display="none";
         document.getElementById("Article5").style.display="none";
         document.getElementById("Article6").style.display="none";
+        document.getElementById("Article7").style.display="none";
 
         document.getElementById("largeur").style.display="none";
         document.getElementById("hauteur").style.display="none";
@@ -400,61 +419,111 @@
                 document.getElementById("Article6").style.display="block";          
             }
         }
+          
 
-        function tissus(id){
-        	var dejaSelectionne;
-        	var type;
-        	var luminosite;
-
-            if(couleurs.indexOf(id)!=-1){
-                document.getElementById(id).style.border="solid 5px grey";
-                var index = couleurs.indexOf(id);
-                couleurs.splice(index,1);
-                dejaSelectionne=true;
-            }else{
-                document.getElementById(id).style.border="solid 5px #FF1493";
-                couleurs.push(id);
-                dejaSelectionne=false;
-            }
-
+       function tissus(id){
             $.getJSON("http://localhost:8080/v1/tissu", function(data) {
-            	for(var i=0; i<data.length;i++){		
-	                if(data[i].nom === id){
+
+                var dejaSelectionne;  
+                var type="";
+                var luminosite="";
+
+                if(couleurs.indexOf(id)!=-1){
+                    document.getElementById(id).style.border="solid 5px grey";
+                    var index = couleurs.indexOf(id);
+                    couleurs.splice(index,1);
+                    dejaSelectionne=true;
+                }else{
+                    document.getElementById(id).style.border="solid 5px #FF1493";
+                    couleurs.push(id);
+                    dejaSelectionne=false;
+                }
+
+            	for(var i=0; i<data.length;i++){	
+	                if(data[i].nom == id){
 	                    type=data[i].type;
-	                    luminosite=data[i].luminosite;
-	                }
-            	}
+	                    luminosite=data[i].luminosite;     
+                    }
+                }
+
+                if(type=="classique"){
+                    if(!dejaSelectionne){
+                        nbClassique++;
+                    }else{
+                        nbClassique--;
+                    }
+                }else if(type=="temporaire"){
+                    if(!dejaSelectionne){
+                        nbTemporaire++;
+                    }else{
+                        nbTemporaire--;
+                    }
+                }
+
+                if(luminosite=="vif"){            
+                    if(!dejaSelectionne){
+                        nbClair++;
+                    }else{
+                        nbClair--;
+                    }
+                }else if(luminosite=="eteint"){         
+                    if(!dejaSelectionne){
+                        nbSombre++;
+                    }else{
+                        nbSombre--;
+                    }
+                }
+                type="";  
+                luminosite="";
             });
-
-            if(type=="classique"){
-            	if(!dejaSelectionne){
-            		nbClassique++;
-            	}else{
-            		nbClassique--;
-            	}
-            }else{
-            	if(!dejaSelectionne){
-            		nbTemporaire++;
-            	}else{
-            		nbTemporaire--;
-            	}
-            }
-
-            if(luminosite=="clair"){           	
-            	if(!dejaSelectionne){
-            		nbClair++;
-            	}else{
-            		nbClair--;
-            	}
-            }else{       	
-            	if(!dejaSelectionne){
-            		nbSombre++;
-            	}else{
-            		nbSombre--;
-            	}
-            }
-
+        
         }
+
+        function tissusGouts(){
+            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+
+                document.getElementById("Article6").style.display="none";
+                document.getElementById("Article7").style.display="block";
+
+                var n;
+                var s="";
+
+                var typeSelectionne="";
+                var luminositeSelectionne="";
+
+                if(nbClassique>nbTemporaire){
+                    typeSelectionne="classique";
+                }else if(nbClassique<nbTemporaire){
+                    typeSelectionne="temporaire";
+                }else{
+                    typeSelectionne="egalite";
+                }
+
+                if(nbClair>nbSombre){
+                    luminositeSelectionne="vif";
+                }else if(nbClair<nbSombre){
+                    luminositeSelectionne="eteint";
+                }else{
+                    luminositeSelectionne="egalite";
+                }
+
+                for(var i=0; i<data.length;i++){    
+                    if(data[i].type == typeSelectionne && data[i].luminosite == luminositeSelectionne){
+                        s+="<img id=\"Tissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px>";
+                    }else if(data[i].type == typeSelectionne && luminositeSelectionne=="egalite"){
+                        s+="<img id=\"Tissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px>";
+                    }else if(data[i].luminosite == luminositeSelectionne && typeSelectionne=="egalite"){
+                        s+="<img id=\"Tissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px>";
+                    }else if(luminositeSelectionne == "egalite" && typeSelectionne=="egalite"){
+                        s+="<img id=\"Tissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px>";
+                    }
+                }
+   
+                n=$(s);
+                n.appendTo("#Article7");
+            });
+        }
+
 
         function retour(nom){
             if(nom=="retourArt2"){

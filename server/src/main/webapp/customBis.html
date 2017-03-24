@@ -4,7 +4,7 @@
     <title>Caractéristiques du modèle</title>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- A test
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -47,6 +47,12 @@
         transform: translateY(-50%);      
 
         font-family: Arial;
+
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
     }
 
     .question p{     
@@ -54,7 +60,7 @@
     }
 
 
-    .question input{     
+    .question div input{     
         font-size:150%;
         margin:10px;
         border-radius: 8px;
@@ -81,15 +87,46 @@
         padding-bottom: 30px;
         width:60%;
         border-top: dotted 2px #FF1493;
-        border-bottom: dotted 2px #FF1493;*/
+        border-bottom: dotted 2px #FF1493;
     }
 
     .groupeDim input{
         display:block;
         margin-right: auto;
         margin-left: auto;
+        margin-bottom: 10px;
         text-align: center;
         border-radius: 8px;
+    }
+
+    .btnValider{        
+        font-size:120%;
+        margin:10px;
+        border-radius: 8px;
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    .btnValider:hover{
+        color: #FF1493;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    #Article6 img{  
+        border: solid grey 5px;
+        margin:35px;
+    }
+
+    .retour{
+        margin-top:50px;
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        border-radius: 5px;   
+        font-size:100%;
     }
 
     html{ 
@@ -142,26 +179,37 @@
 
     <article class="question" id="Article1"> 
         <p>Votre siège possède t-il un dossier ?</p>
-        <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
-        <input name="non" type="button" value="NON" onclick="dos(this.name)">
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
+            <input name="non" type="button" value="NON" onclick="dos(this.name)">
+        </div>
     </article>
 
     <article class="question" id="Article2"> 
         <p>Le dossier est-il ovale ou rectangulaire ?</p>
-        <input name="ovale" type="button" value="Ovale" onclick="formeDos(this.name)">
-        <input name="rectangulaire" type="button" value="Rectangulaire" onclick="formeDos(this.name)">
+        <div>
+            <input name="ovale" type="button" value="Ovale" onclick="formeDos(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="formeDos(this.name)">
+        </div>
+        <input class="retour" name="retourArt2" type="button" value="Question précédente" onclick="retour(this.name)"> 
     </article>
 
     <article class="question" id="Article3"> 
         <p>Votre siège possède t-il des accoudoirs ?</p>
-        <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
-        <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
+            <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+        </div>
+        <input class="retour" name="retourArt3" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
     <article class="question" id="Article4"> 
         <p>L'assise est-elle ronde ou rectangulaire ?</p>
-        <input name="ronde" type="button" value="Ronde" onclick="assis(this.name)">
-        <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+        <div>
+            <input name="ronde" type="button" value="Ronde" onclick="assis(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+        </div>
+        <input class="retour" name="retourArt4" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
     <article class="dimension" id="Article5"> 
@@ -194,10 +242,28 @@
 	        <div class="groupeDim">
 	            <label for="diametre" id="labeldiametre">Diamètre de l'assise</label>
 	            <input type="text" name="diametre" id="diametre" />
-	        </div>   
+	        </div> 
+
+            <div>
+                <input class="btnValider" name="validerDimension" type="button" value="Valider" onclick="validerDim()">
+            </div>
         </form>
+        <input class="retour" name="retourArt5" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
-    
+
+    <article class="question" id="Article6"> 
+      <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
+      <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
+      <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
+      <img id="Tissu4" src="ressources/images-chaises/tissus4.png" alt="Tissu4" height=120px onclick="tissus(this.id)">
+      <img id="Tissu5" src="ressources/images-chaises/tissus5.png" alt="Tissu5" height=120px onclick="tissus(this.id)">
+      <img id="Tissu6" src="ressources/images-chaises/tissus6.png" alt="Tissu6" height=120px onclick="tissus(this.id)">
+      <img id="Tissu7" src="ressources/images-chaises/tissus7.png" alt="Tissu7" height=120px onclick="tissus(this.id)">
+      <img id="Tissu8" src="ressources/images-chaises/tissus8.png" alt="Tissu8" height=120px onclick="tissus(this.id)">
+      <img id="Tissu9" src="ressources/images-chaises/tissus9.png" alt="Tissu9" height=120px onclick="tissus(this.id)">
+        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="">
+        <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
 
     <!-- FOOTER -->
       <footer>
@@ -214,10 +280,26 @@
         var accoudoir="";
         var assise="";
 
+        var hauteur;
+        var largeur;
+        var circonference;
+        var epaisseurAssise;
+        var profondeurAssise;
+        var largeurAssise;
+        var diametre;
+
+        var couleurs = [];
+
+        var nbClassique=0;
+        var nbTemporaire=0;
+        var nbClair=0;
+        var nbSombre=0;
+
         document.getElementById("Article2").style.display="none";
         document.getElementById("Article3").style.display="none";
         document.getElementById("Article4").style.display="none";
         document.getElementById("Article5").style.display="none";
+        document.getElementById("Article6").style.display="none";
 
         document.getElementById("largeur").style.display="none";
         document.getElementById("hauteur").style.display="none";
@@ -274,6 +356,155 @@
         		document.getElementById("labellargeurA").style.display="block";
             }
         }
+
+        function validerDim(){
+            var correct=true;
+            if(dossier=="oui"){         
+                hauteur = document.getElementById("hauteur").value;
+                largeur = document.getElementById("largeur").value;
+                if(isNaN(parseInt(hauteur)) || isNaN(parseInt(largeur)) || hauteur<=0 || largeur<=0){
+                    correct=false;
+                }
+            }else{
+                hauteur = 0;
+                largeur = 0;
+            }
+            if(assise=="ronde"){
+                diametre = document.getElementById("diametre").value;
+                profondeurAssise = 0;
+                largeurAssise = 0;
+                if(isNaN(parseInt(diametre)) || diametre<=0){
+                    correct=false;
+                }        
+            }else if(assise=="rectangulaire"){
+                profondeurAssise = document.getElementById("profondeur").value;
+                largeurAssise = document.getElementById("largeurA").value;
+                diametre = 0;
+                if(isNaN(parseInt(profondeurAssise)) || isNaN(parseInt(largeurAssise)) || profondeurAssise<=0 || largeurAssise<=0){
+                    correct=false;
+                }
+            }
+            circonference = document.getElementById("circ").value;
+            epaisseurAssise = document.getElementById("epaisseur").value;
+            if(isNaN(parseInt(circonference)) || isNaN(parseInt(epaisseurAssise)) || circonference<=0 || epaisseurAssise<=0){
+                correct=false;
+                    console.log("ici");
+            }
+
+            // console.log(hauteur+" "+largeur+" "+circonference+" "+epaisseurAssise+" "+profondeurAssise+" "+largeurAssise+" "+diametre);
+
+            if(!correct){
+                alert("Veuillez saisir des données supérieures à 0.");
+            }else{
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article6").style.display="block";          
+            }
+        }
+
+        function tissus(id){
+        	var dejaSelectionne;
+        	var type;
+        	var luminosite;
+
+            if(couleurs.indexOf(id)!=-1){
+                document.getElementById(id).style.border="solid 5px grey";
+                var index = couleurs.indexOf(id);
+                couleurs.splice(index,1);
+                dejaSelectionne=true;
+            }else{
+                document.getElementById(id).style.border="solid 5px #FF1493";
+                couleurs.push(id);
+                dejaSelectionne=false;
+            }
+
+            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+            	for(var i=0; i<data.length;i++){		
+	                if(data[i].nom === id){
+	                    type=data[i].type;
+	                    luminosite=data[i].luminosite;
+	                }
+            	}
+            });
+
+            if(type=="classique"){
+            	if(!dejaSelectionne){
+            		nbClassique++;
+            	}else{
+            		nbClassique--;
+            	}
+            }else{
+            	if(!dejaSelectionne){
+            		nbTemporaire++;
+            	}else{
+            		nbTemporaire--;
+            	}
+            }
+
+            if(luminosite=="clair"){           	
+            	if(!dejaSelectionne){
+            		nbClair++;
+            	}else{
+            		nbClair--;
+            	}
+            }else{       	
+            	if(!dejaSelectionne){
+            		nbSombre++;
+            	}else{
+            		nbSombre--;
+            	}
+            }
+
+        }
+
+        function retour(nom){
+            if(nom=="retourArt2"){
+                document.getElementById("Article2").style.display="none";
+                document.getElementById("Article1").style.display="block";
+            }else if(nom=="retourArt3"){
+                document.getElementById("Article3").style.display="none";
+                document.getElementById("Article2").style.display="block";
+            }else if(nom=="retourArt4"){
+                document.getElementById("Article4").style.display="none";
+                document.getElementById("Article3").style.display="block";
+            }else if(nom=="retourArt5"){
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article4").style.display="block";
+            }else if(nom=="retourArt6"){
+                document.getElementById("Article6").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }
+        }
+
+        function envoieRest(){
+            $.ajax({
+                type : 'POST',
+                contentType : 'application/json',
+                url : url,
+                dataType : "json",
+                data : JSON.stringify({
+                    "dossier" : dossier,
+                    "formeDossier" : formeDossier,
+                    "accoudoir" : accoudoir,
+                    "assise" : assise,
+                    "hauteur" : hauteur,
+                    "largeur" : largeur,
+                    "circonference" : circonference,
+                    "profondeurAssise" : profondeurAssise,
+                    "largeurAssise" : largeurAssise,
+                    "diametre" : diametre,
+                    "tissu" : tissu
+                }),
+                success : function(data, textStatus, jqXHR) {
+                    document.location.href="connexion.html"; 
+                    afficheUser(data);
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    $('#error').show();
+                    console.log('postUser error: ' + textStatus);
+                }
+            });
+        }
+
     </script>
 
 </body>

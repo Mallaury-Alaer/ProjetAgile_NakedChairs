@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Naked Chairs | Custom you seat</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- A test
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="ressources/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="ressources/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="ressources/bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+
+    #Article1{
+        margin-top:80px;
+    }
+
+    #Article1 img{
+        margin:35px;
+        border: solid grey 5px;
+        border-radius: 5px;
+    }
+
+    #formDimension{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        width:60%;
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+    }
+
+    #formDimension input[type=text]{
+        border-radius: 1px;
+    }
+
+    .groupeDim{
+        display: inline-block;
+        margin-left:50px;
+        margin-right:50px;
+    }
+
+    .groupeDim label, .groupeDim input{
+        display: block;
+    }
+
+    #imagesModeles{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #imagesModelesSecondaires{
+        width:60%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #imagesTissus{
+        width:65%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #imagesTissus img{
+        margin:20px;
+    }
+
+    #imagesTab , #imagesBergeres , #imagesChaises , #imagesFauteuils , #imagesCabriolets{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #imagesTab img , #imagesBergeres img, #imagesChaises img, #imagesFauteuils img, #imagesCabriolets img{
+        border: solid grey 5px;
+        border-radius: 5px;
+    }
+
+    html{ /*Permet de réaliser le pied de page*/
+        position: relative;
+        min-height: 100%;
+    }
+
+    footer{
+        width:70%;
+        height: 50px;
+        bottom: 0px;
+        position: absolute;
+        text-align: center;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="url-nav"><a href="index.html">Welcome</a></li>
+                <li><a class="url-nav" href="about_us.html">About Us</a></li>
+                <li><a class="url-nav" href="forums.html">Blog Chairs in the Nude</a></li>
+                <li><a class="current" href="custom.html">Style up your Seats</a></li>
+                <li class="dropdown">
+                  <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                    <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
+                    <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
+                  </ul>
+                </li>
+                <li class = "connexion"><a class="url-nav" href="connexion.html">Connexion</a></li>
+                <li class = "connexion"><a class="url-nav" href="nouveau_compte.html">Inscription</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <article id="Article1"> 
+        <div id="imagesModeles">
+            <img id="imgTabouret" src="ressources/images-chaises/Tabouret-rond.jpeg" alt="Tabourets et poufs" height=180px onclick="img(this.id)">
+            <img id="imgBergere" src="ressources/images-chaises/Bergère-Louis-XV.jpeg" alt="Bergères" height=180px onclick="img(this.id)">
+            <img id="imgChaise" src="ressources/images-chaises/Chaises-Marie-Antoinette.jpeg" alt="Chaises" height=180px onclick="img(this.id)">
+            <img id="imgFauteuil" src="ressources/images-chaises/Siege-gondole-Louis-XVI.jpeg" alt="Fauteuils" height=180px onclick="img(this.id)">
+            <img id="imgCabriolet" src="ressources/images-chaises/Regence Montespan.jpeg" alt="Cabriolets" height=180px onclick="img(this.id)">
+        </div>
+
+        <div id="imagesModelesSecondaires">
+        <div id="imagesTab">
+            <img id="imgTab" src="ressources/images-chaises/Tabouret-rond.jpeg" alt="Tabouret" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgReposePied" src="ressources/images-chaises/repose-pied-louis-XVI.jpeg" alt="Repose pied" height=120px onclick="imgSecondaires(this.id)">
+        </div>
+
+        <div id="imagesBergeres">
+            <img id="imgBergere1" src="ressources/images-chaises/Bergère-Louis-XV.jpeg" alt="Bergère 1" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgBergere2" src="ressources/images-chaises/Bergère-Louis-XVI.jpeg" alt="Bergère 2" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgBergere3" src="ressources/images-chaises/Bergere-Jacob-Louis-XV.jpeg" alt="Bergère 3" height=120px onclick="imgSecondaires(this.id)">
+        </div>
+
+        <div id="imagesChaises">
+            <img id="imgChaise1" src="ressources/images-chaises/Chaises-Marie-Antoinette.jpeg" alt="Chaise 1" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgChaise2" src="ressources/images-chaises/Chaise-dos-Canné-louis-XVI.jpeg" alt="Chaise 2" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgChaise3" src="ressources/images-chaises/Chaise-os-de-mouton-haut-dos-garni.jpeg" alt="Chaise 3" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgChaise4" src="ressources/images-chaises/PaperArtist_2017-03-20_22-44-36.jpeg" alt="Chaise 4" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgChaise5" src="ressources/images-chaises/PaperArtist_2017-03-20_22-44-21.jpeg" alt="Chaise 5" height=120px onclick="imgSecondaires(this.id)">
+        </div>
+
+        <div id="imagesFauteuils">
+            <img id="imgFauteuil1" src="ressources/images-chaises/Siege-gondole-Louis-XVI.jpeg" alt="Fauteuil 1" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgFauteuil2" src="ressources/images-chaises/Fauteuil-Godron.jpeg" alt="Fauteuil 2" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgFauteuil3" src="ressources/images-chaises/PaperArtist_2017-03-21_14-16-29.jpeg" alt="Fauteuil 3" height=120px onclick="imgSecondaires(this.id)">
+        </div>
+
+         <div id="imagesCabriolets">
+            <img id="imgCabriolet1" src="ressources/images-chaises/Fauteuil-directoire-bec-de-canne.jpeg" alt="Cabriolet 1" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet2" src="ressources/images-chaises/Regence-Montespan.jpeg" alt="Cabriolet 2" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet3" src="ressources/images-chaises/Fauteuil-Marie-Antoinette-à-Clocheton.jpeg" alt="Cabriolet 3" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet4" src="ressources/images-chaises/Fauteuil-Louis-Philippe-Napoleon.jpeg" alt="Cabriolet 4" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet5" src="ressources/images-chaises/Fauteuil-Consulat-Haut.jpeg" alt="Cabriolet 5" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet6" src="ressources/images-chaises/Fauteuil-Cabriolet-Fleurette.jpeg" alt="Cabriolet 6" height=120px onclick="imgSecondaires(this.id)">
+            <img id="imgCabriolet7" src="ressources/images-chaises/Fauteuil-Crosse-Haut.jpeg" alt="Cabriolet 7" height=120px onclick="imgSecondaires(this.id)">
+        </div>
+        </div>
+        
+       <form id="formDimension" method="post" action="">
+        <div class="groupeDim">
+            <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
+            <input type="text" name="hauteur" id="hauteur" />
+        </div>  
+        <div class="groupeDim">
+            <label for="largeur" id="labellargeur">Largeur du dossier</label>
+            <input type="text" name="largeur" id="largeur" /> 
+        </div>  
+        <div class="groupeDim">
+            <label for="circ" id="labelcirc">Circonférence de l'assise</label>
+            <input type="text" name="circ" id="circ" />
+        </div>  
+        </form>
+
+        <div id="imagesTissus">
+            <img id="imgTissus1" src="ressources/images-chaises/tissus1.png" alt="Tissus1" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus2" src="ressources/images-chaises/tissus2.png" alt="Tissus2" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus3" src="ressources/images-chaises/tissus3.png" alt="Tissus3" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus4" src="ressources/images-chaises/tissus4.png" alt="Tissus4" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus5" src="ressources/images-chaises/tissus5.png" alt="Tissus5" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus6" src="ressources/images-chaises/tissus6.png" alt="Tissus6" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus7" src="ressources/images-chaises/tissus7.png" alt="Tissus7" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus8" src="ressources/images-chaises/tissus8.png" alt="Tissus8" height=120px onclick="imgTissus(this.id)">
+            <img id="imgTissus9" src="ressources/images-chaises/tissus9.png" alt="Tissus9" height=120px onclick="imgTissus(this.id)">
+        </div>
+    </article>
+
+    <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Naked Chairs &middot; 
+          <a href="https://fr-fr.facebook.com/"><img src="ressources/images/facebook.png" alt="Facebook" height=30px width=30px/></a>
+          <a href="https://www.instagram.com/?hl=fr"><img src="ressources/images/instagram.png" alt="Instagram" height=30px width=30px/></a>
+          <a href="https://fr.pinterest.com/"><img src="ressources/images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
+      </footer>
+
+    <script>
+        /*Modèles choisis*/
+        var modeleChoisi;
+        var modeleSecondaireChoisi;
+        var tissuChoisi;
+
+        /*Derniers modèles choisis*/
+        var ancienModele="";
+        var ancienModeleSecondaire="";
+        var ancienTissuChoisi="";
+
+        /*Permet de cacher les modèles secondaires*/
+        document.getElementById('imagesTab').style.display = "none";
+        document.getElementById('imagesBergeres').style.display = "none";
+        document.getElementById('imagesChaises').style.display = "none";
+        document.getElementById('imagesFauteuils').style.display = "none";
+        document.getElementById('imagesCabriolets').style.display = "none";
+        document.getElementById('formDimension').style.display = "none";
+        document.getElementById('imagesTissus').style.display = "none";
+
+        /*Pour la sélection des modèles principaux*/
+        function img(id){
+            reset();
+
+            modeleChoisi=id; //Sauvegarde le modèle choisi 
+
+            if(ancienModeleSecondaire!="" && modeleChoisi!=ancienModele){//Efface la dernière sélection du modèle secondaire
+                document.getElementById(ancienModeleSecondaire).style.border="solid 5px grey";
+                document.getElementById('formDimension').style.display = "none";
+                document.getElementById('imagesTissus').style.display = "none";
+            } 
+
+            ancienModele=id; //Sauvegarde le modèle en tant que dernier modèle choisi   
+            modeleSecondaireChoisi="";
+            //ancienModeleSecondaire="";
+
+            document.getElementById(id).style.border="solid 5px crimson";//Modifie la bordure de l'élément
+            document.getElementById('imagesModelesSecondaires').style.borderTop="dotted 2px crimson";
+
+            //Affiche la div correspondant au modèle choisi
+            if(id=="imgTabouret"){
+                document.getElementById('imagesTab').style.display = "block";
+            }else if(id=="imgBergere"){
+                document.getElementById('imagesBergeres').style.display = "block";
+            }else if(id=="imgChaise"){       
+                document.getElementById('imagesChaises').style.display = "block";
+            }else if(id=="imgFauteuil"){     
+                document.getElementById('imagesFauteuils').style.display = "block";
+            }else if(id=="imgCabriolet"){
+                document.getElementById('imagesCabriolets').style.display = "block";      
+            }
+        }
+
+        /*Pour la sélection des modèles secondaires*/
+        function imgSecondaires(id){ 
+            if(ancienModeleSecondaire!=""){//Efface la dernière sélection du modèle secondaire
+                 document.getElementById(ancienModeleSecondaire).style.border="solid 5px grey";
+            } 
+
+            modeleSecondaireChoisi=id;//Sauvegarde le modèle choisi
+            ancienModeleSecondaire=id;//Sauvegarde le modèle en tant que dernier modèle choisi  
+
+            document.getElementById(id).style.border="solid 5px crimson";//Modifie la bordure de l'élément
+
+            document.getElementById('formDimension').style.display = "block";
+            document.getElementById('imagesTissus').style.display = "block";
+            
+        }
+
+        function reset(){//Remet à zéro les sélections
+            if(ancienModele!=""){//Efface la dernière sélection du modèle principal
+                 document.getElementById(ancienModele).style.border="solid 5px grey";
+            }
+            document.getElementById('imagesTab').style.display = "none";        
+            document.getElementById('imagesBergeres').style.display = "none";
+            document.getElementById('imagesChaises').style.display = "none";
+            document.getElementById('imagesFauteuils').style.display = "none";
+            document.getElementById('imagesCabriolets').style.display = "none";
+        }
+
+        /*Pour la sélection des tissus*/
+        function imgTissus(id){ 
+            if(ancienTissuChoisi!=""){//Efface la dernière sélection du tisssu
+                 document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+            } 
+
+            tissuChoisi=id;//Sauvegarde le tissu choisi
+            ancienTissuChoisi=id;//Sauvegarde le tissu en tant que dernier tissu choisi  
+
+            document.getElementById(id).style.border="solid 5px crimson";//Modifie la bordure de l'élément
+        }
+
+
+    </script>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="ressources/bootstrap/docs/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="ressources/bootstrap/docs/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="ressources/bootstrap/docs/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="ressources/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>

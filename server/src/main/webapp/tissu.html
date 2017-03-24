@@ -48,9 +48,9 @@
 <button type="button" id="Delete">Supprimer </button>
  <script type="text/javascript">
 			$(document).ready(function() {
-				$("#Aff").click(function () {afficher("http://localhost:8080/v1/tissu")});
-				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),$("#newType").val(),$("#newLum").val(),"http://localhost:8080/v1/tissu")});
-				$("#Delete").click(function () {del($("#DelName").val(),"http://localhost:8080/v1/tissu")})
+				$("#Aff").click(function () {afficher("/v1/tissu")});
+				$("#Add").click(function () {add($("#newName").val(),$("#newLong").val(),$("#newLarg").val(),$("#newType").val(),$("#newLum").val(),"/v1/tissu")});
+				$("#Delete").click(function () {del($("#DelName").val(),"/v1/tissu")})
 			});
 
     </script>

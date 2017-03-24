@@ -127,7 +127,7 @@ function afficheOnlyUsers(data) {
 			html = html + "<td>"+ data[index].email + "</td>";
 			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
 			html = html + "</tr>";
-			$("#delete-user"+index).click(function(){console.log(data[index].email)});
+			$("#delete-user"+index).click(function(){console.log(data[index].email)}); 
 			}
 		}
 	$("#reponse").html(html+"</table>");

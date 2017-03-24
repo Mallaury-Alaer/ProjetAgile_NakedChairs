@@ -30,7 +30,7 @@ public class UserResource {
             dao.insert(new User(0, "Micromania","micromania@facebook.com", "fournisseur","ok3"));
             dao.insert(new User(0, "Dylan","dylan@orange.fr", "user","ok01"));
             dao.insert(new User(0, "Maxime","max@gmail.com", "user","ok02"));
-
+ 
 
         }
     }

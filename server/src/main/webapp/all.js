@@ -131,6 +131,7 @@ function afficheOnlyUsers(data) {
 			html = html + "</tr>";
 			//correct 
 			js+= "$(\"#delete-user"+index+"\").click(function(){" +
+				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur \""+data[index].name+"\" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
@@ -143,7 +144,8 @@ function afficheOnlyUsers(data) {
 					 "error : function(jqXHR, textStatus, errorThrown) {"+
 					 "}"+
 					 "})"+
-				"});";
+				"}"+
+			     "});";
 								 
 				//console.log(js);
 			}
@@ -179,6 +181,7 @@ function afficheOnlyFournisseur(data) {
 			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
 			html = html + "</tr>";
 			js+= "$(\"#delete-user"+index+"\").click(function(){" +
+				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur \""+data[index].name+"\" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
@@ -191,6 +194,7 @@ function afficheOnlyFournisseur(data) {
 					 "error : function(jqXHR, textStatus, errorThrown) {"+
 					 "}"+
 					 "})"+
+				  "}"+
 				"});";
 			}
 		}

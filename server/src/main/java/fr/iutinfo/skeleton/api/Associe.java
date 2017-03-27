@@ -43,9 +43,9 @@ public class Associe {
 		
 	}
 	
-	public Associe(String FoC,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,String telephone,int annexp,int heuresSemaine,int valide){
+	public Associe(String foc,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,String telephone,int annexp,int heuresSemaine,int valide){
 		this.nom = nom;
-		this.foc = FoC;
+		this.foc = foc;
 		this.adresse = adresse;
 		this.ville = ville;
 		this.type = type;
@@ -63,7 +63,7 @@ public class Associe {
 	}
 
 	public void setFoc(String foc) {
-		foc = foc;
+		this.foc = foc;
 	}
 
 	public String getNom() {

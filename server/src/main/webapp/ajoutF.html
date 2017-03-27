@@ -24,19 +24,28 @@
 
         <!-- Custom styles for this template -->
         <link href="style.css" rel="stylesheet">
+        
         <STYLE>
             .titre{
-                margin-top:90px;
-                font-size:50;
-                text-align: center;
+                margin-left:230px;
             }
-	    .fournisseurs{
-	        text-align: center;
-	    }
-	    .fournisseurs .list-fournisseur{
-	    width:1000px;
-	    margin : auto;
-	    }
+            .titre > p {
+                font-size: 25px;
+            }
+            .informations {
+                border: dotted 2px crimson;
+                padding: 20 20 20 20;
+                font-size:23;
+                width: 650px;
+            }
+            
+            .informations > p {
+                color: lightslategray;
+            }
+            
+            #soustitre{
+                font-size: 16px;
+            }
         </STYLE>
     </HEAD>
     <BODY>
@@ -45,7 +54,7 @@
             <nav class="navbar navbar-inverse navbar-static-top">
               <div class="container">
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+                  <a class="navbar-brand" href="index.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
@@ -56,7 +65,7 @@
                     <li class="dropdown">
                       <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                        <li><a class="url-nav" href="#">Naked Chairs Premium</a></li>
                         <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
                         <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                       </ul>
@@ -69,21 +78,42 @@
             </nav>
           </div>
         </div>
-        <div class="fournisseurs">
-            <div class="titre">
-                <p>Liste des fournisseurs</p>
-            </div>
-	    <ul class="list-fournisseur" >
-              <li class="list-group-item">Nom Prenom<br>Entreprise Type<br>Adresse Telephone<br>Matériaux Quantité</li>
-              <li class="list-group-item">Nom Prenom<br>Entreprise Type<br>Adresse Telephone<br>Matériaux Quantité</li>
-              <li class="list-group-item">Nom Prenom<br>Entreprise Type<br>Adresse Telephone<br>Matériaux Quantité</li>
-              <li class="list-group-item">Nom Prenom<br>Entreprise Type<br>Adresse Telephone<br>Matériaux Quantité</li>
-            </ul>
-	    <br>
-	    <div class="btn" role="group" aria-label="...">
-            <form action="suite.html">
-                <input type="submit" value="AJOUTER UN FOUNISSEUR" >
-            </form>
+        
+          <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+        <div class="titre">
+            <h2 class="featurette-heading">Ajout d'un fournisseur</h2>
+            <div class="informations">
+	    <h2>Informations personnelles</h2>
+            <p>Nom :</p>
+            <input type="text" id="nom"/>
+            <p>Prenom :</p>
+            <input type="text" id="prenom"/>
+            <p>Entreprise :</p>
+            <input type="text" id="entreprise"/>
+	    <p>Telephone : </p>
+            <input type="text" id="telephone"/>
+	    <p>Adresse e-mail :</p>
+            <input type="email" id="email" placeholder ="xyz@exemple.com"/>
+            <hr />
+            <h2>Adresse</h2>
+            <p>Rue/Avenue :</p>
+            <input type="text" size="2" id="numadresse" placeholder=""/> <input type="text" id="adresse" placeholder=""/>
+            <p>Complément d'adresse (Bâtiment, résidence, étage, ...) :</p>
+            <input type="text" id="cpltadresse" placeholder="" size="25"/>
+            <p>Ville :</p>
+            <input type="text" id="ville" size="25" placeholder=""/>
+            <p>Code postal :</p>
+            <input type="text" id="codepostal" size="5" placeholder=""/>
+            <hr />
+            <h2>Informations complémentaires</h2>
+	    <p>Type : </p>
+            <input type="text" id="type" placeholder="Fournisseur/Couturier"/>
+            <p>Matière : </p>
+            <input type="text" id="matiere" placeholder="Tissu/Housse"/>
+	    <p>Quantité : </p>
+            <input type="number" id="quantite"/>
         </div>
     </BODY>
 </HTML>

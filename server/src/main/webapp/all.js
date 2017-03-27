@@ -86,13 +86,13 @@ function postUserGeneric(name, role, email, pwd, url) {
 	});
 }
 
-function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp) {
+function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,dispo) {
 	console.log("foc : "+foc);	
-    postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,"v1/associe/");
+    postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,"v1/associe/",dispo);
 }
 
 
-function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,url) {
+function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,url,dispo) {
 console.log("type:"+type);
 console.log("telephone:"+telephone);
 	$.ajax({
@@ -112,7 +112,8 @@ console.log("telephone:"+telephone);
 			"heuresSemaine" : heuresSemaine,
 			"mail" : mail,
 			"telephone" : telephone,
-			"valide" : 0
+			"valide" : 0,
+			"dispo" : dispo
 					}),
 		success : function(data, textStatus, jqXHR) {
 			console.log(data.foc+" foc");
@@ -215,7 +216,7 @@ function afficheOnlyFournisseur(data,foc) {
 	var html;
 	if(foc=="fournisseur"){
 		html='<h1>Fournisseur</h1>';
-		html+='<table><tr><th>Nom</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Année d\'expérience</th><th>Mail</th><th>Telephone</th></tr>';
+		html+='<table><tr><th>Nom</th><th>Disponibilité</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Année d\'expérience</th><th>Mail</th><th>Telephone</th></tr>';
 	}
 	else{
 		html='<h1>Collaborateur</h1>';
@@ -230,6 +231,9 @@ function afficheOnlyFournisseur(data,foc) {
 		if(data[index].foc==foc && data[index].valide!=0){
 				 html+="<tr>";
     			 html+="<td>"+data[index].nom+"</td>";
+    			 if(foc=="fournisseur"){
+   		           	 html+="<td>"+data[index].dispo+"</td>";
+        		}
               	 html+="<td>"+data[index].adresse+"</td>";
               	 html+="<td>"+data[index].ville+"</td>";
               	 html+="<td>"+data[index].type+"</td>";
@@ -349,5 +353,5 @@ function displayNotification(data){
 }
 
 function listerCommandesAdmin(){
-	
+
 }

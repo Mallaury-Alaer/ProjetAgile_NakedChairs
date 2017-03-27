@@ -84,6 +84,43 @@ function postUserGeneric(name, role, email, pwd, url) {
 	});
 }
 
+function postFournisseurBdd(nom, foc, adresse, ville,type,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp) {
+    postFournniseurGeneric(nom, foc, statut, diplôme,anneeExperience,heuresSemaine,email,statut,telephone,mdp,"v1/associe/");
+}
+
+
+function postFournniseurGeneric(nom, foc, adresse, ville,type,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,url) {
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"nom" : nom,
+			"foc" : foc,
+			"adresse" : adresse,
+			"ville" : ville,
+			"type" : type,
+			"statut" : statut,
+			"diplôme" : diplôme,
+			"anneeExperience" : anneeExperience,
+			"heuresSemaine" : heuresSemaine,
+			"email" : email,
+			"telephone" : telephone,
+			"mdp" : mdp
+					}),
+		success : function(data, textStatus, jqXHR) {
+			console.log(data);
+			document.location.href="index.html"; 
+			afficheUser(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			$('#error').show();
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
 function listUsersBdd() {
     listUsersGeneric("v1/user/");
 }
@@ -131,7 +168,7 @@ function afficheOnlyUsers(data) {
 			html = html + "</tr>";
 			//correct 
 			js+= "$(\"#delete-user"+index+"\").click(function(){" +
-				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur \""+data[index].name+"\" ?\") == true){"+
+				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].name+" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
@@ -181,7 +218,7 @@ function afficheOnlyFournisseur(data) {
 			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
 			html = html + "</tr>";
 			js+= "$(\"#delete-user"+index+"\").click(function(){" +
-				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur \""+data[index].name+"\" ?\") == true){"+
+				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].name+" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
@@ -198,8 +235,10 @@ function afficheOnlyFournisseur(data) {
 				"});";
 			}
 		}
+		html = html + "<a href=\"nouveau_compteFournisseur.html\">Inscrire un fournisseur</a>";
 	$("#reponse").html(html+"</table>");
 	js+= "});  </script>";
 	$("#test").html(js);
 }
+
 

@@ -84,14 +84,15 @@ function postUserGeneric(name, role, email, pwd, url) {
 	});
 }
 
-function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp) {
+function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp) {
 	console.log("foc : "+foc);	
-    postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,"v1/associe/");
+    postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,"v1/associe/");
 }
 
 
-function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,url) {
-
+function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,url) {
+console.log("type:"+type);
+console.log("telephone:"+telephone);
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -104,15 +105,15 @@ function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplôme,a
 			"ville" : ville,
 			"type" : typem,
 			"statut" : statut,
-			"diplome" : diplôme,
+			"diplome" : diplome,
 			"annexp" : anneeExperience,
 			"heuresSemaine" : heuresSemaine,
-			"mail" : email,
+			"mail" : mail,
 			"telephone" : telephone,
 			"valide" : 0
 					}),
 		success : function(data, textStatus, jqXHR) {
-			console.log(data);
+			console.log(data.foc+" foc");
 			//postUserBdd(nom, foc, email, mdp);
 			//afficheUser(data);
 		},
@@ -213,9 +214,9 @@ function afficheOnlyFournisseur(data,foc) {
 	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		if(data[index].foc==foc){
+		if(/*data[index].foc==foc &&*/ data[index].valide==0){
 			html = html + "<tr>";
-			html = html + "<td>"+ data[index].name + "</td>";
+			html = html + "<td>"+ data[index].nom + "</td>";
 			html = html + "<td>"+ data[index].email + "</td>";
 			html = html + "<td>nothing</td>";
 			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
@@ -262,12 +263,12 @@ function displayNotification(data){
               	 html+="<td>"+data[index].foc+"</td>";
               	 html+="<td>"+data[index].adresse+"</td>";
               	 html+="<td>"+data[index].ville+"</td>";
-              	 html+="<td>"+data[index].typem+"</td>";
+              	 html+="<td>"+data[index].type+"</td>";
               	 html+="<td>"+data[index].statut+"</td>";
               	 html+="<td>"+data[index].diplome+"</td>";
-              	 html+="<td>"+data[index].anneeExperience+"</td>";
+              	 html+="<td>"+data[index].annexp+"</td>";
               	 html+="<td>"+data[index].heuresSemaine+"</td>";
-              	 html+="<td>"+data[index].email+"</td>";
+              	 html+="<td>"+data[index].mail+"</td>";
               	 html+="<td>"+data[index].telephone+"</td></tr>";
 
 

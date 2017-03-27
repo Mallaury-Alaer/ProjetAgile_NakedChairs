@@ -64,7 +64,7 @@
            <option value="tapissier">tapissier(e)</option>
           </select>
           <input type="text" name="statut" id="statut" placeholder="Statut (exemple : Micro entreprise)"class="form-control" /> 
-          <input type="hidden" name="diplôme" id="diplôme" placeholder="diplôme" value="" class="form-control" /> 
+          <input type="hidden" name="diplome" id="diplome" placeholder="diplome" value="" class="form-control" /> 
           <input type="text" name="anneeExperience" id="anneeExperience" placeholder="année d'expérience"class="form-control" />
           <input type="hidden" name="heuresSemaine" id="heuresSemaine" value="" placeholder="année d'expérience"class="form-control" /> 
           <input type="text" name="email" id="email" placeholder="email"class="form-control" />
@@ -103,15 +103,15 @@
 				    $('#nom').val(),
 				    $('#foc').val(),
 				    $('#adresse').val(),
-				    $('#ville').val()),
+				    $('#ville').val(),
             $('#type option:selected').text(),
             $('#statut').val(),
-            $('#diplôme').val(),
+            $('#diplome').val(),
             $('#anneeExperience').val(),
             $('#heuresSemaine').val(),
             $('#email').val(),
             $('#telephone').val(),
-            $('#mdp').val()
+            $('#mdp').val())
         });
 				$("#quitter").click(function() { annuler()});
 			});

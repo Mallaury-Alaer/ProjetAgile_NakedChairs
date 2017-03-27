@@ -27,7 +27,7 @@ public interface PanierDao {
     List<Panier> affiche();
     
     @SqlUpdate("delete from panier where id = :id")
-    void delete(@Bind("nom") int id);
+    void delete(@Bind("id") int id);
     
     void close();
 

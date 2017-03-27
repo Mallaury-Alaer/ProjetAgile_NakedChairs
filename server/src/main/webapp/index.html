@@ -4,44 +4,117 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
-    <title>Naked Chairs | Style your seats anew</title>
+    <title id = "titre">Naked Chairs | Style your seats anew</title>
 
-    <!-- A test
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  -->
-
-    <!-- Bootstrap core CSS -->
     <link href="ressources/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
     <link href="ressources/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="ressources/bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="all.js"></script>
-    
- 
-    
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
   </head>
+    
+<!-- SCRIPT
+================================================= -->
+    <script type = 'text/javascript'>
+        
+        $(document).ready(function(){
+                $("#page-accueil").show();
+                $("#about-us").hide();
+                $("#page-forum").hide();
+                $("#page-categories").hide();
+                $("#page-custom").hide();
+                $("#page-connexion").hide();
+                $("#page-inscription").hide();
+        
+        $("#idx").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#logo-head").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#abtus").click(function(){
+            document.title = "Naked Chairs | About Us";
+                $("#page-accueil").hide();
+                $(".about").show();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#blg").click(function(){
+            document.title = "Naked Chairs | Forum";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").show();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#cust").click(function(){
+            document.title = "Naked Chairs | Custom you seat";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#connexion").click(function(){
+            document.title = "NakedChairs | Connexion";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").show();
+                $(".inscription").hide();
+        });
+        $("#inscr").click(function(){
+            document.title = "Naked Chairs | Inscription";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").show();
+        });
+            $("#categ").click(function(){
+                document.title = "Naked Chairs | Forum";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").show();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        });
+    </script>
+
 <!-- NAVBAR
 ================================================== -->
   <body>
@@ -51,14 +124,14 @@
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+              <a class="navbar-brand" id="logo-head" role="button" href="#"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="current"><a href="index.html">Welcome</a></li>
-                <li><a class="url-nav" href="about_us.html">About Us</a></li>
-                <li><a class="url-nav" href="forums.html">Blog Chairs in the Nude</a></li>
-                <li><a class="url-nav" href="custom.html">Style up your Seats</a></li>
+                <li><a id="idx" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a></li>
+                <li><a id="abtus" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a></li>
+                <li><a id="blg" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog Chairs in the Nude</a></li>
+                <li><a id="cust" href="#" role="button" aria-haspopup="true" aria-expanded="false">Style up your Seats</a></li>
                 <li class="dropdown">
                   <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -67,10 +140,9 @@
                     <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                   </ul>
                 </li>
-                <li class = "connexion"><a class="url-nav" href="connexion.html">Connexion</a></li>
-                <li class = "deconnexion"><a class="url-nav" href="index.html">Deconnexion</a></li>
-                <script>$('#navbar ul li:nth-child(7)').hide();</script>
-                </ul>
+                <li><a id = "connexion" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a></li>
+                <li><a id = "inscr" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inscription</a></li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -78,7 +150,8 @@
       </div>
     </div>
 
-
+<!-- PAGE D'ACCUEIL-->
+    <div id = "page-accueil" class ="accueil"> 
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -105,7 +178,7 @@
             <div class="carousel-caption">
               <h1>Share your creations! [Image à venir]</h1>
               <p>You can share tips, advices or your creations with other members ! </p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Go to the forum</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" >Go to the forum</a></p>
             </div>
           </div>
         </div>
@@ -131,41 +204,10 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div><!-- /.carousel -->
+    </div>
 
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <!--
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Création 1 </h2>
-          <p>Decouvrez les créations des autres membres de la communauté.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Création 2</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-    -->
-
-
-      <!-- START THE FEATURETTES -->
+      <!--FEATURETTES -->
 
       <hr class="featurette-divider">
 
@@ -206,8 +248,207 @@
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
+    </div>
+    <!-- FIN PAGE ACCUEIL-->
 
+    <!-- PAGE ABOUT US-->
+    <div id="about-us" class="about">
+      <h1 class = "featurette-heading">About us</h1>
+      </div>
 
+    <!--FIN PAGE ABOUT US-->
+
+    <!--FORUM-->
+    <div id="page-forum" class = "forum">
+        <hr class="featurette-divider">
+        <h2 class="featurette-heading">Forums</h2>
+        <br />
+        <div class="row featurette">
+          <div class="table-responsive">
+              <table class="table">
+                  <tr>
+                      <td><strong>Catégorie</strong></td>
+                      <td><strong>Sujets</strong></td>
+                      <td><strong>Messages</strong></td>
+                      <td><strong>Dernier message</strong></td>
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_new.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a id ="categ" href=""><h4>Catégorie 1</h4></a>
+                          <p>Pour discuter</p></div>
+                        </td>
+                      <td>2
+                      <td>∞</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a id="categ" href=""><h4>Catégorie 2</h4></a>
+                              <p>Pour discuter... encore</p></div>
+                      </td>
+                      <td>2
+                      <td>∞</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                          <br /> par <a href="">Admin</a></td>                 
+                  </tr>
+              </table>
+              <br />
+              <hr />
+              <br />
+            </div>
+        </div>
+        
+
+    </div>
+    <!--FIN FORUM-->
+
+    <!--CATEGORIES FORUM-->
+    <div id="page-categories" class = "categ-forum">
+
+      <hr class="featurette-divider">
+        <h2 class="featurette-heading">Forum</h2>
+        <br />
+      <div class="row featurette">
+          <div class="table-responsive">
+              <table class="table">
+                  <tr>
+                      <td><strong>Nom du Sujet</strong></td>
+                      <td><strong>Auteur</strong></td>
+                      <td><strong>Messages</strong></td>
+                      <td><strong>Dernier message</strong></td>
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_new.png" alt="Nouveau Message" height=50px/></div>
+                          <div class="col-md-5"><a href="">Sujet test 1</a><br />
+                       posté le 23/03/2017 à 09:08:12</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>420</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td>
+                      <div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a href="">Sujet test 2</a><br />
+                       posté le 23/03/2017 à 09:21:36</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>5</td>
+                      <td>Le <a href="">23/03/2017 09:05:20</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td>
+                      <div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a href="">Sujet test 3</a><br />
+                       posté le 23/03/2017 à 09:31:17</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>88</td>
+                      <td>Le <a href="">23/03/2017 09:31:24</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+              </table>
+              <br />
+              <hr />
+              <br />
+            </div>
+      </div>
+        
+        <style type="text/css" >
+        #categorieforum {
+            padding-left: 50px;
+            
+            }
+        </style>
+    </div>
+    <!--FIN CATEGORIES FORUM-->
+
+    <!-- CUSTOM -->
+      <div id = "page-custom" class ="custom">
+
+      </div>
+    <!--FIN CUSTOM -->
+
+    <!-- PAGE CONNEXION -->
+    <div id = "page-connexion" class="pconnexion">
+      <div class="container">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h1>Connexion</h1>
+            <input type="text" name="userlogin" id="userlogin" placeholder="Email" class="form-control"/>
+            <input type="password" name="user" id="passwdlogin" placeholder="Password" class="form-control"/>
+      <a href="nouveau_compte.html">Mot de passe oublié</a>
+            <br/>
+            <button id="read-forall" class="btn btn-default">Connexion</button>
+            <a href="nouveau_compte.html">S'inscrire</a>
+      <br/>
+            <br/>    
+    </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
+        $("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
+        $("#list-ram").click(function () {listUsers()});
+        $("#read-forall").click(function () {getForAll()});
+        $("#read-byannotation").click(function () {getByAnnotation()});
+      });
+
+    </script>
+    </div>
+        </div>
+    <!-- FIN PAGE CONNEXION -->
+
+    <!--PAGE INSCRIPTON-->
+      <div id = "page-inscription" class="inscription">
+          <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <h1>Inscription</h1>
+
+          <input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+          <input type="hidden" name="user"id="aliasdb" value="user" placeholder="Surnom"class="form-control" /> 
+          <input type="text" name="emaildb"id="emaildb" placeholder="Email" class="form-control" /> 
+          <p id='error'>email invalide ou existant</p> 
+          <script>
+          $('#error').hide();
+          </script>
+          <input type="password" name="user" id="passwddb"placeholder="Mot de passe ?" class="form-control" />
+        </div>
+
+        <div class="btn-group" role="group">
+          <button type="button" id="post-bdd" class="btn btn-primary">S'enregistrer</button>
+          <button type="button" id="quitter" class="btn btn-primary">Annuler</button>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+        $("#get-bdd").click(function () {getUserBdd($('#nom').val(), $('#aliasdb').val())});
+        $("#post-bdd").click(function () {
+          postUserBdd(
+            $('#emaildb').val(),
+            $('#aliasdb').val(),
+            $('#nom').val(),
+            $('#passwddb').val())});
+        $("#list-bdd").click(function () {listUsersBdd()});
+        $("#quitter").click(function() { annuler()});
+      });
+    </script>
+      </div>
+    <!-- FIN PAGE INSCRIPTION-->
+ 
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -217,7 +458,7 @@
           <a href="https://fr.pinterest.com/"><img src="ressources/images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
       </footer>
 
-    </div><!-- /.container -->
+    </div>
 
 
     <!-- Bootstrap core JavaScript

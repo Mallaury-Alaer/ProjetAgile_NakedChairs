@@ -5,6 +5,7 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: whitesmoke;
 }
 
 
@@ -47,6 +48,7 @@ body {
 .carousel {
   height: 500px;
   margin-bottom: 60px;
+  margin-top: 70px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {

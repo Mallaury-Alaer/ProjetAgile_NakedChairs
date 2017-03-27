@@ -28,12 +28,6 @@ public class PanierResource {
 	    public PanierResource() throws SQLException {
 	        if (!tableExist("panier")) {
 	            dao.createUserTable();
-	            dao.insert(new Panier("dossier","formeDossier", "accoudoir", "assise","tissu",
-	        			"utilisateur", 10, 9, 8, 7,
-	        			6,5, 4,0));
-	            dao.insert(new Panier("dossier","formeDossier", "accoudoir", "assise","tissu",
-	        			"utilisateur", 10, 9, 8, 7,
-	        			6,5, 4,0));
 	        }
 	    }
 	    

@@ -646,7 +646,7 @@
         /*Pour la sélection du tissu*/
         function imgTissus(id,src){ 
             if(ancienTissuChoisi!=""){//Efface la dernière sélection du tisssu
-                 document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+                document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
             } 
 
             tissuChoisi=id;//Sauvegarde le tissu choisi
@@ -658,6 +658,8 @@
         }
 
         function validerTissu(){
+            document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+            ancienTissuChoisi="";
 
             document.getElementById("pDossier").style.display="none";
             document.getElementById("pHauteur").style.display="none";
@@ -760,7 +762,8 @@
                     "profondeurAssise" : profondeurAssise,
                     "largeurAssise" : largeurAssise,
                     "diametre" : diametre,
-                    "prix" : prix
+                    "prix" : prix,
+                    "id" : 0
                 })
             });
         }

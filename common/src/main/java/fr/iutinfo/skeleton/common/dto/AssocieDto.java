@@ -2,9 +2,15 @@ package fr.iutinfo.skeleton.common.dto;
 
 public class AssocieDto {
 	private String foc,nom,adresse,ville,type,statut,diplome,mail;
-	private int annexp,heuresSemaine,telephone;
+	private int annexp,heuresSemaine,telephone,valide;
 	public String getFoc() {
 		return foc;
+	}
+	public int getValide() {
+		return valide;
+	}
+	public void setValide(int valide) {
+		this.valide = valide;
 	}
 	public void setFoc(String foc) {
 		this.foc = foc;

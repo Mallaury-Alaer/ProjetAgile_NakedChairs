@@ -5,6 +5,7 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: whitesmoke;
 }
 
 
@@ -34,7 +35,25 @@ body {
     background-color: whitesmoke;
 }
 
-.url-nav:hover{
+#idx:hover{
+    color:crimson;
+}
+#abtus:hover{
+    color:crimson;
+}
+#blg:hover{
+    color:crimson;
+}
+#cust:hover{
+    color:crimson;
+}
+#connexion:hover{
+    color:crimson;
+}
+#inscr:hover{
+    color:crimson;
+}
+#shop:hover{
     color:crimson;
 }
 
@@ -47,6 +66,7 @@ body {
 .carousel {
   height: 500px;
   margin-bottom: 60px;
+  margin-top: 70px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -170,3 +190,110 @@ footer{
    bottom: 0px; 
    left: 0px; 
 }
+
+    .question{
+        /*Pour centrer horizontalement**/
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        /*Pour centrer verticalement*/
+        margin-top: 50vh;
+        transform: translateY(-50%);      
+
+        font-family: Arial;
+
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
+    }
+
+    .question p{     
+        font-size:200%;
+    }
+
+
+    .question div input{     
+        font-size:150%;
+        margin:10px;
+        border-radius: 8px;
+    }
+
+    .question input:hover {
+        color: #FF1493;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    .dimension{
+      /*Pour centrer horizontalement**/
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+
+        /*Pour centrer verticalement*/
+        margin-top: 50vh;
+        transform: translateY(-50%);      
+
+        font-family: Arial;
+        
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+    }
+
+    .groupeDim input{
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .btnValider{        
+        font-size:120%;
+        margin:10px;
+        border-radius: 8px;
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    .btnValider:hover{
+        color: #FF1493;
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,0.24), 0 10px 20px 0 rgba(0,0,0,0.19);
+    }
+
+
+    .tissusGouts {   
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        margin-top:100px;
+        font-family: Arial;
+        border-top: dotted 2px #FF1493;
+        border-bottom: dotted 2px #FF1493;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width:60%;
+    }
+
+    .tissusGouts img{  
+        border: solid grey 5px;
+        margin:35px;
+    }
+
+    .retour{
+        margin-top:50px;
+        display:block;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        border-radius: 5px;   
+        font-size:100%;
+    }

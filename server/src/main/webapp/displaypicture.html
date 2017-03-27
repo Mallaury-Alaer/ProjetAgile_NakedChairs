@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
-    <title>Naked Chairs | Galerie d'images</title>
+    <title>Naked Chairs | Aperçu d'une image</title>
 
     <!-- A test
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -77,40 +77,51 @@
       </div>
     </div>
 
-
         <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing">
       <div class="row featurette">
           <h2 class="featurette-heading">Galerie d'images</h2>
-          <h2 id="titre">Héberger une image</h2>
-	<jsp:include page="/layout/navbar.jsp" />
+          <h2>Aperçu d'une image</h2>
+          <div id="image" align="center"><img src="ressources/images/exemple.jpg" /></div>
+          <br />
           
+          <!-- Carousel
+    ================================================== -->
+        <div class="well">
+           Description image
+            
+        </div>
+        <!--/well-->
+          <br />
+          <hr />
+          <h2>Informations</h2>
+            
+        </div>
+        Date de mise en ligne :
+        
+        
+        </div><!--/well-->
+      
+      <style>
+          #image {
+              margin:auto;
+              display: block
+          }
           
-			<div class="col-md-6 col-md-offset-3">
-                <div class="envoiimage">
-                   <!-- <form id="data" method="post" enctype="multipart/form-data"> -->
-				<div class="form-group">
-					<label for="inputFile">Héberger une image:</label> <input type="file" id="inputFile" />
-					<p class="help-block">Formats PNG et JPEG autorisés.</p>
-				</div>
-                <label for="desc">Titre:</label><br />
-                <input type="text" id="titre" size="50"><br />
-                <label for="desc">Description:</label><br />
-                <textarea class="desc" rows="6" cols="60" id="desc"></textarea><br />
-                <br/>
-                Votre image sera disponible pendant un mois sur le site. Après ça, elle sera supprimée.
-				<button type="submit" id="submit" class="btn btn-default">Envoyer</button>
-                      <!--  </form> -->
-                </div>
-			</div>
-
-      <!-- START THE FEATURETTES -->    
-
-
-      <!-- /END THE FEATURETTES -->
+          hr {
+              border: 2px dotted crimson;
+          }
+          
+          a {
+              color:crimson;
+          }
+          
+          a:hover {
+              color:palevioletred;
+          }
+      </style>
 
 
       <!-- FOOTER -->
@@ -121,8 +132,6 @@
           <a href="https://www.instagram.com/?hl=fr"><img src="ressources/images/instagram.png" alt="Instagram" height=30px width=30px/></a>
           <a href="https://fr.pinterest.com/"><img src="ressources/images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
       </footer>
-          </div>
-      </div>
 
     <!-- /.container -->
 
@@ -138,19 +147,12 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ressources/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
-     <script>$('#submit').click(function() {
-             var reader= new FileReader();
-             document.querySelector('#inputFile').addEventListener('change', function() {
-                 reader.readAsText(file,'UTF-8');
-                console.log(this.files[0].name.split('.')[0] + "," + $('#titre').val() + "," + ",");
-            })             
-            // $('.envoiimage').text('aaaa');
-             if (document.getElementById('#inputFile') === null) {
-                 alert("Veuillez choisir une image.");
-             } else {
-                 alert("Cool");
-             }
-             });
-             </script>
+     <script>
+                    $('#navbar ul li:nth-child(7)').hide();
+                    $('.carousel').carousel({pause: "false"});
+                    
+                    $('#carousel-caption').ready( function() {
+                                                       $('.carousel-caption').text($(this).find("img-responsive").attr("alt"));
+                                                       });
+                  </script>
 </html>
-

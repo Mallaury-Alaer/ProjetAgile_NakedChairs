@@ -4,44 +4,172 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
-    <title>Naked Chairs | Style your seats anew</title>
+    <title id = "titre">Naked Chairs | Style your seats anew</title>
 
-    <!-- A test
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  -->
-
-    <!-- Bootstrap core CSS -->
     <link href="ressources/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
     <link href="ressources/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="ressources/bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="all.js"></script>
-    
- 
-    
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
+    <script src="all.js"></script>
   </head>
+    
+<!-- SCRIPT
+================================================= -->
+    <script type = 'text/javascript'>
+        
+        $(document).ready(function(){
+                $("#page-accueil").show();
+                $("#about-us").hide();
+                $("#page-forum").hide();
+                $("#page-categories").hide();
+                $("#page-custom").hide();
+                $("#page-connexion").hide();
+                $("#page-inscription").hide();
+
+        
+        $("#idx").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#logo-head").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#abtus").click(function(){
+            document.title = "Naked Chairs | About Us";
+                $("#page-accueil").hide();
+                $(".about").show();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#blg").click(function(){
+            document.title = "Naked Chairs | Forum";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").show();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#cust").click(function(){
+            document.title = "Naked Chairs | Custom you seat";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#connexion").click(function(){
+            document.title = "NakedChairs | Connexion";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").show();
+                $(".inscription").hide();
+        });
+        $("#inscr").click(function(){
+            document.title = "Naked Chairs | Inscription";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").show();
+        });
+        $("#inscrip").click(function(){
+            document.title = "Naked Chairs | Inscription";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").show();
+        });
+        $("#annuler").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#annulecustom").click(function(){
+                document.title = "Naked Chairs | Custom you seat";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $("#Article1").hide();
+                $("#Article2").hide();
+                $("#Article3").hide();
+                $("#Article4").hide();
+                $("#Article5").hide();
+                $("#Article6").hide();
+                $("#Article7").hide();
+                $("#Article8").hide();
+                $("#Article9").hide();
+                $("#Article10").hide();
+                $("#Article1").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#validercustom").click(function(){
+                document.title = "Naked Chairs | Custom you seat";
+                alert("Je suis actuellement inutile !");
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+
+            $("#categ").click(function(){
+                document.title = "Naked Chairs | Forum";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").show();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        });
+    </script>
+
 <!-- NAVBAR
 ================================================== -->
   <body>
@@ -51,26 +179,24 @@
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="nakedchair.html"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+              <a class="navbar-brand" id="logo-head" role="button" href="#"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="current"><a href="index.html">Welcome</a></li>
-                <li><a class="url-nav" href="about_us.html">About Us</a></li>
-                <li><a class="url-nav" href="forums.html">Blog Chairs in the Nude</a></li>
-                <li><a class="url-nav" href="custom.html">Style up your Seats</a></li>
+                <li><a id="idx" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a></li>
+                <li><a id="abtus" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a></li>
+                <li><a id="blg" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog Chairs in the Nude</a></li>
+                <li><a id="cust" href="#" role="button" aria-haspopup="true" aria-expanded="false">Style up your Seats</a></li>
                 <li class="dropdown">
-                  <a class="url-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <a class="url-nav" id="shop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
                     <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
                     <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                   </ul>
                 </li>
-                <li class = "connexion"><a class="url-nav" href="connexion.html">Connexion</a></li>
-                <li class = "deconnexion"><a class="url-nav" href="index.html">Deconnexion</a></li>
-                <script>$('#navbar ul li:nth-child(7)').hide();</script>
-                </ul>
+                <li><a id = "connexion" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a></li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -78,7 +204,8 @@
       </div>
     </div>
 
-
+<!-- PAGE D'ACCUEIL-->
+    <div id = "page-accueil" class ="accueil"> 
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -90,7 +217,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="" alt="First slide">
+          <img class="first-slide" src="ressources/images-chaises/chaises-modernes-cannees.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Our Community [Image à venir]</h1>
@@ -100,17 +227,17 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="" alt="Second slide">
+          <img class="second-slide" src="ressources/images-chaises/chaises-modernes-cannees.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Share your creations! [Image à venir]</h1>
               <p>You can share tips, advices or your creations with other members ! </p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Go to the forum</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" >Go to the forum</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="" alt="Third slide">
+          <img class="third-slide" src="ressources/images-chaises/chaises-modernes-cannees.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Follow us on social networks [Images à venir]</h1>
@@ -131,41 +258,10 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div><!-- /.carousel -->
+    </div>
 
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <!--
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Création 1 </h2>
-          <p>Decouvrez les créations des autres membres de la communauté.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Création 2</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-    -->
-
-
-      <!-- START THE FEATURETTES -->
+      <!--FEATURETTES -->
 
       <hr class="featurette-divider">
 
@@ -206,8 +302,771 @@
       <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
+    </div>
+    <!-- FIN PAGE ACCUEIL-->
+
+    <!-- PAGE ABOUT US-->
+    <div id="about-us" class="about">
+      <h1 class = "featurette-heading">About us</h1>
+      </div>
+
+    <!--FIN PAGE ABOUT US-->
+
+    <!--FORUM-->
+    <div id="page-forum" class = "forum">
+        <hr class="featurette-divider">
+        <h2 class="featurette-heading">Forums</h2>
+        <br />
+        <div class="row featurette">
+          <div class="table-responsive">
+              <table class="table">
+                  <tr>
+                      <td><strong>Catégorie</strong></td>
+                      <td><strong>Sujets</strong></td>
+                      <td><strong>Messages</strong></td>
+                      <td><strong>Dernier message</strong></td>
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_new.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a id ="categ" href=""><h4>Catégorie 1</h4></a>
+                          <p>Pour discuter</p></div>
+                        </td>
+                      <td>2
+                      <td>∞</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a id="categ" href=""><h4>Catégorie 2</h4></a>
+                              <p>Pour discuter... encore</p></div>
+                      </td>
+                      <td>2
+                      <td>∞</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                          <br /> par <a href="">Admin</a></td>                 
+                  </tr>
+              </table>
+              <br />
+              <hr />
+              <br />
+            </div>
+        </div>
+        
+
+    </div>
+    <!--FIN FORUM-->
+
+    <!--CATEGORIES FORUM-->
+    <div id="page-categories" class = "categ-forum">
+
+      <hr class="featurette-divider">
+        <h2 class="featurette-heading">Forum</h2>
+        <br />
+      <div class="row featurette">
+          <div class="table-responsive">
+              <table class="table">
+                  <tr>
+                      <td><strong>Nom du Sujet</strong></td>
+                      <td><strong>Auteur</strong></td>
+                      <td><strong>Messages</strong></td>
+                      <td><strong>Dernier message</strong></td>
+                  </tr>
+                  <tr id="categorieforum">
+                      <td><div class="col-md-2"><img src="ressources/images/forum_new.png" alt="Nouveau Message" height=50px/></div>
+                          <div class="col-md-5"><a href="">Sujet test 1</a><br />
+                       posté le 23/03/2017 à 09:08:12</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>420</td>
+                      <td>Le <a href="">23/03/2017 08:59:11</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td>
+                      <div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a href="">Sujet test 2</a><br />
+                       posté le 23/03/2017 à 09:21:36</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>5</td>
+                      <td>Le <a href="">23/03/2017 09:05:20</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+                  <tr id="categorieforum">
+                      <td>
+                      <div class="col-md-2"><img src="ressources/images/forum_nonew.png" alt="Nouveau Message" height=50px/ ></div>
+                          <div class="col-md-5"><a href="">Sujet test 3</a><br />
+                       posté le 23/03/2017 à 09:31:17</div>
+                        </td>
+                      <td><a href="">Admin</a></td>
+                      <td>88</td>
+                      <td>Le <a href="">23/03/2017 09:31:24</a>
+                      <br /> par <a href="">Admin</a></td>                  
+                  </tr>
+              </table>
+              <br />
+              <hr />
+              <br />
+            </div>
+      </div>
+        
+        <style type="text/css" >
+        #categorieforum {
+            padding-left: 50px;
+            
+            }
+        </style>
+    </div>
+    <!--FIN CATEGORIES FORUM-->
+
+    <!-- CUSTOM -->
+      <div id = "page-custom" class ="custom">
+      <article class="question" id="Article1"> 
+        <p>Votre siège possède t-il un dossier ?</p>
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
+            <input name="non" type="button" value="NON" onclick="dos(this.name)">
+        </div>
+    </article>
+
+    <article class="question" id="Article2"> 
+        <p>Le dossier est-il ovale ou rectangulaire ?</p>
+        <div>
+            <input name="ovale" type="button" value="Ovale" onclick="formeDos(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="formeDos(this.name)">
+        </div>
+        <input class="retour" name="retourArt2" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="question" id="Article3"> 
+        <p>Votre siège possède t-il des accoudoirs ?</p>
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
+            <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+        </div>
+        <input class="retour" name="retourArt3" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="question" id="Article4"> 
+        <p>L'assise est-elle ronde ou rectangulaire ?</p>
+        <div>
+            <input name="ronde" type="button" value="Ronde" onclick="assis(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+        </div>
+        <input class="retour" name="retourArt4" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="dimension" id="Article5"> 
+        <p>Veuillez entrer les dimensions de votre siège :</p>
+        <form id="formDimension" method="post" action="">
+          <div class="groupeDim">
+              <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
+              <input type="text" name="hauteur" id="hauteur" />
+          </div>  
+          <div class="groupeDim">
+              <label for="largeur" id="labellargeur">Largeur du dossier</label>
+              <input type="text" name="largeur" id="largeur" /> 
+          </div>  
+          <div class="groupeDim">
+              <label for="circ" id="labelcirc">Circonférence de l'assise</label>
+              <input type="text" name="circ" id="circ" />
+          </div> 
+          <div class="groupeDim">
+              <label for="epaisseur" id="labelepaisseur">Epaisseur de l'assise</label>
+              <input type="text" name="epaisseur" id="epaisseur" />
+          </div>   
+          <div class="groupeDim">
+              <label for="profondeur" id="labelprofondeur">Profondeur de l'assise</label>
+              <input type="text" name="profondeur" id="profondeur" />
+          </div>  
+          <div class="groupeDim">
+              <label for="largeurA" id="labellargeurA">Largeur de l'assise</label>
+              <input type="text" name="largeurA" id="largeurA" />
+          </div> 
+          <div class="groupeDim">
+              <label for="diametre" id="labeldiametre">Diamètre de l'assise</label>
+              <input type="text" name="diametre" id="diametre" />
+          </div> 
+
+            <div>
+                <input class="btnValider" name="validerDimension" type="button" value="Valider" onclick="validerDim()">
+            </div>
+        </form>
+        <input class="retour" name="retourArt5" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="question" id="Article6">  
+        <p>Dans quel format désirez-vous le tissu ?</p>
+            <div>
+                <input name="housse" type="button" value="En housse" onclick="formatTissu(this.name)">
+                <input name="metre" type="button" value="Au mètre" onclick="formatTissu(this.name)">
+            </div>
+            <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="question" id="Article7">  
+        <p>Quelle résistance souhaitez-vous pour votre tissu ?</p>
+            <div>
+                <input name="peu" type="button" value="Peu résistant" onclick="resist(this.name)">
+                <input name="moyen" type="button" value="Moyennement résistant" onclick="resist(this.name)">
+                <input name="tres" type="button" value="Très résistant" onclick="resist(this.name)">
+            </div>
+            <input class="retour" name="retourArt7" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="tissusGouts" id="Article8"> 
+      <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
+      <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
+      <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
+      <img id="Tissu4" src="ressources/images-chaises/tissus4.png" alt="Tissu4" height=120px onclick="tissus(this.id)">
+      <img id="Tissu5" src="ressources/images-chaises/tissus5.png" alt="Tissu5" height=120px onclick="tissus(this.id)">
+      <img id="Tissu6" src="ressources/images-chaises/tissus6.png" alt="Tissu6" height=120px onclick="tissus(this.id)">
+      <img id="Tissu7" src="ressources/images-chaises/tissus7.png" alt="Tissu7" height=120px onclick="tissus(this.id)">
+      <img id="Tissu8" src="ressources/images-chaises/tissus8.png" alt="Tissu8" height=120px onclick="tissus(this.id)">
+      <img id="Tissu9" src="ressources/images-chaises/tissus9.png" alt="Tissu9" height=120px onclick="tissus(this.id)">
+        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="tissusGouts()">
+        <input class="retour" name="retourArt8" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="tissusGouts" id="Article9">    
+        <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
+        <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="recapitulatif" id="Article10">
+        <div id="container" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
+        <p id="pAccoud">Accoudoirs :</p>
+
+        <p id="pDossier">Forme du dossier :</p>
+        <p id="pHauteur">Hauteur du dossier :</p>
+        <p id="pLargeur">Largeur du dossier :</p>
+
+        <p id="pAssise">Assise :</p>
+        <p id="pCirc">Circonférence de l'assise :</p>
+        <p id="pEpaisseur">Epaisseur de l'assise :</p>
+        <p id="pProfondeur">Profondeur de l'assise :</p>
+        <p id="pLargeurA">Largeur de l'assise :</p>
+        <p id="pDiametre">Diamètre de l'assise :</p>
+
+        <p id="pTissu">Tissu :</p>
+
+         <button id="validercustom" class="btn btn-default">Valider</button>
+    </article>
+    <button id="annulecustom" class="btn btn-default">Annuler</button>
+    <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+    <script src="webGL.js"></script>
+
+    <script>
+        var dossier="";
+        var formeDossier="";
+        var accoudoir="";
+        var assise="";
+
+        var hauteur;
+        var largeur;
+        var circonference;
+        var epaisseurAssise;
+        var profondeurAssise;
+        var largeurAssise;
+        var diametre;
+
+        var couleurs = [];
+
+        var nbClassique=0;
+        var nbTemporaire=0;
+        var nbClair=0;
+        var nbSombre=0;
 
 
+        var tissuChoisi="";
+        var ancienTissuChoisi="";
+        var tissuChoisiSource="";
+
+        var formatTi="";
+        var resistance="";
+        var prix=0;
+
+        document.getElementById("Article2").style.display="none";
+        document.getElementById("Article3").style.display="none";
+        document.getElementById("Article4").style.display="none";
+        document.getElementById("Article5").style.display="none";
+        document.getElementById("Article6").style.display="none";
+        document.getElementById("Article7").style.display="none";
+        document.getElementById("Article8").style.display="none";
+        document.getElementById("Article9").style.display="none";
+        document.getElementById("Article10").style.display="none";
+        document.getElementById("pDossier").style.display="none";
+        document.getElementById("pHauteur").style.display="none";
+        document.getElementById("pLargeur").style.display="none";
+        document.getElementById("pProfondeur").style.display="none";
+        document.getElementById("pLargeurA").style.display="none";
+        document.getElementById("pDiametre").style.display="none";
+        document.getElementById("pTissu").style.display="none";
+
+        document.getElementById("largeur").style.display="none";
+        document.getElementById("hauteur").style.display="none";
+        document.getElementById("profondeur").style.display="none";
+        document.getElementById("largeurA").style.display="none";
+        document.getElementById("diametre").style.display="none";
+
+        document.getElementById("labellargeur").style.display="none";
+        document.getElementById("labelhauteur").style.display="none";
+        document.getElementById("labelprofondeur").style.display="none";
+        document.getElementById("labellargeurA").style.display="none";
+        document.getElementById("labeldiametre").style.display="none";
+
+        function dos(nom){
+            dossier=nom;
+            document.getElementById("Article1").style.display="none";
+            if(dossier=="oui"){
+              document.getElementById("Article2").style.display="block";
+          }else{
+              document.getElementById("Article3").style.display="block";      
+          }
+        }
+
+        function formeDos(nom){
+            formeDossier=nom;
+            document.getElementById("Article2").style.display="none";
+            document.getElementById("Article3").style.display="block";
+        }
+
+        function accoud(nom){
+            accoudoir=nom;
+            document.getElementById("Article3").style.display="none";
+            document.getElementById("Article4").style.display="block";
+        }
+
+        function assis(nom){
+            assise=nom;
+            document.getElementById("Article4").style.display="none";
+            document.getElementById("Article5").style.display="block";
+            if(dossier=="oui"){       
+            document.getElementById("largeur").style.display="block";
+            document.getElementById("hauteur").style.display="block";
+            document.getElementById("labellargeur").style.display="block";
+            document.getElementById("labelhauteur").style.display="block";
+
+            }
+            if(assise=="ronde"){
+            document.getElementById("diametre").style.display="block";
+            document.getElementById("labeldiametre").style.display="block";
+            }else if(assise=="rectangulaire"){
+            document.getElementById("profondeur").style.display="block";
+            document.getElementById("largeurA").style.display="block";
+            document.getElementById("labelprofondeur").style.display="block";
+            document.getElementById("labellargeurA").style.display="block";
+            }
+        }
+
+        function validerDim(){
+            var correct=true;
+            if(dossier=="oui"){         
+                hauteur = document.getElementById("hauteur").value;
+                largeur = document.getElementById("largeur").value;
+                if(isNaN(parseInt(hauteur)) || isNaN(parseInt(largeur)) || hauteur<=0 || largeur<=0){
+                    correct=false;
+                }
+            }else{
+                hauteur = 0;
+                largeur = 0;
+            }
+            if(assise=="ronde"){
+                diametre = document.getElementById("diametre").value;
+                profondeurAssise = 0;
+                largeurAssise = 0;
+                if(isNaN(parseInt(diametre)) || diametre<=0){
+                    correct=false;
+                }        
+            }else if(assise=="rectangulaire"){
+                profondeurAssise = document.getElementById("profondeur").value;
+                largeurAssise = document.getElementById("largeurA").value;
+                diametre = 0;
+                if(isNaN(parseInt(profondeurAssise)) || isNaN(parseInt(largeurAssise)) || profondeurAssise<=0 || largeurAssise<=0){
+                    correct=false;
+                }
+            }
+            circonference = document.getElementById("circ").value;
+            epaisseurAssise = document.getElementById("epaisseur").value;
+            if(isNaN(parseInt(circonference)) || isNaN(parseInt(epaisseurAssise)) || circonference<=0 || epaisseurAssise<=0){
+                correct=false;
+                    console.log("ici");
+            }
+
+            // console.log(hauteur+" "+largeur+" "+circonference+" "+epaisseurAssise+" "+profondeurAssise+" "+largeurAssise+" "+diametre);
+
+            if(!correct){
+                alert("Veuillez saisir des données supérieures à 0.");
+            }else{
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article6").style.display="block";          
+            }
+        }
+          
+
+       function tissus(id,src){
+            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+
+                var dejaSelectionne;  
+                var type="";
+                var luminosite="";
+
+                if(couleurs.indexOf(id)!=-1){
+                    document.getElementById(id).style.border="solid 5px grey";
+                    var index = couleurs.indexOf(id);
+                    couleurs.splice(index,1);
+                    dejaSelectionne=true;
+                }else{
+                    document.getElementById(id).style.border="solid 5px #FF1493";
+                    couleurs.push(id);
+                    dejaSelectionne=false;
+                }
+
+              for(var i=0; i<data.length;i++){  
+                  if(data[i].nom == id){
+                      type=data[i].type;
+                      luminosite=data[i].luminosite;     
+                    }
+                }
+
+                if(type=="classique"){
+                    if(!dejaSelectionne){
+                        nbClassique++;
+                    }else{
+                        nbClassique--;
+                    }
+                }else if(type=="temporaire"){
+                    if(!dejaSelectionne){
+                        nbTemporaire++;
+                    }else{
+                        nbTemporaire--;
+                    }
+                }
+
+                if(luminosite=="vif"){            
+                    if(!dejaSelectionne){
+                        nbClair++;
+                    }else{
+                        nbClair--;
+                    }
+                }else if(luminosite=="eteint"){         
+                    if(!dejaSelectionne){
+                        nbSombre++;
+                    }else{
+                        nbSombre--;
+                    }
+                }
+                type="";  
+                luminosite="";
+            });
+        
+        }
+
+        function tissusGouts(){
+            if(couleurs.length!=0){
+
+                $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+
+                    document.getElementById("Article8").style.display="none";
+                    document.getElementById("Article9").style.display="block";
+
+                    var n;
+                    var s="";
+
+                    var typeSelectionne="";
+                    var luminositeSelectionne="";
+                    var resistanceSelectionne=0;
+
+                    var imgInsere=false;
+
+                    if(nbClassique>nbTemporaire){
+                        typeSelectionne="classique";
+                    }else if(nbClassique<nbTemporaire){
+                        typeSelectionne="temporaire";
+                    }else{
+                        typeSelectionne="egalite";
+                    }
+
+                    if(nbClair>nbSombre){
+                        luminositeSelectionne="vif";
+                    }else if(nbClair<nbSombre){
+                        luminositeSelectionne="eteint";
+                    }else{
+                        luminositeSelectionne="egalite";
+                    }
+
+                    if(resistance=="peu"){
+                        resistanceSelectionne=1;
+                    }else if(resistance=="moyen"){
+                        resistanceSelectionne=2;
+                    }else if(resistance=="tres"){
+                        resistanceSelectionne=3;
+                    }
+
+                    for(var i=0; i<data.length;i++){   
+                        if(data[i].resistance == resistanceSelectionne){
+                            if(data[i].type == typeSelectionne && data[i].luminosite == luminositeSelectionne){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].type == typeSelectionne && luminositeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].luminosite == luminositeSelectionne && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(luminositeSelectionne == "egalite" && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }
+                            if(imgInsere && formatTi=="housse"){
+                                s+="<p>"+data[i].phousse+"€</p>";
+                                prix=data[i].phousse;
+                            }else if(imgInsere && formatTi=="metre"){
+                                s+="<p>"+data[i].pmetre+"€</p>";
+                                prix=data[i].pmetre;
+                            }
+                            imgInsere=false;
+                        }
+                    }
+       
+                    n=$(s);
+                    n.insertBefore("#validTissu");
+                });
+            }else{
+                alert("Veuillez sélectionner au moins un tissu.");
+            }
+        }
+
+
+        /*Pour la sélection du tissu*/
+        function imgTissus(id,src){ 
+            if(ancienTissuChoisi!=""){//Efface la dernière sélection du tisssu
+                 document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+            } 
+
+            tissuChoisi=id;//Sauvegarde le tissu choisi
+            ancienTissuChoisi=id;//Sauvegarde le tissu en tant que dernier tissu choisi  
+
+            tissuChoisiSource=src;//Sauvegarde le tissu choisi
+
+            document.getElementById(id).style.border="solid 5px #FF1493";//Modifie la bordure de l'élément
+        }
+
+        function validerTissu(){
+            if(tissuChoisiSource!=""){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article10").style.display="block";
+
+                init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
+            }else{           
+                alert("Veuillez sélectionner un tissu.");
+            }
+            /*   
+
+        <p id="pProfondeur">Profondeur de l'assise :</p>
+        <p id="pLargeurA">Largeur de l'assise :</p>
+        <p id="pDiametre">Diamètre de l'assise :</p>
+
+        <p id="pTissu">Tissu :</p>
+
+        var profondeurAssise;
+        var largeurAssise;
+        var diametre;
+
+
+        var tissuChoisi="";
+
+        */
+     /*   document.getElementById("pAccoud").innerHTML=accoudoir; 
+
+        if(dossier=="oui"){
+            document.getElementById("pDossier").style.display="block";  
+            document.getElementById("pHauteur").style.display="block"; 
+            document.getElementById("pLargeur").style.display="block";  
+
+            document.getElementById("pDossier").innerHTML=formeDossier;   
+            document.getElementById("pHauteur").innerHTML=hauteur;     
+            document.getElementById("pLargeur").innerHTML=largeur;        
+        } 
+
+        document.getElementById("pAssise").innerHTML=assise; 
+        document.getElementById("pCirc").innerHTML=circonference; 
+        document.getElementById("pEpaisseur").innerHTML=epaisseurAssise; 
+
+        if(profondeurAssise!=0){
+            document.getElementById("pDossier").style.display="block";  
+        }*/
+
+
+
+        }
+
+        function retour(nom){
+            if(nom=="retourArt2"){
+                document.getElementById("Article2").style.display="none";
+                document.getElementById("Article1").style.display="block";
+            }else if(nom=="retourArt3"){
+                document.getElementById("Article3").style.display="none";
+                document.getElementById("Article2").style.display="block";
+            }else if(nom=="retourArt4"){
+                document.getElementById("Article4").style.display="none";
+                document.getElementById("Article3").style.display="block";
+            }else if(nom=="retourArt5"){
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article4").style.display="block";
+            }else if(nom=="retourArt6"){
+                document.getElementById("Article6").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt7"){
+                document.getElementById("Article7").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt8"){
+                document.getElementById("Article8").style.display="none";
+                document.getElementById("Article7").style.display="block";
+            }else if(nom=="retourArt9"){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article8").style.display="block";
+            }else if(nom=="retourArt10"){
+                document.getElementById("Article10").style.display="none";
+                document.getElementById("Article9").style.display="block";
+            }
+            
+        }
+
+        function envoieRest(){
+            $.ajax({
+                type : 'POST',
+                contentType : 'application/json',
+                url : url,
+                dataType : "json",
+                data : JSON.stringify({
+                    "dossier" : dossier,
+                    "formeDossier" : formeDossier,
+                    "accoudoir" : accoudoir,
+                    "assise" : assise,
+                    "hauteur" : hauteur,
+                    "largeur" : largeur,
+                    "circonference" : circonference,
+                    "profondeurAssise" : profondeurAssise,
+                    "largeurAssise" : largeurAssise,
+                    "diametre" : diametre,
+                    "tissu" : tissuChoisi,
+                    "prix" : prix,
+                }),
+                success : function(data, textStatus, jqXHR) {
+                    document.location.href="connexion.html"; 
+                    afficheUser(data);
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    $('#error').show();
+                    console.log('postUser error: ' + textStatus);
+                }
+            });
+        }
+
+        function formatTissu(nom){
+            formatTi=nom;
+            document.getElementById("Article6").style.display="none";
+            document.getElementById("Article7").style.display="block";
+        }
+
+        function resist(nom){
+            resistance=nom;
+            document.getElementById("Article7").style.display="none";
+            document.getElementById("Article8").style.display="block";
+        }
+
+    </script>
+      </div>
+    <!--FIN CUSTOM -->
+    
+    <!-- PAGE CONNEXION -->
+    <div id = "page-connexion" class="pconnexion">
+      <center>
+      <div class="container" >
+        <center>
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h1>Connexion</h1><br>
+            <input type="text" name="userlogin" id="userlogin" placeholder="Email" class="form-control"/>
+            <input type="password" name="user" id="passwdlogin" placeholder="Password" class="form-control"/>
+            <a id="" href="">Mot de passe oublié</a>
+            <br><br>
+            <button class="btn btn-default">Connexion</button>
+            <a id="inscrip" href="#">S'inscrire</a>
+      <br/>
+            <br/>      
+    </div>
+    </div>
+  </center>
+    <div class="row" style="margin-top: 20px;">
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
+        $("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
+        $("#list-ram").click(function () {listUsers()});
+        $("#read-forall").click(function () {getForAll()});
+        $("#read-byannotation").click(function () {getByAnnotation()});
+      });
+
+    </script>
+    </div>
+  </center>
+        </div>
+    <!-- FIN PAGE CONNEXION -->
+
+    <!--PAGE INSCRIPTON-->
+      <div id = "page-inscription" class="inscription">
+        <center>
+          <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <center>
+          <h1>Inscription</h1><br>
+
+          <input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+          <input type="hidden" name="user"id="aliasdb" value="user" placeholder="Surnom"class="form-control" /> 
+          <input type="text" name="emaildb"id="emaildb" placeholder="Email" class="form-control" /> 
+          <p id='error'>Email invalide ou existant</p> 
+          <script>
+          $('#error').hide();
+          </script>
+          <input type="password" name="user" id="passwddb"placeholder="Mot de passe ?" class="form-control" />
+        </div>
+
+        <div class="btn-group" role="group">
+          <button type="button" id="post-bdd" class="btn btn-default">S'enregistrer</button>
+          <button type="button" id="annuler" class="btn btn-default">Annuler</button>
+        </div>
+      </center>
+      </div>
+      
+      
+    </div>
+  </div>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+        $("#get-bdd").click(function () {getUserBdd($('#nom').val(), $('#aliasdb').val())});
+        $("#post-bdd").click(function () {
+          postUserBdd(
+            $('#emaildb').val(),
+            $('#aliasdb').val(),
+            $('#nom').val(),
+            $('#passwddb').val())});
+        $("#list-bdd").click(function () {listUsersBdd()});
+        $("#quitter").click(function() { annuler()});
+      });
+    </script>
+      </div>
+    </center>
+  </div>
+    <!-- FIN PAGE INSCRIPTION-->
+ 
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -217,7 +1076,7 @@
           <a href="https://fr.pinterest.com/"><img src="ressources/images/printerest.png" alt="Printerest" height=30px width=30px/></a></p>
       </footer>
 
-    </div><!-- /.container -->
+ 
 
 
     <!-- Bootstrap core JavaScript

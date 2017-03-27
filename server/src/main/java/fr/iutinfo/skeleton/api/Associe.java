@@ -4,8 +4,16 @@ import fr.iutinfo.skeleton.common.dto.AssocieDto;
 
 public class Associe {
 	String foc,nom,adresse,ville,type,statut,diplome,mail;
-	int annexp,heuresSemaine,telephone;
+	int annexp,heuresSemaine,telephone,valide;
 	
+	public int getValide() {
+		return valide;
+	}
+
+	public void setValide(int valide) {
+		this.valide = valide;
+	}
+
 	public String getMail() {
 		return mail;
 	}
@@ -26,7 +34,7 @@ public class Associe {
 		
 	}
 	
-	public Associe(String FoC,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,int telephone,int annexp,int heuresSemaine){
+	public Associe(String FoC,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,int telephone,int annexp,int heuresSemaine,int valide){
 		this.nom = nom;
 		this.foc = FoC;
 		this.adresse = adresse;
@@ -38,6 +46,7 @@ public class Associe {
 		this.heuresSemaine = heuresSemaine;
 		this.mail = mail;
 		this.telephone = telephone;
+		this.valide = valide;
 	}
 
 	public String getFoc() {
@@ -124,6 +133,7 @@ public class Associe {
         dto.setHeuresSemaine(this.getHeuresSemaine());
         dto.setMail(this.getMail());
         dto.setTelephone(this.getTelephone());
+        dto.setValide(this.getValide());
         return dto;
     }
     public void initFromDto(AssocieDto dto) {
@@ -138,5 +148,6 @@ public class Associe {
         this.setHeuresSemaine(dto.getHeuresSemaine());
         this.setMail(dto.getMail());
         this.setTelephone(dto.getTelephone());
+        this.setValide(dto.getValide());
     } 
 }

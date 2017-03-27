@@ -36,7 +36,7 @@ public class AssocieResource {
 	    public AssocieResource() throws SQLException {
 	        if (!tableExist("associe")) {
 	            dao.createUserTable();
-	            dao.insert(new Associe("FoC","nom","adresse","ville","type","statut","diplome","mail",0320,5,15,0));
+	            dao.insert(new Associe("FoC","nom","adresse","ville","type","statut","diplome","mail","0320424242",5,15,0));
 	        }
 	    }
 	    

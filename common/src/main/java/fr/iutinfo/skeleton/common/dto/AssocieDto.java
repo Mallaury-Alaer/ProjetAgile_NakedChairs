@@ -1,8 +1,8 @@
 package fr.iutinfo.skeleton.common.dto;
 
 public class AssocieDto {
-	private String foc,nom,adresse,ville,type,statut,diplome,mail;
-	private int annexp,heuresSemaine,telephone,valide;
+	private String foc,nom,adresse,ville,type,statut,diplome,mail,telephone;
+	private int annexp,heuresSemaine,valide;
 	public String getFoc() {
 		return foc;
 	}
@@ -69,10 +69,10 @@ public class AssocieDto {
 	public void setHeuresSemaine(int heuresSemaine) {
 		this.heuresSemaine = heuresSemaine;
 	}
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 	

@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface AssocieDao {
-    @SqlUpdate("create table associe (nom varchar(100) primary key,foc varchar(100),adresse varchar(100),ville varchar(100), type varchar(100),statut varchar(100),diplome varchar(100), annexp integer,heuresSemaine integer,mail varchar(100),telephone integer,valide integer);")
+    @SqlUpdate("create table associe (nom varchar(100) primary key,foc varchar(100),adresse varchar(100),ville varchar(100), type varchar(100),statut varchar(100),diplome varchar(100), annexp integer,heuresSemaine integer,mail varchar(100),telephone varchar(100),valide integer);")
     void createUserTable();
     
     @SqlUpdate("insert into associe values (:nom, :foc , :adresse, :ville, :type, :statut, :diplome, :annexp, :heuresSemaine, :mail, :telephone, :valide)")
@@ -27,7 +27,7 @@ public interface AssocieDao {
     List<Associe> affiche();
     
     @SqlUpdate("update associe set adresse = :adresse, ville = :ville , type = :type, statut = :statut, diplome = :diplome, annexp = :annexp, heuresSemaine = :heuresSemaine, mail = :mail, telephone = :telephone, valide = :valide where nom = :nom")
-    void Update(@Bind("nom") String nom,@Bind("adresse") String adresse,@Bind("ville") String ville,@Bind("type") String type,@Bind("statut") String statut,@Bind("diplome") String diplome,@Bind("annexp") int annexp,@Bind("heuresSemaine") int heuresSemaine,@Bind("mail") String mail,@Bind("telephone") int telephone,@Bind("valide") int valide);
+    void Update(@Bind("nom") String nom,@Bind("adresse") String adresse,@Bind("ville") String ville,@Bind("type") String type,@Bind("statut") String statut,@Bind("diplome") String diplome,@Bind("annexp") int annexp,@Bind("heuresSemaine") int heuresSemaine,@Bind("mail") String mail,@Bind("telephone") String telephone,@Bind("valide") int valide);
     
     @SqlUpdate("delete from associe where nom = :nom")
     void delete(@Bind("nom") String nom);

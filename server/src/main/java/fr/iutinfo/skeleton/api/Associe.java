@@ -3,8 +3,8 @@ package fr.iutinfo.skeleton.api;
 import fr.iutinfo.skeleton.common.dto.AssocieDto;
 
 public class Associe {
-	String foc,nom,adresse,ville,type,statut,diplome,mail;
-	int annexp,heuresSemaine,telephone,valide;
+	String foc,nom,adresse,ville,type,statut,diplome,mail,telephone;
+	int annexp,heuresSemaine,valide;
 	int id =0;
 	
 	public int getId() {
@@ -31,11 +31,11 @@ public class Associe {
 		this.mail = mail;
 	}
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
@@ -43,7 +43,7 @@ public class Associe {
 		
 	}
 	
-	public Associe(String FoC,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,int telephone,int annexp,int heuresSemaine,int valide){
+	public Associe(String FoC,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,String telephone,int annexp,int heuresSemaine,int valide){
 		this.nom = nom;
 		this.foc = FoC;
 		this.adresse = adresse;

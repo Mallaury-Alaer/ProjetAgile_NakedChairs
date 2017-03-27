@@ -89,7 +89,8 @@
                 <li><button type="button" id="listUser-bdd" class="btn listerusers">Clients</button></li>
                 <li><button type="button" id="listFournisseur-bdd" class="btn listerFournisseur">Fournisseurs</button></li>
                 <li><button type="button" id="listCollaborateur-bdd" class="btn listerCollaborateur">Collaborateur</button></li>
-                <li><button type="button" id="listCommandes-bdd" class="btn listerCommandes">Commandes</button></li>                
+                <li><button type="button" id="listCommandes-bdd" class="btn listerCommandes">Commandes</button></li>
+                <li><button type="button" id="notification-bdd" class="btn notification">Notification</button></li>                      
               </ul>
            </div>
         
@@ -131,6 +132,7 @@
 				$("#listUser-bdd").click(function () {listOnlyUsersBdd()});
 				$("#listFournisseur-bdd").click(function () {listOnlyFournisseurBdd("fournisseur")});
         $("#listCollaborateur-bdd").click(function () {listOnlyFournisseurBdd("collaborateur")});
+        $("#notification-bdd").click(function () {displayNotif()});
 			});
     </script> 
 

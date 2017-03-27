@@ -84,12 +84,14 @@ function postUserGeneric(name, role, email, pwd, url) {
 	});
 }
 
-function postFournisseurBdd(nom, foc, adresse, ville,type,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp) {
-    postFournniseurGeneric(nom, foc, adresse, ville,type,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,"v1/associe/");
+function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp) {
+	console.log("foc : "+foc);	
+    postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,"v1/associe/");
 }
 
 
-function postFournniseurGeneric(nom, foc, adresse, ville,type,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,url) {
+function postFournniseurGeneric(nom, foc, adresse, ville,typem,statut,diplôme,anneeExperience,heuresSemaine,email,telephone,mdp,url) {
+
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -100,23 +102,23 @@ function postFournniseurGeneric(nom, foc, adresse, ville,type,statut,diplôme,an
 			"foc" : foc,
 			"adresse" : adresse,
 			"ville" : ville,
-			"type" : type,
+			"type" : typem,
 			"statut" : statut,
-			"diplôme" : diplôme,
-			"anneeExperience" : anneeExperience,
+			"diplome" : diplôme,
+			"annexp" : anneeExperience,
 			"heuresSemaine" : heuresSemaine,
-			"email" : email,
+			"mail" : email,
 			"telephone" : telephone,
 			"valide" : 0
 					}),
 		success : function(data, textStatus, jqXHR) {
 			console.log(data);
-			postUserBdd(nom, foc, email, mdp);
-			afficheUser(data);
+			//postUserBdd(nom, foc, email, mdp);
+			//afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			$('#error').show();
-			console.log('postUser error: ' + textStatus);
+			console.log('postFournisseur error: ' + textStatus);
 		}
 	});
 }
@@ -260,9 +262,9 @@ function displayNotification(data){
               	 html+="<td>"+data[index].foc+"</td>";
               	 html+="<td>"+data[index].adresse+"</td>";
               	 html+="<td>"+data[index].ville+"</td>";
-              	 html+="<td>"+data[index].type+"</td>";
+              	 html+="<td>"+data[index].typem+"</td>";
               	 html+="<td>"+data[index].statut+"</td>";
-              	 html+="<td>"+data[index].diplôme+"</td>";
+              	 html+="<td>"+data[index].diplome+"</td>";
               	 html+="<td>"+data[index].anneeExperience+"</td>";
               	 html+="<td>"+data[index].heuresSemaine+"</td>";
               	 html+="<td>"+data[index].email+"</td>";
@@ -271,12 +273,14 @@ function displayNotification(data){
 
 
 
-              	 js+= "$(\"#delete-user"+index+"\").click(function(){" +
+              	html = html + "<td><button type=\"button\" id=\"delete-foc"+index+"\" class=\"delete\">Supprimer</button></td>";
+			    html = html + "</tr>";
+				js+= "$(\"#delete-foc"+index+"\").click(function(){" +
 				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].nom+" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
-					 "url : \"v1/associe/"+data[index].email+"\","+
+					 "url : \"v1/associe/"+data[index].nom+"\","+
 					 "dataType : \"json\","+
 					 "data : JSON.stringify({ \"email\" :\""+ data[index].nom+"\" }),"+
 					 "success : function(data, textStatus, jqXHR) {"+

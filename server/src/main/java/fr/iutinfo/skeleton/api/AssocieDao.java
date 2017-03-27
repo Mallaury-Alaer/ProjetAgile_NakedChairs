@@ -25,12 +25,15 @@ public interface AssocieDao {
     @SqlQuery("select * from associe")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<Associe> affiche();
-    
+    /*
     @SqlUpdate("update associe set adresse = :adresse, ville = :ville , type = :type, statut = :statut, diplome = :diplome, annexp = :annexp, heuresSemaine = :heuresSemaine, mail = :mail, telephone = :telephone, valide = :valide where nom = :nom")
     void Update(@Bind("nom") String nom,@Bind("adresse") String adresse,@Bind("ville") String ville,@Bind("type") String type,@Bind("statut") String statut,@Bind("diplome") String diplome,@Bind("annexp") int annexp,@Bind("heuresSemaine") int heuresSemaine,@Bind("mail") String mail,@Bind("telephone") String telephone,@Bind("valide") int valide);
-    
+    */
     @SqlUpdate("delete from associe where nom = :nom")
     void delete(@Bind("nom") String nom);
+    
+    @SqlUpdate("update associe set valide = 1 where nom = :nom")
+    void Update(@Bind("nom") String nom);
     
     void close();
 }

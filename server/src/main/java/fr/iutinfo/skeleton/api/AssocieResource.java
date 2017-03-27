@@ -72,11 +72,17 @@ public class AssocieResource {
 	        dao.delete(nom);
 	    }
 	    
-	   
+	   /*
 	    @PUT
 	    @Path("/{nom}")
 	    public void UpdateAssocie(@PathParam("nom") String nom, @PathParam("adresse") String adresse,@PathParam("ville") String ville,@PathParam("type") String type,@PathParam("statut") String statut,@PathParam("diplome") String diplome,@PathParam("annexp") int annexp,@PathParam("heuresSemaine") int heuresSemaine,@PathParam("mail") String mail,@PathParam("telephone") String telephone, @PathParam("valide") int valide) {
 	        dao.Update(nom, adresse, ville, type, statut, diplome, annexp, heuresSemaine, mail, telephone, valide);
+	    }
+	    */
+	    @PUT
+	    @Path("/{nom}")
+	    public void UpdateAssocie(@PathParam("nom") String nom) {
+	        dao.Update(nom);
 	    }
 	 
 }

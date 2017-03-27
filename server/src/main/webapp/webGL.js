@@ -1,10 +1,10 @@
 var renderer, scene, camera, dossierRect, dossierOval, assiseRect, assiseOvale, accoud1, accoud2, accoud11, accoud22, pied1, pied2, pied3, pied4, skybox;
-//init("ressources/images-chaises/tissus1.png","oui","rectangulaire","non","rectangulaire");
+
 
 function init(tissu,dossier,formeD,accoudoir,assise){
   renderer = new THREE.WebGLRenderer();
   renderer.setSize( window.innerWidth/2, window.innerHeight/2);
-  document.getElementById('container').appendChild(renderer.domElement);
+  document.getElementById('webGLVisu').appendChild(renderer.domElement);
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 1, 10000 );
   camera.position.set(0, 0.5, 50);

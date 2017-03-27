@@ -279,11 +279,31 @@
         <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
-    <article class="tissusGouts" id="Article7">    
-        <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Terminer" onclick="validerTissu()">
+    <article class="question" id="Article7">  
+        <p>Dans quel format désirez-vous le tissu ?</p>
+            <div>
+                <input name="housse" type="button" value="En housse" onclick="formatTissu(this.name)">
+                <input name="metre" type="button" value="Au mètre" onclick="formatTissu(this.name)">
+            </div>
+            <input class="retour" name="retourArt8" type="button" value="Question précédente" onclick="retour(this.name)"> 
     </article>
 
-    <article class="recapitulatif" id="Article8">    
+    <article class="question" id="Article8">  
+        <p>Quelle résistance souhaitez-vous pour votre tissu ?</p>
+            <div>
+                <input name="peu" type="button" value="Peu résistant" onclick="resist(this.name)">
+                <input name="moyen" type="button" value="Moyennement résistant" onclick="resist(this.name)">
+                <input name="tres" type="button" value="Très résistant" onclick="resistresist(this.name)">
+            </div>
+            <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="tissusGouts" id="Article8">    
+        <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
+        <input class="retour" name="retourArt7" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="recapitulatif" id="Article10">    
         <p id="pAccoud">Accoudoirs :</p>
 
         <p id="pDossier">Forme du dossier :</p>
@@ -334,6 +354,9 @@
         var tissuChoisi="";
         var ancienTissuChoisi="";
 
+        var formatTi="";
+        var resistance="";
+
         document.getElementById("Article2").style.display="none";
         document.getElementById("Article3").style.display="none";
         document.getElementById("Article4").style.display="none";
@@ -341,6 +364,8 @@
         document.getElementById("Article6").style.display="none";
         document.getElementById("Article7").style.display="none";
         document.getElementById("Article8").style.display="none";
+        document.getElementById("Article9").style.display="none";
+        document.getElementById("Article10").style.display="none";
         document.getElementById("pDossier").style.display="none";
         document.getElementById("pHauteur").style.display="none";
         document.getElementById("pLargeur").style.display="none";
@@ -519,6 +544,7 @@
 
                 var typeSelectionne="";
                 var luminositeSelectionne="";
+                var resistanceSelectionne=0;
 
                 if(nbClassique>nbTemporaire){
                     typeSelectionne="classique";
@@ -534,6 +560,12 @@
                     luminositeSelectionne="eteint";
                 }else{
                     luminositeSelectionne="egalite";
+                }
+
+                if(resistance=="peu"){
+                    resistanceSelectionne=1;
+                }else if(resistance=="peu"){
+                    
                 }
 
                 for(var i=0; i<data.length;i++){    
@@ -585,7 +617,7 @@
         var tissuChoisi="";
 
         */
-        document.getElementById("pAccoud").innerHTML=accoudoir; 
+     /*   document.getElementById("pAccoud").innerHTML=accoudoir; 
 
         if(dossier=="oui"){
             document.getElementById("pDossier").style.display="block";  
@@ -603,7 +635,7 @@
 
         if(profondeurAssise!=0){
             document.getElementById("pDossier").style.display="block";  
-        }
+        }*/
 
 
 
@@ -625,7 +657,20 @@
             }else if(nom=="retourArt6"){
                 document.getElementById("Article6").style.display="none";
                 document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt7"){
+                document.getElementById("Article7").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt8"){
+                document.getElementById("Article8").style.display="none";
+                document.getElementById("Article7").style.display="block";
+            }else if(nom=="retourArt9"){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article8").style.display="block";
+            }else if(nom=="retourArt10"){
+                document.getElementById("Article10").style.display="none";
+                document.getElementById("Article9").style.display="block";
             }
+            
         }
 
         function envoieRest(){
@@ -656,6 +701,18 @@
                     console.log('postUser error: ' + textStatus);
                 }
             });
+        }
+
+        function formatTissu(nom){
+            formatTi=nom;
+            document.getElementById("Article8").style.display="none";
+            document.getElementById("Article9").style.display="block";
+        }
+
+        function resist(nom){
+            resistance=nom;
+            document.getElementById("Article9").style.display="none";
+            document.getElementById("Article10").style.display="block";
         }
 
     </script>

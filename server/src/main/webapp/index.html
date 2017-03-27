@@ -106,7 +106,6 @@
         });
         $("#inscrip").click(function(){
             document.title = "Naked Chairs | Inscription";
-            //alert("yo");
                 $("#page-accueil").hide();
                 $(".about").hide();
                 $(".forum").hide();
@@ -125,6 +124,39 @@
                 $(".pconnexion").hide();
                 $(".inscription").hide();
         });
+        $("#annulecustom").click(function(){
+                document.title = "Naked Chairs | Custom you seat";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $("#Article1").hide();
+                $("#Article2").hide();
+                $("#Article3").hide();
+                $("#Article4").hide();
+                $("#Article5").hide();
+                $("#Article6").hide();
+                $("#Article7").hide();
+                $("#Article8").hide();
+                $("#Article9").hide();
+                $("#Article10").hide();
+                $("#Article1").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+        $("#validercustom").click(function(){
+                document.title = "Naked Chairs | Custom you seat";
+                alert("Je suis actuellement inutile !");
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+        });
+
             $("#categ").click(function(){
                 document.title = "Naked Chairs | Forum";
                 $("#page-accueil").hide();
@@ -164,7 +196,6 @@
                   </ul>
                 </li>
                 <li><a id = "connexion" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a></li>
-                <li><a id = "inscr" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inscription</a></li>
               </ul>
             </div>
           </div>
@@ -391,10 +422,565 @@
 
     <!-- CUSTOM -->
       <div id = "page-custom" class ="custom">
+      <article class="question" id="Article1"> 
+        <p>Votre siège possède t-il un dossier ?</p>
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
+            <input name="non" type="button" value="NON" onclick="dos(this.name)">
+        </div>
+    </article>
 
+    <article class="question" id="Article2"> 
+        <p>Le dossier est-il ovale ou rectangulaire ?</p>
+        <div>
+            <input name="ovale" type="button" value="Ovale" onclick="formeDos(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="formeDos(this.name)">
+        </div>
+        <input class="retour" name="retourArt2" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="question" id="Article3"> 
+        <p>Votre siège possède t-il des accoudoirs ?</p>
+        <div>
+            <input name="oui" type="button" value="OUI" onclick="accoud(this.name)">
+            <input name="non" type="button" value="NON" onclick="accoud(this.name)">
+        </div>
+        <input class="retour" name="retourArt3" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="question" id="Article4"> 
+        <p>L'assise est-elle ronde ou rectangulaire ?</p>
+        <div>
+            <input name="ronde" type="button" value="Ronde" onclick="assis(this.name)">
+            <input name="rectangulaire" type="button" value="Rectangulaire" onclick="assis(this.name)">
+        </div>
+        <input class="retour" name="retourArt4" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="dimension" id="Article5"> 
+        <p>Veuillez entrer les dimensions de votre siège :</p>
+        <form id="formDimension" method="post" action="">
+          <div class="groupeDim">
+              <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
+              <input type="text" name="hauteur" id="hauteur" />
+          </div>  
+          <div class="groupeDim">
+              <label for="largeur" id="labellargeur">Largeur du dossier</label>
+              <input type="text" name="largeur" id="largeur" /> 
+          </div>  
+          <div class="groupeDim">
+              <label for="circ" id="labelcirc">Circonférence de l'assise</label>
+              <input type="text" name="circ" id="circ" />
+          </div> 
+          <div class="groupeDim">
+              <label for="epaisseur" id="labelepaisseur">Epaisseur de l'assise</label>
+              <input type="text" name="epaisseur" id="epaisseur" />
+          </div>   
+          <div class="groupeDim">
+              <label for="profondeur" id="labelprofondeur">Profondeur de l'assise</label>
+              <input type="text" name="profondeur" id="profondeur" />
+          </div>  
+          <div class="groupeDim">
+              <label for="largeurA" id="labellargeurA">Largeur de l'assise</label>
+              <input type="text" name="largeurA" id="largeurA" />
+          </div> 
+          <div class="groupeDim">
+              <label for="diametre" id="labeldiametre">Diamètre de l'assise</label>
+              <input type="text" name="diametre" id="diametre" />
+          </div> 
+
+            <div>
+                <input class="btnValider" name="validerDimension" type="button" value="Valider" onclick="validerDim()">
+            </div>
+        </form>
+        <input class="retour" name="retourArt5" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="question" id="Article6">  
+        <p>Dans quel format désirez-vous le tissu ?</p>
+            <div>
+                <input name="housse" type="button" value="En housse" onclick="formatTissu(this.name)">
+                <input name="metre" type="button" value="Au mètre" onclick="formatTissu(this.name)">
+            </div>
+            <input class="retour" name="retourArt6" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="question" id="Article7">  
+        <p>Quelle résistance souhaitez-vous pour votre tissu ?</p>
+            <div>
+                <input name="peu" type="button" value="Peu résistant" onclick="resist(this.name)">
+                <input name="moyen" type="button" value="Moyennement résistant" onclick="resist(this.name)">
+                <input name="tres" type="button" value="Très résistant" onclick="resist(this.name)">
+            </div>
+            <input class="retour" name="retourArt7" type="button" value="Question précédente" onclick="retour(this.name)"> 
+    </article>
+
+    <article class="tissusGouts" id="Article8"> 
+      <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
+      <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
+      <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
+      <img id="Tissu4" src="ressources/images-chaises/tissus4.png" alt="Tissu4" height=120px onclick="tissus(this.id)">
+      <img id="Tissu5" src="ressources/images-chaises/tissus5.png" alt="Tissu5" height=120px onclick="tissus(this.id)">
+      <img id="Tissu6" src="ressources/images-chaises/tissus6.png" alt="Tissu6" height=120px onclick="tissus(this.id)">
+      <img id="Tissu7" src="ressources/images-chaises/tissus7.png" alt="Tissu7" height=120px onclick="tissus(this.id)">
+      <img id="Tissu8" src="ressources/images-chaises/tissus8.png" alt="Tissu8" height=120px onclick="tissus(this.id)">
+      <img id="Tissu9" src="ressources/images-chaises/tissus9.png" alt="Tissu9" height=120px onclick="tissus(this.id)">
+        <input class="btnValider" name="validerTissus" type="button" value="Valider" onclick="tissusGouts()">
+        <input class="retour" name="retourArt8" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="tissusGouts" id="Article9">    
+        <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
+        <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)">
+    </article>
+
+    <article class="recapitulatif" id="Article10">
+        <div id="container" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
+        <p id="pAccoud">Accoudoirs :</p>
+
+        <p id="pDossier">Forme du dossier :</p>
+        <p id="pHauteur">Hauteur du dossier :</p>
+        <p id="pLargeur">Largeur du dossier :</p>
+
+        <p id="pAssise">Assise :</p>
+        <p id="pCirc">Circonférence de l'assise :</p>
+        <p id="pEpaisseur">Epaisseur de l'assise :</p>
+        <p id="pProfondeur">Profondeur de l'assise :</p>
+        <p id="pLargeurA">Largeur de l'assise :</p>
+        <p id="pDiametre">Diamètre de l'assise :</p>
+
+        <p id="pTissu">Tissu :</p>
+
+         <button id="validercustom" class="btn btn-default">Valider</button>
+    </article>
+    <button id="annulecustom" class="btn btn-default">Annuler</button>
+    <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+    <script src="webGL.js"></script>
+
+    <script>
+        var dossier="";
+        var formeDossier="";
+        var accoudoir="";
+        var assise="";
+
+        var hauteur;
+        var largeur;
+        var circonference;
+        var epaisseurAssise;
+        var profondeurAssise;
+        var largeurAssise;
+        var diametre;
+
+        var couleurs = [];
+
+        var nbClassique=0;
+        var nbTemporaire=0;
+        var nbClair=0;
+        var nbSombre=0;
+
+
+        var tissuChoisi="";
+        var ancienTissuChoisi="";
+        var tissuChoisiSource="";
+
+        var formatTi="";
+        var resistance="";
+        var prix=0;
+
+        document.getElementById("Article2").style.display="none";
+        document.getElementById("Article3").style.display="none";
+        document.getElementById("Article4").style.display="none";
+        document.getElementById("Article5").style.display="none";
+        document.getElementById("Article6").style.display="none";
+        document.getElementById("Article7").style.display="none";
+        document.getElementById("Article8").style.display="none";
+        document.getElementById("Article9").style.display="none";
+        document.getElementById("Article10").style.display="none";
+        document.getElementById("pDossier").style.display="none";
+        document.getElementById("pHauteur").style.display="none";
+        document.getElementById("pLargeur").style.display="none";
+        document.getElementById("pProfondeur").style.display="none";
+        document.getElementById("pLargeurA").style.display="none";
+        document.getElementById("pDiametre").style.display="none";
+        document.getElementById("pTissu").style.display="none";
+
+        document.getElementById("largeur").style.display="none";
+        document.getElementById("hauteur").style.display="none";
+        document.getElementById("profondeur").style.display="none";
+        document.getElementById("largeurA").style.display="none";
+        document.getElementById("diametre").style.display="none";
+
+        document.getElementById("labellargeur").style.display="none";
+        document.getElementById("labelhauteur").style.display="none";
+        document.getElementById("labelprofondeur").style.display="none";
+        document.getElementById("labellargeurA").style.display="none";
+        document.getElementById("labeldiametre").style.display="none";
+
+        function dos(nom){
+            dossier=nom;
+            document.getElementById("Article1").style.display="none";
+            if(dossier=="oui"){
+              document.getElementById("Article2").style.display="block";
+          }else{
+              document.getElementById("Article3").style.display="block";      
+          }
+        }
+
+        function formeDos(nom){
+            formeDossier=nom;
+            document.getElementById("Article2").style.display="none";
+            document.getElementById("Article3").style.display="block";
+        }
+
+        function accoud(nom){
+            accoudoir=nom;
+            document.getElementById("Article3").style.display="none";
+            document.getElementById("Article4").style.display="block";
+        }
+
+        function assis(nom){
+            assise=nom;
+            document.getElementById("Article4").style.display="none";
+            document.getElementById("Article5").style.display="block";
+            if(dossier=="oui"){       
+            document.getElementById("largeur").style.display="block";
+            document.getElementById("hauteur").style.display="block";
+            document.getElementById("labellargeur").style.display="block";
+            document.getElementById("labelhauteur").style.display="block";
+
+            }
+            if(assise=="ronde"){
+            document.getElementById("diametre").style.display="block";
+            document.getElementById("labeldiametre").style.display="block";
+            }else if(assise=="rectangulaire"){
+            document.getElementById("profondeur").style.display="block";
+            document.getElementById("largeurA").style.display="block";
+            document.getElementById("labelprofondeur").style.display="block";
+            document.getElementById("labellargeurA").style.display="block";
+            }
+        }
+
+        function validerDim(){
+            var correct=true;
+            if(dossier=="oui"){         
+                hauteur = document.getElementById("hauteur").value;
+                largeur = document.getElementById("largeur").value;
+                if(isNaN(parseInt(hauteur)) || isNaN(parseInt(largeur)) || hauteur<=0 || largeur<=0){
+                    correct=false;
+                }
+            }else{
+                hauteur = 0;
+                largeur = 0;
+            }
+            if(assise=="ronde"){
+                diametre = document.getElementById("diametre").value;
+                profondeurAssise = 0;
+                largeurAssise = 0;
+                if(isNaN(parseInt(diametre)) || diametre<=0){
+                    correct=false;
+                }        
+            }else if(assise=="rectangulaire"){
+                profondeurAssise = document.getElementById("profondeur").value;
+                largeurAssise = document.getElementById("largeurA").value;
+                diametre = 0;
+                if(isNaN(parseInt(profondeurAssise)) || isNaN(parseInt(largeurAssise)) || profondeurAssise<=0 || largeurAssise<=0){
+                    correct=false;
+                }
+            }
+            circonference = document.getElementById("circ").value;
+            epaisseurAssise = document.getElementById("epaisseur").value;
+            if(isNaN(parseInt(circonference)) || isNaN(parseInt(epaisseurAssise)) || circonference<=0 || epaisseurAssise<=0){
+                correct=false;
+                    console.log("ici");
+            }
+
+            // console.log(hauteur+" "+largeur+" "+circonference+" "+epaisseurAssise+" "+profondeurAssise+" "+largeurAssise+" "+diametre);
+
+            if(!correct){
+                alert("Veuillez saisir des données supérieures à 0.");
+            }else{
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article6").style.display="block";          
+            }
+        }
+          
+
+       function tissus(id,src){
+            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+
+                var dejaSelectionne;  
+                var type="";
+                var luminosite="";
+
+                if(couleurs.indexOf(id)!=-1){
+                    document.getElementById(id).style.border="solid 5px grey";
+                    var index = couleurs.indexOf(id);
+                    couleurs.splice(index,1);
+                    dejaSelectionne=true;
+                }else{
+                    document.getElementById(id).style.border="solid 5px #FF1493";
+                    couleurs.push(id);
+                    dejaSelectionne=false;
+                }
+
+              for(var i=0; i<data.length;i++){  
+                  if(data[i].nom == id){
+                      type=data[i].type;
+                      luminosite=data[i].luminosite;     
+                    }
+                }
+
+                if(type=="classique"){
+                    if(!dejaSelectionne){
+                        nbClassique++;
+                    }else{
+                        nbClassique--;
+                    }
+                }else if(type=="temporaire"){
+                    if(!dejaSelectionne){
+                        nbTemporaire++;
+                    }else{
+                        nbTemporaire--;
+                    }
+                }
+
+                if(luminosite=="vif"){            
+                    if(!dejaSelectionne){
+                        nbClair++;
+                    }else{
+                        nbClair--;
+                    }
+                }else if(luminosite=="eteint"){         
+                    if(!dejaSelectionne){
+                        nbSombre++;
+                    }else{
+                        nbSombre--;
+                    }
+                }
+                type="";  
+                luminosite="";
+            });
+        
+        }
+
+        function tissusGouts(){
+            if(couleurs.length!=0){
+
+                $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+
+                    document.getElementById("Article8").style.display="none";
+                    document.getElementById("Article9").style.display="block";
+
+                    var n;
+                    var s="";
+
+                    var typeSelectionne="";
+                    var luminositeSelectionne="";
+                    var resistanceSelectionne=0;
+
+                    var imgInsere=false;
+
+                    if(nbClassique>nbTemporaire){
+                        typeSelectionne="classique";
+                    }else if(nbClassique<nbTemporaire){
+                        typeSelectionne="temporaire";
+                    }else{
+                        typeSelectionne="egalite";
+                    }
+
+                    if(nbClair>nbSombre){
+                        luminositeSelectionne="vif";
+                    }else if(nbClair<nbSombre){
+                        luminositeSelectionne="eteint";
+                    }else{
+                        luminositeSelectionne="egalite";
+                    }
+
+                    if(resistance=="peu"){
+                        resistanceSelectionne=1;
+                    }else if(resistance=="moyen"){
+                        resistanceSelectionne=2;
+                    }else if(resistance=="tres"){
+                        resistanceSelectionne=3;
+                    }
+
+                    for(var i=0; i<data.length;i++){   
+                        if(data[i].resistance == resistanceSelectionne){
+                            if(data[i].type == typeSelectionne && data[i].luminosite == luminositeSelectionne){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].type == typeSelectionne && luminositeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].luminosite == luminositeSelectionne && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(luminositeSelectionne == "egalite" && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }
+                            if(imgInsere && formatTi=="housse"){
+                                s+="<p>"+data[i].phousse+"€</p>";
+                                prix=data[i].phousse;
+                            }else if(imgInsere && formatTi=="metre"){
+                                s+="<p>"+data[i].pmetre+"€</p>";
+                                prix=data[i].pmetre;
+                            }
+                            imgInsere=false;
+                        }
+                    }
+       
+                    n=$(s);
+                    n.insertBefore("#validTissu");
+                });
+            }else{
+                alert("Veuillez sélectionner au moins un tissu.");
+            }
+        }
+
+
+        /*Pour la sélection du tissu*/
+        function imgTissus(id,src){ 
+            if(ancienTissuChoisi!=""){//Efface la dernière sélection du tisssu
+                 document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+            } 
+
+            tissuChoisi=id;//Sauvegarde le tissu choisi
+            ancienTissuChoisi=id;//Sauvegarde le tissu en tant que dernier tissu choisi  
+
+            tissuChoisiSource=src;//Sauvegarde le tissu choisi
+
+            document.getElementById(id).style.border="solid 5px #FF1493";//Modifie la bordure de l'élément
+        }
+
+        function validerTissu(){
+            if(tissuChoisiSource!=""){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article10").style.display="block";
+
+                init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
+            }else{           
+                alert("Veuillez sélectionner un tissu.");
+            }
+            /*   
+
+        <p id="pProfondeur">Profondeur de l'assise :</p>
+        <p id="pLargeurA">Largeur de l'assise :</p>
+        <p id="pDiametre">Diamètre de l'assise :</p>
+
+        <p id="pTissu">Tissu :</p>
+
+        var profondeurAssise;
+        var largeurAssise;
+        var diametre;
+
+
+        var tissuChoisi="";
+
+        */
+     /*   document.getElementById("pAccoud").innerHTML=accoudoir; 
+
+        if(dossier=="oui"){
+            document.getElementById("pDossier").style.display="block";  
+            document.getElementById("pHauteur").style.display="block"; 
+            document.getElementById("pLargeur").style.display="block";  
+
+            document.getElementById("pDossier").innerHTML=formeDossier;   
+            document.getElementById("pHauteur").innerHTML=hauteur;     
+            document.getElementById("pLargeur").innerHTML=largeur;        
+        } 
+
+        document.getElementById("pAssise").innerHTML=assise; 
+        document.getElementById("pCirc").innerHTML=circonference; 
+        document.getElementById("pEpaisseur").innerHTML=epaisseurAssise; 
+
+        if(profondeurAssise!=0){
+            document.getElementById("pDossier").style.display="block";  
+        }*/
+
+
+
+        }
+
+        function retour(nom){
+            if(nom=="retourArt2"){
+                document.getElementById("Article2").style.display="none";
+                document.getElementById("Article1").style.display="block";
+            }else if(nom=="retourArt3"){
+                document.getElementById("Article3").style.display="none";
+                document.getElementById("Article2").style.display="block";
+            }else if(nom=="retourArt4"){
+                document.getElementById("Article4").style.display="none";
+                document.getElementById("Article3").style.display="block";
+            }else if(nom=="retourArt5"){
+                document.getElementById("Article5").style.display="none";
+                document.getElementById("Article4").style.display="block";
+            }else if(nom=="retourArt6"){
+                document.getElementById("Article6").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt7"){
+                document.getElementById("Article7").style.display="none";
+                document.getElementById("Article5").style.display="block";
+            }else if(nom=="retourArt8"){
+                document.getElementById("Article8").style.display="none";
+                document.getElementById("Article7").style.display="block";
+            }else if(nom=="retourArt9"){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article8").style.display="block";
+            }else if(nom=="retourArt10"){
+                document.getElementById("Article10").style.display="none";
+                document.getElementById("Article9").style.display="block";
+            }
+            
+        }
+
+        function envoieRest(){
+            $.ajax({
+                type : 'POST',
+                contentType : 'application/json',
+                url : url,
+                dataType : "json",
+                data : JSON.stringify({
+                    "dossier" : dossier,
+                    "formeDossier" : formeDossier,
+                    "accoudoir" : accoudoir,
+                    "assise" : assise,
+                    "hauteur" : hauteur,
+                    "largeur" : largeur,
+                    "circonference" : circonference,
+                    "profondeurAssise" : profondeurAssise,
+                    "largeurAssise" : largeurAssise,
+                    "diametre" : diametre,
+                    "tissu" : tissuChoisi,
+                    "prix" : prix,
+                }),
+                success : function(data, textStatus, jqXHR) {
+                    document.location.href="connexion.html"; 
+                    afficheUser(data);
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    $('#error').show();
+                    console.log('postUser error: ' + textStatus);
+                }
+            });
+        }
+
+        function formatTissu(nom){
+            formatTi=nom;
+            document.getElementById("Article6").style.display="none";
+            document.getElementById("Article7").style.display="block";
+        }
+
+        function resist(nom){
+            resistance=nom;
+            document.getElementById("Article7").style.display="none";
+            document.getElementById("Article8").style.display="block";
+        }
+
+    </script>
       </div>
     <!--FIN CUSTOM -->
-
+    
     <!-- PAGE CONNEXION -->
     <div id = "page-connexion" class="pconnexion">
       <center>

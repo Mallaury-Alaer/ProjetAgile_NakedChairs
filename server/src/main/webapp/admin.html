@@ -88,17 +88,18 @@
               <ul class="navvertical">
                 <li><button type="button" id="listUser-bdd" class="btn listerusers">Clients</button></li>
                 <li><button type="button" id="listFournisseur-bdd" class="btn listerFournisseur">Fournisseurs</button></li>
+                <li><button type="button" id="listCollaborateur-bdd" class="btn listerCollaborateur">Collaborateur</button></li>
                 <li><button type="button" id="listCommandes-bdd" class="btn listerCommandes">Commandes</button></li>                
               </ul>
            </div>
         
 
-    </div>
-
-    </div>
-	<
     <div class="row" style="margin-top: 1em;">
             <div class="panel-body" id="reponse">
+              <script> displayNotif();</script>
+
+
+              </table>  
             </div>
         </div>
     </div>
@@ -128,7 +129,8 @@
  <script type="text/javascript">
 			$(document).ready(function() {
 				$("#listUser-bdd").click(function () {listOnlyUsersBdd()});
-				$("#listFournisseur-bdd").click(function () {listOnlyFournisseurBdd()});
+				$("#listFournisseur-bdd").click(function () {listOnlyFournisseurBdd("fournisseur")});
+        $("#listCollaborateur-bdd").click(function () {listOnlyFournisseurBdd("collaborateur")});
 			});
     </script> 
 

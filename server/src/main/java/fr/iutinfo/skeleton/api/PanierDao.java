@@ -25,5 +25,10 @@ public interface PanierDao {
     @SqlQuery("select * from panier")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<Panier> affiche();
+    
+    @SqlUpdate("delete from panier where id = :id")
+    void delete(@Bind("nom") int id);
+    
+    void close();
 
 }

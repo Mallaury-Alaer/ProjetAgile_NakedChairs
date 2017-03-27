@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -57,6 +58,12 @@ public class PanierResource {
 	        panier.initFromDto(dto);
 	        dao.insert(panier);
 	        return dto;
+	    }
+	    
+	    @DELETE
+	    @Path("/{id}")
+	    public void deleteAssocie(@PathParam("id") int id) {
+	        dao.delete(id);
 	    }
 
 }

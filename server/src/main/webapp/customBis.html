@@ -279,7 +279,7 @@
             <div>
                 <input name="peu" type="button" value="Peu résistant" onclick="resist(this.name)">
                 <input name="moyen" type="button" value="Moyennement résistant" onclick="resist(this.name)">
-                <input name="tres" type="button" value="Très résistant" onclick="resistresist(this.name)">
+                <input name="tres" type="button" value="Très résistant" onclick="resist(this.name)">
             </div>
             <input class="retour" name="retourArt7" type="button" value="Question précédente" onclick="retour(this.name)"> 
     </article>
@@ -361,6 +361,7 @@
 
         var formatTi="";
         var resistance="";
+        var prix=0;
 
         document.getElementById("Article2").style.display="none";
         document.getElementById("Article3").style.display="none";
@@ -539,70 +540,78 @@
         }
 
         function tissusGouts(){
-            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+            if(couleurs.length!=0){
 
-                document.getElementById("Article8").style.display="none";
-                document.getElementById("Article9").style.display="block";
+                $.getJSON("http://localhost:8080/v1/tissu", function(data) {
 
-                var n;
-                var s="";
+                    document.getElementById("Article8").style.display="none";
+                    document.getElementById("Article9").style.display="block";
 
-                var typeSelectionne="";
-                var luminositeSelectionne="";
-                var resistanceSelectionne=0;
+                    var n;
+                    var s="";
 
-                if(nbClassique>nbTemporaire){
-                    typeSelectionne="classique";
-                }else if(nbClassique<nbTemporaire){
-                    typeSelectionne="temporaire";
-                }else{
-                    typeSelectionne="egalite";
-                }
+                    var typeSelectionne="";
+                    var luminositeSelectionne="";
+                    var resistanceSelectionne=0;
 
-                if(nbClair>nbSombre){
-                    luminositeSelectionne="vif";
-                }else if(nbClair<nbSombre){
-                    luminositeSelectionne="eteint";
-                }else{
-                    luminositeSelectionne="egalite";
-                }
+                    var imgInsere=false;
 
-                if(resistance=="peu"){
-                    resistanceSelectionne=1;
-                }else if(resistance=="moyen"){
-                    resistanceSelectionne=2;
-                }else if(resistance=="tres"){
-                    resistanceSelectionne=3;
-                }
+                    if(nbClassique>nbTemporaire){
+                        typeSelectionne="classique";
+                    }else if(nbClassique<nbTemporaire){
+                        typeSelectionne="temporaire";
+                    }else{
+                        typeSelectionne="egalite";
+                    }
 
-                if(formatTissu=="housse"){
-                    fTissu="phousse";
-                }else if(resistance=="metre"){
-                    fTissu="pmetre";
-                }
+                    if(nbClair>nbSombre){
+                        luminositeSelectionne="vif";
+                    }else if(nbClair<nbSombre){
+                        luminositeSelectionne="eteint";
+                    }else{
+                        luminositeSelectionne="egalite";
+                    }
 
-                for(var i=0; i<data.length;i++){   
-                    if(data[i].resistance == resistanceSelectionne){
-                        if(data[i].type == typeSelectionne && data[i].luminosite == luminositeSelectionne){
-                            s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
-                        }else if(data[i].type == typeSelectionne && luminositeSelectionne=="egalite"){
-                            s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
-                        }else if(data[i].luminosite == luminositeSelectionne && typeSelectionne=="egalite"){
-                            s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
-                        }else if(luminositeSelectionne == "egalite" && typeSelectionne=="egalite"){
-                            s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
-                        }
-                        if(formatTissu=="housse"){
-                            s+="<p>"+data[i].phousse+"€</p>";
-                        }else if(resistance=="metre"){
-                            s+="<p>"+data[i].pmetre+"€</p>";
+                    if(resistance=="peu"){
+                        resistanceSelectionne=1;
+                    }else if(resistance=="moyen"){
+                        resistanceSelectionne=2;
+                    }else if(resistance=="tres"){
+                        resistanceSelectionne=3;
+                    }
+
+                    for(var i=0; i<data.length;i++){   
+                        if(data[i].resistance == resistanceSelectionne){
+                            if(data[i].type == typeSelectionne && data[i].luminosite == luminositeSelectionne){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].type == typeSelectionne && luminositeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(data[i].luminosite == luminositeSelectionne && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }else if(luminositeSelectionne == "egalite" && typeSelectionne=="egalite"){
+                                s+="<img id=\"imgTissu"+(i+1)+"\" src=\"ressources/images-chaises/tissus"+(i+1)+".png\" alt=\"Tissu"+(i+1)+"\" height=120px onclick=\"imgTissus(this.id,this.src)\">";
+                                imgInsere=true;
+                            }
+                            if(imgInsere && formatTi=="housse"){
+                                s+="<p>"+data[i].phousse+"€</p>";
+                                prix=data[i].phousse;
+                            }else if(imgInsere && resistance=="metre"){
+                                s+="<p>"+data[i].pmetre+"€</p>";
+                                prix=data[i].pmetre;
+                            }
+                            imgInsere=false;
                         }
                     }
-                }
-   
-                n=$(s);
-                n.insertBefore("#validTissu");
-            });
+       
+                    n=$(s);
+                    n.insertBefore("#validTissu");
+                });
+            }else{
+                alert("Veuillez sélectionner au moins un tissu.");
+            }
         }
 
 
@@ -621,10 +630,14 @@
         }
 
         function validerTissu(){
-            document.getElementById("Article9").style.display="none";
-            document.getElementById("Article10").style.display="block";
+            if(tissuChoisiSource!=""){
+                document.getElementById("Article9").style.display="none";
+                document.getElementById("Article10").style.display="block";
 
-            init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
+                init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
+            }else{           
+                alert("Veuillez sélectionner un tissu.");
+            }
             /*   
 
         <p id="pProfondeur">Profondeur de l'assise :</p>
@@ -714,7 +727,8 @@
                     "profondeurAssise" : profondeurAssise,
                     "largeurAssise" : largeurAssise,
                     "diametre" : diametre,
-                    "tissu" : tissu
+                    "tissu" : tissuChoisi,
+                    "prix" : prix,
                 }),
                 success : function(data, textStatus, jqXHR) {
                     document.location.href="connexion.html"; 

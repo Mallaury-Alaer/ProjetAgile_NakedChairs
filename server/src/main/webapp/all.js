@@ -60,9 +60,7 @@ function postUserBdd(name, role, email, pwd) {
 }
 
 function postUserGeneric(name, role, email, pwd, url) {
-	
-		
-	
+	console.log("postUserGeneric " + url)
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -76,7 +74,7 @@ function postUserGeneric(name, role, email, pwd, url) {
 			"id" : 0
 		}),
 		success : function(data, textStatus, jqXHR) {
-			document.location.href="connexion.html"; 
+			redirect(); 
 			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -84,6 +82,16 @@ function postUserGeneric(name, role, email, pwd, url) {
 			console.log('postUser error: ' + textStatus);
 		}
 	});
+}
+function redirect() {
+            document.title = "NakedChairs | Connexion";
+            $("#page-accueil").hide();
+            $(".about").hide();
+            $(".forum").hide();
+            $(".categ-forum").hide();
+            $(".custom").hide();
+            $(".pconnexion").show();
+            $(".inscription").hide();
 }
 
 function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,dispo) {

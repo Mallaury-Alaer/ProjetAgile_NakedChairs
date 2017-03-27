@@ -75,4 +75,5 @@ public class AssocieDto {
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
+	
 }

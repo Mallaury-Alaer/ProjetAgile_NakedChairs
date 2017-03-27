@@ -5,7 +5,16 @@ import fr.iutinfo.skeleton.common.dto.AssocieDto;
 public class Associe {
 	String foc,nom,adresse,ville,type,statut,diplome,mail;
 	int annexp,heuresSemaine,telephone,valide;
+	int id =0;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getValide() {
 		return valide;
 	}

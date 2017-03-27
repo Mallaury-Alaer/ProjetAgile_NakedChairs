@@ -237,7 +237,7 @@
     </article>
 
     <article class="dimension" id="Article5"> 
-        <p>Veuillez entrer les dimensions de votre siège :</p>
+        <p>Veuillez entrer les dimensions de votre siège (en cm) :</p>
         <form id="formDimension" method="post" action="">
 	        <div class="groupeDim">
 	            <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
@@ -276,7 +276,7 @@
     </article>
 
     <article class="question" id="Article6">  
-        <p>Dans quel format désirez-vous le tissu ?</p>
+        <p>Dans quel format désirez-vous votre tissu ?</p>
             <div>
                 <input name="housse" type="button" value="En housse" onclick="formatTissu(this.name)">
                 <input name="metre" type="button" value="Au mètre" onclick="formatTissu(this.name)">
@@ -295,6 +295,7 @@
     </article>
 
     <article class="tissusGouts" id="Article8"> 
+        <p>Sélectionnez les tissus que vous aimez :</p>
       <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
       <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
       <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
@@ -309,6 +310,7 @@
     </article>
 
     <article class="tissusGouts" id="Article9">  
+        <p>Choisissez votre tissu :</p>
         <div id="tissusImg"></div>  
         <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
         <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)">
@@ -328,6 +330,8 @@
         <p id="pProfondeur">Profondeur de l'assise :</p>
         <p id="pLargeurA">Largeur de l'assise :</p>
         <p id="pDiametre">Diamètre de l'assise :</p>
+
+        <input id="validCommande" class="btnValider" name="validCommande" type="button" value="Ajouter au panier" onclick="envoieRest()">
 
         <input class="retour" name="retourArt10" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
@@ -409,7 +413,8 @@
             if(dossier=="oui"){
             	document.getElementById("Article2").style.display="block";
         	}else{
-            	document.getElementById("Article3").style.display="block";  		
+                accoudoir="non";
+            	document.getElementById("Article4").style.display="block";  		
         	}
         }
 
@@ -504,7 +509,7 @@
           
 
        function tissus(id,src){
-            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+            $.getJSON("/v1/tissu", function(data) {
 
                 var dejaSelectionne;  
                 var type="";
@@ -564,7 +569,7 @@
         function tissusGouts(){
             if(couleurs.length!=0){
 
-                $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+                $.getJSON("/v1/tissu", function(data) {
 
                     document.getElementById("Article8").style.display="none";
                     document.getElementById("Article9").style.display="block";
@@ -740,30 +745,23 @@
             $.ajax({
                 type : 'POST',
                 contentType : 'application/json',
-                url : url,
+                url : "/v1/panier",
                 dataType : "json",
                 data : JSON.stringify({
                     "dossier" : dossier,
                     "formeDossier" : formeDossier,
                     "accoudoir" : accoudoir,
                     "assise" : assise,
+                    "tissu" : tissuChoisi,
+                    "utilisateur" : "test",
                     "hauteur" : hauteur,
                     "largeur" : largeur,
                     "circonference" : circonference,
                     "profondeurAssise" : profondeurAssise,
                     "largeurAssise" : largeurAssise,
                     "diametre" : diametre,
-                    "tissu" : tissuChoisi,
-                    "prix" : prix,
-                }),
-                success : function(data, textStatus, jqXHR) {
-                    document.location.href="connexion.html"; 
-                    afficheUser(data);
-                },
-                error : function(jqXHR, textStatus, errorThrown) {
-                    $('#error').show();
-                    console.log('postUser error: ' + textStatus);
-                }
+                    "prix" : prix
+                })
             });
         }
 

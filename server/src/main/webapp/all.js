@@ -60,7 +60,9 @@ function postUserBdd(name, role, email, pwd) {
 }
 
 function postUserGeneric(name, role, email, pwd, url) {
-	console.log("postUserGeneric " + url)
+	
+		
+	
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -225,7 +227,7 @@ function afficheOnlyFournisseur(data,foc) {
 	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		if(data[index].foc==foc /*&& data[index].valide!=0*/){
+		if(data[index].foc==foc && data[index].valide!=0){
 				 html+="<tr>";
     			 html+="<td>"+data[index].nom+"</td>";
               	 html+="<td>"+data[index].adresse+"</td>";
@@ -311,7 +313,7 @@ function displayNotification(data){
 					 "contentType : \'application/json\',"+
 					 "url : \"v1/associe/"+data[index].nom+"\","+
 					 "dataType : \"json\","+
-					 "data : JSON.stringify({ \"email\" :\""+ data[index].nom+"\" }),"+
+					 "data : JSON.stringify({ \"nom\" :\""+ data[index].nom+"\" }),"+
 					 "success : function(data, textStatus, jqXHR) {"+
 					 "displayNotif();"+
 					 "},"+
@@ -324,11 +326,11 @@ function displayNotification(data){
 				js+= "$(\"#valide-foc"+index+"\").click(function(){" +
 				"if (confirm(\"Êtes-vous certain de vouloir valider l'utilisateur "+data[index].nom+" ?\") == true){"+
 					"$.ajax({"+ 
-					 "type : \'VALIDE\',"+
+					 "type : \'PUT\',"+
 					 "contentType : \'application/json\',"+
 					 "url : \"v1/associe/"+data[index].nom+"\","+
 					 "dataType : \"json\","+
-					 "data : JSON.stringify({ \"valide\" :\""+ 1+"\" }),"+
+					 //"data : JSON.stringify({ \"nom\" :\""+ data[index].nom+"\" }),"+
 					 "success : function(data, textStatus, jqXHR) {"+
 					 "displayNotif();"+
 					 "},"+
@@ -346,4 +348,6 @@ function displayNotification(data){
 	$("#test").html(js);
 }
 
-
+function listerCommandesAdmin(){
+	
+}

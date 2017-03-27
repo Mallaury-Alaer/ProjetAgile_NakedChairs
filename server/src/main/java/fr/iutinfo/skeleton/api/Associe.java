@@ -3,9 +3,17 @@ package fr.iutinfo.skeleton.api;
 import fr.iutinfo.skeleton.common.dto.AssocieDto;
 
 public class Associe {
-	String foc,nom,adresse,ville,type,statut,diplome,mail,telephone;
+	String foc,nom,adresse,ville,type,statut,diplome,mail,telephone,dispo;
 	int annexp,heuresSemaine,valide;
 	int id =0;
+	
+	public String getDispo() {
+		return dispo;
+	}
+
+	public void setDispo(String dispo) {
+		this.dispo = dispo;
+	}
 	
 	public int getId() {
 		return id;
@@ -43,7 +51,7 @@ public class Associe {
 		
 	}
 	
-	public Associe(String foc,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,String telephone,int annexp,int heuresSemaine,int valide){
+	public Associe(String foc,String nom,String adresse,String ville,String type,String statut,String diplome,String mail,String telephone,int annexp,int heuresSemaine,int valide,String dispo){
 		this.nom = nom;
 		this.foc = foc;
 		this.adresse = adresse;
@@ -56,6 +64,7 @@ public class Associe {
 		this.mail = mail;
 		this.telephone = telephone;
 		this.valide = valide;
+		this.dispo = dispo;
 	}
 
 	public String getFoc() {
@@ -143,6 +152,7 @@ public class Associe {
         dto.setMail(this.getMail());
         dto.setTelephone(this.getTelephone());
         dto.setValide(this.getValide());
+        dto.setDispo(this.getDispo());
         return dto;
     }
     public void initFromDto(AssocieDto dto) {
@@ -158,5 +168,6 @@ public class Associe {
         this.setMail(dto.getMail());
         this.setTelephone(dto.getTelephone());
         this.setValide(dto.getValide());
+        this.setDispo(dto.getDispo());
     } 
 }

@@ -11,10 +11,10 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface AssocieDao {
-    @SqlUpdate("create table associe (nom varchar(100) primary key,foc varchar(100),adresse varchar(100),ville varchar(100), type varchar(100),statut varchar(100),diplome varchar(100), annexp integer,heuresSemaine integer,mail varchar(100),telephone varchar(100),valide integer);")
+    @SqlUpdate("create table associe (nom varchar(100) primary key,foc varchar(100),adresse varchar(100),ville varchar(100), type varchar(100),statut varchar(100),diplome varchar(100), annexp integer,heuresSemaine integer,mail varchar(100),telephone varchar(100),valide integer, dispo varchar(100));")
     void createUserTable();
     
-    @SqlUpdate("insert into associe values (:nom, :foc , :adresse, :ville, :type, :statut, :diplome, :annexp, :heuresSemaine, :mail, :telephone, :valide)")
+    @SqlUpdate("insert into associe values (:nom, :foc , :adresse, :ville, :type, :statut, :diplome, :annexp, :heuresSemaine, :mail, :telephone, :valide, :dispo)")
     @GetGeneratedKeys
     int insert(@BindBean() Associe associe);
     

@@ -1,7 +1,13 @@
 package fr.iutinfo.skeleton.common.dto;
 
 public class AssocieDto {
-	private String foc,nom,adresse,ville,type,statut,diplome,mail,telephone;
+	private String foc,nom,adresse,ville,type,statut,diplome,mail,telephone,dispo;
+	public String getDispo() {
+		return dispo;
+	}
+	public void setDispo(String dispo) {
+		this.dispo = dispo;
+	}
 	private int annexp,heuresSemaine,valide;
 	public String getFoc() {
 		return foc;

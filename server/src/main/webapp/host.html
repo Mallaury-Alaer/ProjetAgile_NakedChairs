@@ -91,19 +91,20 @@
           
 			<div class="col-md-6 col-md-offset-3">
                 <div class="envoiimage">
-                   <!-- <form id="data" method="post" enctype="multipart/form-data"> -->
+                  <form id="data" method="post" enctype="multipart/form-data" action="/upload">
+                  <input type="file" name="file" >
 				<div class="form-group">
-					<label for="inputFile">Héberger une image:</label> <input type="file" id="inputFile" />
-					<p class="help-block">Formats PNG et JPEG autorisés.</p>
+							<label for="inputFile">Héberger une image:</label>
+							<p class="help-block">Formats PNG et JPEG autorisés.</p>
 				</div>
                 <label for="desc">Titre:</label><br />
                 <input type="text" id="titre" size="50"><br />
                 <label for="desc">Description:</label><br />
                 <textarea class="desc" rows="6" cols="60" id="desc"></textarea><br />
-                <br/>
-                Votre image sera disponible pendant un mois sur le site. Après ça, elle sera supprimée.
+                    <p class="help-block">Votre image sera disponible pendant un mois sur le site. Après ça, elle sera supprimée.</p>
 				<button type="submit" id="submit" class="btn btn-default">Envoyer</button>
-                      <!--  </form> -->
+                    
+                      </form>
                 </div>
 			</div>
 
@@ -138,19 +139,5 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ressources/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
-     <script>$('#submit').click(function() {
-             var reader= new FileReader();
-             document.querySelector('#inputFile').addEventListener('change', function() {
-                 reader.readAsText(file,'UTF-8');
-                console.log(this.files[0].name.split('.')[0] + "," + $('#titre').val() + "," + ",");
-            })             
-            // $('.envoiimage').text('aaaa');
-             if (document.getElementById('#inputFile') === null) {
-                 alert("Veuillez choisir une image.");
-             } else {
-                 alert("Cool");
-             }
-             });
-             </script>
 </html>
 

@@ -18,51 +18,51 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import fr.iutinfo.skeleton.common.dto.ImageDto;
-import fr.iutinfo.skeleton.common.dto.TissuDto;
 
 @Path("/images")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ImageResource {
-    private static ImageDAO dao = getDbi().open(ImageDAO.class);
+	private static ImageDAO dao = getDbi().open(ImageDAO.class);
 
-    public ImageResource() throws SQLException {
-        if (!tableExist("images")) {
-            dao.createUserTable();
-            dao.insert(new Image("dieu","admin@admin.admin", "admin", "01-01-2000"));
-        }
-    }
-    @GET
-    public List<ImageDto> getAllImages() {
-        List<Image> image;
-        image= dao.affiche();
+	public ImageResource() throws SQLException {
+		if (!tableExist("images")) {
+			dao.createUserTable();
+			dao.insert(new Image("dieu", "admin@admin.admin", "admin", "01-01-2000"));
+		}
+	}
 
-        return image.stream().map(Image::convertToDto).collect(Collectors.toList());
-    }
+	@GET
+	public List<ImageDto> getAllImages() {
+		List<Image> image;
+		image = dao.affiche();
 
-    @POST
-    public ImageDto createImage(ImageDto dto) {
-        Image image = new Image();
-        image.initFromDto(dto);
-        int id = dao.insert(image);
-        dto.setId(id);
-        return dto;
-    }
+		return image.stream().map(Image::convertToDto).collect(Collectors.toList());
+	}
 
-    @GET
-    @Path("/{id}")
-    public ImageDto getId(@PathParam("id") int id) {
-        Image image = dao.findById(id);
-        if (image == null) {
-            throw new WebApplicationException(404);
-        }
-        return image.convertToDto();
-    }
-    
-    @DELETE
-    @Path("/{id}")
-    public void deleteUser(@PathParam("id") int id) {
-        dao.delete(id);
-    }
+	@POST
+	public ImageDto createImage(ImageDto dto) {
+		Image image = new Image();
+		image.initFromDto(dto);
+		int id = dao.insert(image);
+		dto.setId(id);
+		return dto;
+	}
+
+	@GET
+	@Path("/{id}")
+	public ImageDto getId(@PathParam("id") int id) {
+		Image image = dao.findById(id);
+		if (image == null) {
+			throw new WebApplicationException(404);
+		}
+		return image.convertToDto();
+	}
+
+	@DELETE
+	@Path("/{id}")
+	public void deleteUser(@PathParam("id") int id) {
+		dao.delete(id);
+	}
 
 }

@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ImageDAO {
-    @SqlUpdate("create table images (id integer primary key autoincrement, title char(75), url char(512), date char(10), desc char(1024))")
+    @SqlUpdate("create table images (id integer primary key autoincrement, title char(75), url char(350000), date char(10), desc char(1024))")
     void createUserTable();
 
     @SqlUpdate("insert into images (title,url,date,desc) values (:title,:url,:date,:desc)")

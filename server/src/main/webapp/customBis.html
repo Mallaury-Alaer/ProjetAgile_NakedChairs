@@ -143,6 +143,16 @@
         font-size:100%;
     }
 
+    .recapitulatif{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #webGLVisu{
+        margin-bottom:30px;
+    }
+
     html{ 
         position: relative;
         min-height: 100%;
@@ -298,13 +308,14 @@
         <input class="retour" name="retourArt8" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
-    <article class="tissusGouts" id="Article9">    
+    <article class="tissusGouts" id="Article9">  
+        <div id="tissusImg"></div>  
         <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
         <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
     <article class="recapitulatif" id="Article10">   
-        <div id="container" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
+        <div id="webGLVisu" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
         <p id="pAccoud">Accoudoirs :</p>
 
         <p id="pDossier">Forme du dossier :</p>
@@ -318,7 +329,7 @@
         <p id="pLargeurA">Largeur de l'assise :</p>
         <p id="pDiametre">Diamètre de l'assise :</p>
 
-        <p id="pTissu">Tissu :</p>
+        <input class="retour" name="retourArt10" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
     <!-- FOOTER -->
@@ -372,13 +383,13 @@
         document.getElementById("Article8").style.display="none";
         document.getElementById("Article9").style.display="none";
         document.getElementById("Article10").style.display="none";
+
         document.getElementById("pDossier").style.display="none";
         document.getElementById("pHauteur").style.display="none";
         document.getElementById("pLargeur").style.display="none";
         document.getElementById("pProfondeur").style.display="none";
         document.getElementById("pLargeurA").style.display="none";
         document.getElementById("pDiametre").style.display="none";
-        document.getElementById("pTissu").style.display="none";
 
         document.getElementById("largeur").style.display="none";
         document.getElementById("hauteur").style.display="none";
@@ -415,6 +426,19 @@
         }
 
         function assis(nom){
+
+            document.getElementById("largeur").style.display="none";
+            document.getElementById("hauteur").style.display="none";
+            document.getElementById("profondeur").style.display="none";
+            document.getElementById("largeurA").style.display="none";
+            document.getElementById("diametre").style.display="none";
+
+            document.getElementById("labellargeur").style.display="none";
+            document.getElementById("labelhauteur").style.display="none";
+            document.getElementById("labelprofondeur").style.display="none";
+            document.getElementById("labellargeurA").style.display="none";
+            document.getElementById("labeldiametre").style.display="none";
+
             assise=nom;
             document.getElementById("Article4").style.display="none";
             document.getElementById("Article5").style.display="block";
@@ -469,8 +493,6 @@
                 correct=false;
                     console.log("ici");
             }
-
-            // console.log(hauteur+" "+largeur+" "+circonference+" "+epaisseurAssise+" "+profondeurAssise+" "+largeurAssise+" "+diametre);
 
             if(!correct){
                 alert("Veuillez saisir des données supérieures à 0.");
@@ -546,6 +568,7 @@
 
                     document.getElementById("Article8").style.display="none";
                     document.getElementById("Article9").style.display="block";
+                    document.getElementById("tissusImg").innerHTML="";
 
                     var n;
                     var s="";
@@ -598,7 +621,7 @@
                             if(imgInsere && formatTi=="housse"){
                                 s+="<p>"+data[i].phousse+"€</p>";
                                 prix=data[i].phousse;
-                            }else if(imgInsere && resistance=="metre"){
+                            }else if(imgInsere && formatTi=="metre"){
                                 s+="<p>"+data[i].pmetre+"€</p>";
                                 prix=data[i].pmetre;
                             }
@@ -607,7 +630,7 @@
                     }
        
                     n=$(s);
-                    n.insertBefore("#validTissu");
+                    n.appendTo("#tissusImg");
                 });
             }else{
                 alert("Veuillez sélectionner au moins un tissu.");
@@ -630,51 +653,54 @@
         }
 
         function validerTissu(){
+
+            document.getElementById("pDossier").style.display="none";
+            document.getElementById("pHauteur").style.display="none";
+            document.getElementById("pLargeur").style.display="none";
+            document.getElementById("pProfondeur").style.display="none";
+            document.getElementById("pLargeurA").style.display="none";
+            document.getElementById("pDiametre").style.display="none";
+
             if(tissuChoisiSource!=""){
                 document.getElementById("Article9").style.display="none";
                 document.getElementById("Article10").style.display="block";
+                document.getElementById("webGLVisu").innerHTML="";
 
                 init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
             }else{           
                 alert("Veuillez sélectionner un tissu.");
             }
-            /*   
 
-        <p id="pProfondeur">Profondeur de l'assise :</p>
-        <p id="pLargeurA">Largeur de l'assise :</p>
-        <p id="pDiametre">Diamètre de l'assise :</p>
+            document.getElementById("pAccoud").innerHTML="Accoudoirs : "+accoudoir; 
 
-        <p id="pTissu">Tissu :</p>
+            if(dossier=="oui"){
+                document.getElementById("pDossier").style.display="block";  
+                document.getElementById("pHauteur").style.display="block"; 
+                document.getElementById("pLargeur").style.display="block";  
 
-        var profondeurAssise;
-        var largeurAssise;
-        var diametre;
+                document.getElementById("pDossier").innerHTML="Forme du dossier : "+formeDossier;   
+                document.getElementById("pHauteur").innerHTML="Hauteur du dossier : "+hauteur;     
+                document.getElementById("pLargeur").innerHTML="Largeur du dossier : "+largeur;        
+            } 
 
+            document.getElementById("pAssise").innerHTML="Assise : "+assise; 
+            document.getElementById("pCirc").innerHTML="Circonférence de l'assise : "+circonference; 
+            document.getElementById("pEpaisseur").innerHTML="Epaisseur de l'assise : "+epaisseurAssise; 
 
-        var tissuChoisi="";
+            if(profondeurAssise!=0){
+                document.getElementById("pProfondeur").style.display="block";  
+                document.getElementById("pProfondeur").innerHTML="Profondeur de l'assise : "+profondeurAssise;  
+            }
 
-        */
-     /*   document.getElementById("pAccoud").innerHTML=accoudoir; 
+            if(largeurAssise!=0){
+                document.getElementById("pLargeurA").style.display="block";  
+                document.getElementById("pLargeurA").innerHTML="Largeur de l'assise : "+largeurAssise;  
+            }
 
-        if(dossier=="oui"){
-            document.getElementById("pDossier").style.display="block";  
-            document.getElementById("pHauteur").style.display="block"; 
-            document.getElementById("pLargeur").style.display="block";  
-
-            document.getElementById("pDossier").innerHTML=formeDossier;   
-            document.getElementById("pHauteur").innerHTML=hauteur;     
-            document.getElementById("pLargeur").innerHTML=largeur;        
-        } 
-
-        document.getElementById("pAssise").innerHTML=assise; 
-        document.getElementById("pCirc").innerHTML=circonference; 
-        document.getElementById("pEpaisseur").innerHTML=epaisseurAssise; 
-
-        if(profondeurAssise!=0){
-            document.getElementById("pDossier").style.display="block";  
-        }*/
-
-
+            if(diametre!=0){
+                document.getElementById("pDiametre").style.display="block";  
+                document.getElementById("pDiametre").innerHTML="Diamètre de l'assise : "+diametre;  
+            }
 
         }
 

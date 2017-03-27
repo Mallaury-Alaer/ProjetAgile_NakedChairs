@@ -30,7 +30,10 @@ public class PanierResource {
 	            dao.createUserTable();
 	            dao.insert(new Panier("dossier","formeDossier", "accoudoir", "assise","tissu",
 	        			"utilisateur", 10, 9, 8, 7,
-	        			6,5, 4));
+	        			6,5, 4,0));
+	            dao.insert(new Panier("dossier","formeDossier", "accoudoir", "assise","tissu",
+	        			"utilisateur", 10, 9, 8, 7,
+	        			6,5, 4,0));
 	        }
 	    }
 	    
@@ -53,10 +56,11 @@ public class PanierResource {
 	    }
    
 	    @POST
-	    public PanierDto AddAssocie(PanierDto dto){
+	    public PanierDto AddPanier(PanierDto dto){
 	        Panier panier = new Panier();
 	        panier.initFromDto(dto);
-	        dao.insert(panier);
+	        int id = dao.insert(panier);
+	        dto.setId(id);
 	        return dto;
 	    }
 	    

@@ -6,6 +6,7 @@ public class Panier {
 	
 	String dossier,formeDossier,accoudoir,assise,tissu,utilisateur;
 	double hauteur,largeur,circonference,profondeurAssise,largeurAssise,diametre,prix;
+	int id=0;
 	
 	
 	public Panier(){
@@ -14,7 +15,7 @@ public class Panier {
 	
 	public Panier(String dossier, String formeDossier, String accoudoir, String assise, String tissu,
 			String utilisateur, double hauteur, double largeur, double circonference, double profondeurAssise,
-			double largeurAssise, double diametre, double prix) {
+			double largeurAssise, double diametre, double prix,int id) {
 		this.dossier = dossier;
 		this.formeDossier = formeDossier;
 		this.accoudoir = accoudoir;
@@ -28,7 +29,16 @@ public class Panier {
 		this.largeurAssise = largeurAssise;
 		this.diametre = diametre;
 		this.prix = prix;
+		this.id = id;
 	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getDossier() {
 		return dossier;
 	}
@@ -122,6 +132,7 @@ public class Panier {
 	        dto.setLargeurAssise(this.getLargeurAssise());
 	        dto.setDiametre(this.getDiametre());
 	        dto.setPrix(this.getPrix());
+	        dto.setId(this.getId());
 	        return dto;
 	    }
 	    public void initFromDto(PanierDto dto) {
@@ -138,6 +149,7 @@ public class Panier {
 	        this.setLargeurAssise(dto.getLargeurAssise());
 	        this.setDiametre(dto.getDiametre());
 	        this.setPrix(dto.getPrix());
+	        this.setId(dto.getId());
 	    } 
 
 }

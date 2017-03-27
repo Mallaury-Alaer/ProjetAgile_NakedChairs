@@ -53,7 +53,6 @@
           <p>
           <form method="post" action="">
           <h1>Inscription du collaborateur</h1>
-          <!--nom,foc,adresse,ville,type,statut,diplome,annexp,heuresSemaine,email,telephone -->
           <input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
           <input type="hidden" name="foc"id="foc" value="collaborateur" placeholder="Surnom"class="form-control" /> 
           <input type="text" name="adresse"id="adresse" placeholder="adresse" class="form-control" /> 
@@ -65,11 +64,11 @@
            <option value="tapissier">tapissier(e)</option> 
           </select>
           <input type="text" name="statut" id="statut" placeholder="Statut (exemple : Micro entreprise)"class="form-control" /> 
-          <input type="text" name="diplôme" id="diplôme" placeholder="diplôme"class="form-control" /> 
+          <input type="text" name="diplome" id="diplome" placeholder="diplome"class="form-control" /> 
           <input type="text" name="anneeExperience" id="anneeExperience" placeholder="année d'expérience"class="form-control" />
           <input type="text" name="heuresSemaine" id="heuresSemaine"  placeholder="heures par semaine"class="form-control" /> 
-          <input type="text" name="email" id="email" placeholder="email"class="form-control" />
-          <p id='error'>email invalide ou existant</p> 
+          <input type="text" name="mail" id="mail" placeholder="mail"class="form-control" />
+          <p id='error'>mail invalide ou existant</p> 
           <script>
           $('#error').hide();
           </script>
@@ -103,15 +102,15 @@
             $('#nom').val(),
             $('#foc').val(),
             $('#adresse').val(),
-            $('#ville').val()),
-            $('#type').val(),
+            $('#ville').val(),
+            $('#type option:selected').text(),
             $('#statut').val(),
-            $('#diplôme').val(),
+            $('#diplome').val(),
             $('#anneeExperience').val(),
             $('#heuresSemaine').val(),
-            $('#email').val(),
+            $('#mail').val(),
             $('#telephone').val(),
-            $('#mdp').val()
+            $('#mdp').val())
         });
         $("#quitter").click(function() { annuler()});
       });

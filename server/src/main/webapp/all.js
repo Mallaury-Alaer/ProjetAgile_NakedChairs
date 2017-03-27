@@ -114,8 +114,8 @@ console.log("telephone:"+telephone);
 					}),
 		success : function(data, textStatus, jqXHR) {
 			console.log(data.foc+" foc");
-			//postUserBdd(nom, foc, email, mdp);
-			//afficheUser(data);
+			postUserBdd(nom, foc, mail, mdp);
+			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			$('#error').show();
@@ -187,7 +187,7 @@ function afficheOnlyUsers(data) {
 				"}"+
 			     "});";
 								 
-				//console.log(js);
+			
 			}
 		}
 	$("#reponse").html(html+"</table>");
@@ -210,28 +210,55 @@ function listOnlyFournisseurGeneric(url,foc) {
 }
 
 function afficheOnlyFournisseur(data,foc) {
-	var html = '<h1>Fournisseur</h1><table><tr><th>Nom</th><th>Email</th><th>Fournis</th></tr>';
+	var html;
+	if(foc=="fournisseur"){
+		html='<h1>Fournisseur</h1>';
+		html+='<table><tr><th>Nom</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Année d\'expérience</th><th>Mail</th><th>Telephone</th></tr>';
+	}
+	else{
+		html='<h1>Collaborateur</h1>';
+		html+='<table><tr><th>Nom</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Diplôme</th><th>Année d\'expérience</th><th>Heure par semaine</th><th>Mail</th><th>Telephone</th></tr>';
+	}
+
+	
+
 	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
-		if(/*data[index].foc==foc &&*/ data[index].valide==0){
-			html = html + "<tr>";
-			html = html + "<td>"+ data[index].nom + "</td>";
-			html = html + "<td>"+ data[index].email + "</td>";
-			html = html + "<td>nothing</td>";
-			html = html + "<td><button type=\"button\" id=\"delete-user"+index+"\" class=\"delete\">Supprimer</button></td>";
-			html = html + "</tr>";
-			js+= "$(\"#delete-user"+index+"\").click(function(){" +
-				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].name+" ?\") == true){"+
+		if(data[index].foc==foc /*&& data[index].valide!=0*/){
+				 html+="<tr>";
+    			 html+="<td>"+data[index].nom+"</td>";
+              	 html+="<td>"+data[index].adresse+"</td>";
+              	 html+="<td>"+data[index].ville+"</td>";
+              	 html+="<td>"+data[index].type+"</td>";
+              	 html+="<td>"+data[index].statut+"</td>";
+              	 if(foc=="collaborateur"){
+   		           	 html+="<td>"+data[index].diplome+"</td>";
+        		}
+        		 html+="<td>"+data[index].annexp+"</td>";
+        		 if(foc=="collaborateur"){
+   		           	 html+="<td>"+data[index].heuresSemaine+"</td>";
+        		}
+              	 html+="<td>"+data[index].mail+"</td>";
+              	 html+="<td>"+data[index].telephone+"</td>";
+              	 html+="<td><button type=\"button\" id=\"delete-four"+index+"\" class=\"delete\">Supprimer</button></td>";
+
+			js+= "$(\"#delete-four"+index+"\").click(function(){" +
+				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].nom+" ?\") == true){"+
 					"$.ajax({"+ 
 					 "type : \'DELETE\',"+
 					 "contentType : \'application/json\',"+
-					 "url : \"v1/associe/"+data[index].email+"\","+
+					 "url : \"v1/associe/"+data[index].nom+"\","+
 					 "dataType : \"json\","+
-					 "data : JSON.stringify({ \"email\" :\""+ data[index].email+"\" }),"+
-					 "success : function(data, textStatus, jqXHR) {"+
-					 "listOnlyFournisseurBdd();"+
-					 "},"+
+					 "data : JSON.stringify({ \"nom\" :\""+ data[index].nom+"\" }),"+
+					 "success : function(data, textStatus, jqXHR) {";
+					 if(foc=="fournisseur"){
+						 js+="listOnlyFournisseurBdd(\"fournisseur\");";
+					}
+					else{
+						js+="listOnlyFournisseurBdd(\"collaborateur\");";
+					}
+					 js+="},"+
 					 "error : function(jqXHR, textStatus, errorThrown) {"+
 					 "}"+
 					 "})"+
@@ -269,12 +296,13 @@ function displayNotification(data){
               	 html+="<td>"+data[index].annexp+"</td>";
               	 html+="<td>"+data[index].heuresSemaine+"</td>";
               	 html+="<td>"+data[index].mail+"</td>";
-              	 html+="<td>"+data[index].telephone+"</td></tr>";
+              	 html+="<td>"+data[index].telephone+"</td>";
 
 
 
-
+				html = html + "<td><button type=\"button\" id=\"valide-foc"+index+"\" class=\"delete\">Valider</button></td>";
               	html = html + "<td><button type=\"button\" id=\"delete-foc"+index+"\" class=\"delete\">Supprimer</button></td>";
+
 			    html = html + "</tr>";
 				js+= "$(\"#delete-foc"+index+"\").click(function(){" +
 				"if (confirm(\"Êtes-vous certain de vouloir supprimer l'utilisateur "+data[index].nom+" ?\") == true){"+
@@ -285,7 +313,24 @@ function displayNotification(data){
 					 "dataType : \"json\","+
 					 "data : JSON.stringify({ \"email\" :\""+ data[index].nom+"\" }),"+
 					 "success : function(data, textStatus, jqXHR) {"+
-					 "listOnlyFournisseurBdd();"+
+					 "displayNotif();"+
+					 "},"+
+					 "error : function(jqXHR, textStatus, errorThrown) {"+
+					 "}"+
+					 "})"+
+				  "}"+
+				"});";
+
+				js+= "$(\"#valide-foc"+index+"\").click(function(){" +
+				"if (confirm(\"Êtes-vous certain de vouloir valider l'utilisateur "+data[index].nom+" ?\") == true){"+
+					"$.ajax({"+ 
+					 "type : \'VALIDE\',"+
+					 "contentType : \'application/json\',"+
+					 "url : \"v1/associe/"+data[index].nom+"\","+
+					 "dataType : \"json\","+
+					 "data : JSON.stringify({ \"valide\" :\""+ 1+"\" }),"+
+					 "success : function(data, textStatus, jqXHR) {"+
+					 "displayNotif();"+
 					 "},"+
 					 "error : function(jqXHR, textStatus, errorThrown) {"+
 					 "}"+

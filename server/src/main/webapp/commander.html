@@ -124,6 +124,7 @@
 
 
     <script>
+
       affPanier();
       function affPanier(){
         document.getElementById("list-command").innerHTML="";
@@ -136,11 +137,10 @@
           var s="";
           var sPrix="";
           var total=0;
-          var numCommande=1;
 
           for(var i=0; i<data.length;i++){  
             if(data[i].utilisateur == "test"){
-                 s+="<li class=\"list-group-item\"><input id=\"btnSuppr\" name=\""+numCommande+"\" type=\"button\" value=\"Supprimer\" onclick=\"supprCommande(this.name)\">";
+                 s+="<li class=\"list-group-item\"><input id=\"btnSuppr\" name=\""+data[i].id+"\" type=\"button\" value=\"Supprimer\" onclick=\"supprCommande(this.name)\">";
                  if(data[i].dossier=="oui"){
                   s+="Chaise ";
 
@@ -175,7 +175,6 @@
                  s+="</li>";
                  sPrix+="<li class=\"list-group-item\">"+data[i].prix+"€</li>";
                  total+=data[i].prix;
-                 numCommande++;
             }
           }
           s+="<li class=\"list-group-item\" style=\"background-color:#DCDCDC\">TOTAL</li>";

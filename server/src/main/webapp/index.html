@@ -422,7 +422,7 @@
 
     <!-- CUSTOM -->
       <div id = "page-custom" class ="custom">
-      <article class="question" id="Article1"> 
+        <article class="question" id="Article1"> 
         <p>Votre siège possède t-il un dossier ?</p>
         <div>
             <input name="oui" type="button" value="OUI" onclick="dos(this.name)">
@@ -458,7 +458,7 @@
     </article>
 
     <article class="dimension" id="Article5"> 
-        <p>Veuillez entrer les dimensions de votre siège :</p>
+        <p>Veuillez entrer les dimensions de votre siège (en cm) :</p>
         <form id="formDimension" method="post" action="">
           <div class="groupeDim">
               <label for="hauteur" id="labelhauteur">Hauteur du dossier</label>
@@ -497,7 +497,7 @@
     </article>
 
     <article class="question" id="Article6">  
-        <p>Dans quel format désirez-vous le tissu ?</p>
+        <p>Dans quel format désirez-vous votre tissu ?</p>
             <div>
                 <input name="housse" type="button" value="En housse" onclick="formatTissu(this.name)">
                 <input name="metre" type="button" value="Au mètre" onclick="formatTissu(this.name)">
@@ -516,6 +516,7 @@
     </article>
 
     <article class="tissusGouts" id="Article8"> 
+        <p>Sélectionnez les tissus que vous aimez :</p>
       <img id="Tissu1" src="ressources/images-chaises/tissus1.png" alt="Tissu1" height=120px onclick="tissus(this.id)">
       <img id="Tissu2" src="ressources/images-chaises/tissus2.png" alt="Tissu2" height=120px onclick="tissus(this.id)">
       <img id="Tissu3" src="ressources/images-chaises/tissus3.png" alt="Tissu3" height=120px onclick="tissus(this.id)">
@@ -529,13 +530,15 @@
         <input class="retour" name="retourArt8" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
-    <article class="tissusGouts" id="Article9">    
+    <article class="tissusGouts" id="Article9">  
+        <p>Choisissez votre tissu :</p>
+        <div id="tissusImg"></div>  
         <input id="validTissu" class="btnValider" name="validerTissu" type="button" value="Valider" onclick="validerTissu()">
         <input class="retour" name="retourArt9" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
 
-    <article class="recapitulatif" id="Article10">
-        <div id="container" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
+    <article class="recapitulatif" id="Article10">   
+        <div id="webGLVisu" style="border-top:dotted black 5px;border-bottom:dotted black 5px;margin-left:auto;margin-right:auto;margin-top:150px;text-align:center;width:960px;padding:20px;"></div> 
         <p id="pAccoud">Accoudoirs :</p>
 
         <p id="pDossier">Forme du dossier :</p>
@@ -549,11 +552,13 @@
         <p id="pLargeurA">Largeur de l'assise :</p>
         <p id="pDiametre">Diamètre de l'assise :</p>
 
-        <p id="pTissu">Tissu :</p>
+        <input id="validCommande" class="btnValider" name="validCommande" type="button" value="Ajouter au panier" onclick="envoieRest()">
 
-         <button id="validercustom" class="btn btn-default">Valider</button>
+        <input class="retour" name="retourArt10" type="button" value="Question précédente" onclick="retour(this.name)">
     </article>
+
     <button id="annulecustom" class="btn btn-default">Annuler</button>
+
     <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
     <script src="webGL.js"></script>
 
@@ -596,13 +601,13 @@
         document.getElementById("Article8").style.display="none";
         document.getElementById("Article9").style.display="none";
         document.getElementById("Article10").style.display="none";
+
         document.getElementById("pDossier").style.display="none";
         document.getElementById("pHauteur").style.display="none";
         document.getElementById("pLargeur").style.display="none";
         document.getElementById("pProfondeur").style.display="none";
         document.getElementById("pLargeurA").style.display="none";
         document.getElementById("pDiametre").style.display="none";
-        document.getElementById("pTissu").style.display="none";
 
         document.getElementById("largeur").style.display="none";
         document.getElementById("hauteur").style.display="none";
@@ -622,7 +627,8 @@
             if(dossier=="oui"){
               document.getElementById("Article2").style.display="block";
           }else{
-              document.getElementById("Article3").style.display="block";      
+                accoudoir="non";
+              document.getElementById("Article4").style.display="block";      
           }
         }
 
@@ -639,6 +645,19 @@
         }
 
         function assis(nom){
+
+            document.getElementById("largeur").style.display="none";
+            document.getElementById("hauteur").style.display="none";
+            document.getElementById("profondeur").style.display="none";
+            document.getElementById("largeurA").style.display="none";
+            document.getElementById("diametre").style.display="none";
+
+            document.getElementById("labellargeur").style.display="none";
+            document.getElementById("labelhauteur").style.display="none";
+            document.getElementById("labelprofondeur").style.display="none";
+            document.getElementById("labellargeurA").style.display="none";
+            document.getElementById("labeldiametre").style.display="none";
+
             assise=nom;
             document.getElementById("Article4").style.display="none";
             document.getElementById("Article5").style.display="block";
@@ -694,8 +713,6 @@
                     console.log("ici");
             }
 
-            // console.log(hauteur+" "+largeur+" "+circonference+" "+epaisseurAssise+" "+profondeurAssise+" "+largeurAssise+" "+diametre);
-
             if(!correct){
                 alert("Veuillez saisir des données supérieures à 0.");
             }else{
@@ -706,7 +723,7 @@
           
 
        function tissus(id,src){
-            $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+            $.getJSON("/v1/tissu", function(data) {
 
                 var dejaSelectionne;  
                 var type="";
@@ -766,10 +783,11 @@
         function tissusGouts(){
             if(couleurs.length!=0){
 
-                $.getJSON("http://localhost:8080/v1/tissu", function(data) {
+                $.getJSON("/v1/tissu", function(data) {
 
                     document.getElementById("Article8").style.display="none";
                     document.getElementById("Article9").style.display="block";
+                    document.getElementById("tissusImg").innerHTML="";
 
                     var n;
                     var s="";
@@ -831,7 +849,7 @@
                     }
        
                     n=$(s);
-                    n.insertBefore("#validTissu");
+                    n.appendTo("#tissusImg");
                 });
             }else{
                 alert("Veuillez sélectionner au moins un tissu.");
@@ -854,51 +872,54 @@
         }
 
         function validerTissu(){
+
+            document.getElementById("pDossier").style.display="none";
+            document.getElementById("pHauteur").style.display="none";
+            document.getElementById("pLargeur").style.display="none";
+            document.getElementById("pProfondeur").style.display="none";
+            document.getElementById("pLargeurA").style.display="none";
+            document.getElementById("pDiametre").style.display="none";
+
             if(tissuChoisiSource!=""){
                 document.getElementById("Article9").style.display="none";
                 document.getElementById("Article10").style.display="block";
+                document.getElementById("webGLVisu").innerHTML="";
 
                 init(tissuChoisiSource,dossier,formeDossier,accoudoir,assise);
             }else{           
                 alert("Veuillez sélectionner un tissu.");
             }
-            /*   
 
-        <p id="pProfondeur">Profondeur de l'assise :</p>
-        <p id="pLargeurA">Largeur de l'assise :</p>
-        <p id="pDiametre">Diamètre de l'assise :</p>
+            document.getElementById("pAccoud").innerHTML="Accoudoirs : "+accoudoir; 
 
-        <p id="pTissu">Tissu :</p>
+            if(dossier=="oui"){
+                document.getElementById("pDossier").style.display="block";  
+                document.getElementById("pHauteur").style.display="block"; 
+                document.getElementById("pLargeur").style.display="block";  
 
-        var profondeurAssise;
-        var largeurAssise;
-        var diametre;
+                document.getElementById("pDossier").innerHTML="Forme du dossier : "+formeDossier;   
+                document.getElementById("pHauteur").innerHTML="Hauteur du dossier : "+hauteur;     
+                document.getElementById("pLargeur").innerHTML="Largeur du dossier : "+largeur;        
+            } 
 
+            document.getElementById("pAssise").innerHTML="Assise : "+assise; 
+            document.getElementById("pCirc").innerHTML="Circonférence de l'assise : "+circonference; 
+            document.getElementById("pEpaisseur").innerHTML="Epaisseur de l'assise : "+epaisseurAssise; 
 
-        var tissuChoisi="";
+            if(profondeurAssise!=0){
+                document.getElementById("pProfondeur").style.display="block";  
+                document.getElementById("pProfondeur").innerHTML="Profondeur de l'assise : "+profondeurAssise;  
+            }
 
-        */
-     /*   document.getElementById("pAccoud").innerHTML=accoudoir; 
+            if(largeurAssise!=0){
+                document.getElementById("pLargeurA").style.display="block";  
+                document.getElementById("pLargeurA").innerHTML="Largeur de l'assise : "+largeurAssise;  
+            }
 
-        if(dossier=="oui"){
-            document.getElementById("pDossier").style.display="block";  
-            document.getElementById("pHauteur").style.display="block"; 
-            document.getElementById("pLargeur").style.display="block";  
-
-            document.getElementById("pDossier").innerHTML=formeDossier;   
-            document.getElementById("pHauteur").innerHTML=hauteur;     
-            document.getElementById("pLargeur").innerHTML=largeur;        
-        } 
-
-        document.getElementById("pAssise").innerHTML=assise; 
-        document.getElementById("pCirc").innerHTML=circonference; 
-        document.getElementById("pEpaisseur").innerHTML=epaisseurAssise; 
-
-        if(profondeurAssise!=0){
-            document.getElementById("pDossier").style.display="block";  
-        }*/
-
-
+            if(diametre!=0){
+                document.getElementById("pDiametre").style.display="block";  
+                document.getElementById("pDiametre").innerHTML="Diamètre de l'assise : "+diametre;  
+            }
 
         }
 
@@ -938,30 +959,23 @@
             $.ajax({
                 type : 'POST',
                 contentType : 'application/json',
-                url : url,
+                url : "/v1/panier",
                 dataType : "json",
                 data : JSON.stringify({
                     "dossier" : dossier,
                     "formeDossier" : formeDossier,
                     "accoudoir" : accoudoir,
                     "assise" : assise,
+                    "tissu" : tissuChoisi,
+                    "utilisateur" : "test",
                     "hauteur" : hauteur,
                     "largeur" : largeur,
                     "circonference" : circonference,
                     "profondeurAssise" : profondeurAssise,
                     "largeurAssise" : largeurAssise,
                     "diametre" : diametre,
-                    "tissu" : tissuChoisi,
-                    "prix" : prix,
-                }),
-                success : function(data, textStatus, jqXHR) {
-                    document.location.href="connexion.html"; 
-                    afficheUser(data);
-                },
-                error : function(jqXHR, textStatus, errorThrown) {
-                    $('#error').show();
-                    console.log('postUser error: ' + textStatus);
-                }
+                    "prix" : prix
+                })
             });
         }
 
@@ -980,7 +994,7 @@
     </script>
       </div>
     <!--FIN CUSTOM -->
-    
+
     <!-- PAGE CONNEXION -->
     <div id = "page-connexion" class="pconnexion">
       <center>

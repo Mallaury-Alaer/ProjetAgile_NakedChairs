@@ -297,3 +297,13 @@ footer{
         border-radius: 5px;   
         font-size:100%;
     }
+
+        .recapitulatif{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+
+    #webGLVisu{
+        margin-bottom:30px;
+    }

@@ -167,6 +167,8 @@
                 $(".pconnexion").hide();
                 $(".inscription").hide();
         });
+            var login = "";
+            var mdp = "";
         });
     </script>
 
@@ -195,7 +197,15 @@
                     <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                   </ul>
                 </li>
-                <li><a id = "connexion" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a></li>
+                  <script>
+                      var str="";
+                      if(login==""){
+                        str+="<li><a id = \"connexion\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Connexion</a></li>";
+                      }else{
+                          // A CONTINUER
+                          str+="<li><a id = \"connexion\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Connexion</a></li>";
+                      }
+                  </script>
               </ul>
             </div>
           </div>
@@ -872,6 +882,8 @@
         }
 
         function validerTissu(){
+            document.getElementById(ancienTissuChoisi).style.border="solid 5px grey";
+            ancienTissuChoisi = "";
 
             document.getElementById("pDossier").style.display="none";
             document.getElementById("pHauteur").style.display="none";
@@ -1008,7 +1020,7 @@
             <input type="password" name="user" id="passwdlogin" placeholder="Password" class="form-control"/>
             <a id="" href="">Mot de passe oublié</a>
             <br><br>
-            <button class="btn btn-default">Connexion</button>
+            <button id="validerConnexion" class="btn btn-default">Connexion</button>
             <a id="inscrip" href="#">S'inscrire</a>
       <br/>
             <br/>      
@@ -1018,12 +1030,36 @@
     <div class="row" style="margin-top: 20px;">
     </div>
     <script type="text/javascript">
+      $('#validerConnexion').click(function(){
+        $.ajax({
+            type:"GET",
+            url:"v1/secure/who",
+            dataType: 'json',
+            beforeSend: function(req){
+                const str = btoa($('#userlogin').val() + ":" + $('#passwdlogin').val());
+                console.log("Login: "+$('#userlogin').val()+" Password: "+$('#passwdlogin').val());
+                req.setRequestHeader("Authorization", "Basic "+str);
+            },
+            success: function(data){
+                login = $('#userlogin').val();
+                mdp = $('#passwdlogin').val();
+                console.log("Connexion réussi");
+            },
+            error: function(jqXHR, testStatus, errorThrown) {
+                console.log("Connexion fail");
+            }
+            
+        })
+      });
+
       $(document).ready(function() {
         $("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
         $("#post-ram").click(function () {postUser($('#user').val(), $('#alias').val())});
         $("#list-ram").click(function () {listUsers()});
         $("#read-forall").click(function () {getForAll()});
         $("#read-byannotation").click(function () {getByAnnotation()});
+
+
       });
 
     </script>
@@ -1056,7 +1092,6 @@
           <button type="button" id="post-bdd" class="btn btn-default">S'enregistrer</button>
           <button type="button" id="annuler" class="btn btn-default">Annuler</button>
         </div>
-      </center>
       </div>
       
       
@@ -1073,7 +1108,16 @@
             $('#nom').val(),
             $('#passwddb').val())});
         $("#list-bdd").click(function () {listUsersBdd()});
-        $("#quitter").click(function() { annuler()});
+        $("#quitter").click(function() {
+            document.title = "NakedChairs | Connexion";
+            $("#page-accueil").hide();
+            $(".about").hide();
+            $(".forum").hide();
+            $(".categ-forum").hide();
+            $(".custom").hide();
+            $(".pconnexion").show();
+            $(".inscription").hide();
+        });
       });
     </script>
       </div>

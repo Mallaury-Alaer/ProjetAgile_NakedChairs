@@ -34,9 +34,8 @@ function getSecure(url) {
 					document.location.href="admin.html"; 
 				}
 				else{
-					// Probleme, on n'arrive pas a cacher connexion et montrer deconnexion apres connection réussi
-					
-					document.location.href="index.html";
+					// Probleme, on n'arrive pas a cacher connexion et montrer deconnexion apres connection réussi	
+					redirectAccueil();
 					}
 				
 			},
@@ -92,6 +91,17 @@ function redirect() {
             $(".custom").hide();
             $(".pconnexion").show();
             $(".inscription").hide();
+}
+
+function redirectAccueil() {
+        document.title = "Naked Chairs | Style your seats anew";
+        $("#page-accueil").show();
+        $(".about").hide();
+        $(".forum").hide();
+        $(".categ-forum").hide();
+        $(".custom").hide();
+        $(".pconnexion").hide();
+        $(".inscription").hide();
 }
 
 function postFournisseurBdd(nom, foc, adresse, ville,typem,statut,diplome,anneeExperience,heuresSemaine,mail,telephone,mdp,dispo) {

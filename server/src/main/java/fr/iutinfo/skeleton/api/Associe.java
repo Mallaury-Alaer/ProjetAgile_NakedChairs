@@ -67,6 +67,14 @@ public class Associe {
 		this.dispo = dispo;
 	}
 
+	@Override
+	public String toString() {
+		return "Associe [foc=" + foc + ", nom=" + nom + ", adresse=" + adresse + ", ville=" + ville + ", type=" + type
+				+ ", statut=" + statut + ", diplome=" + diplome + ", mail=" + mail + ", telephone=" + telephone
+				+ ", dispo=" + dispo + ", annexp=" + annexp + ", heuresSemaine=" + heuresSemaine + ", valide=" + valide
+				+ ", id=" + id + "]";
+	}
+
 	public String getFoc() {
 		return foc;
 	}

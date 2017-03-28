@@ -3,9 +3,12 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   color: #5a5a5a;
   background-color: whitesmoke;
+}
+p{
+    font-size: 100px;
 }
 
 
@@ -56,6 +59,29 @@ body {
 #shop:hover{
     color:crimson;
 }
+
+#idx2:hover{
+    color:crimson;
+}
+#abtus2:hover{
+    color:crimson;
+}
+#blg2:hover{
+    color:crimson;
+}
+#cust2:hover{
+    color:crimson;
+}
+#disconnect:hover{
+    color:crimson;
+}
+#panier:hover{
+    color:crimson;
+}
+#shop2:hover{
+    color:crimson;
+}
+
 
 
 
@@ -307,3 +333,51 @@ footer{
     #webGLVisu{
         margin-bottom:30px;
     }
+ /*COMMANDER*/
+.list-command{
+                margin-top:150px;
+                margin-left:190px;
+                margin-bottom:100px;
+                width:700px;
+                float:left;
+            }
+            
+            .list-buy{
+                margin-right:230px;
+                margin-top:150px;
+                margin-bottom:50px;
+                float:right;
+                width:350px;
+            }
+
+            #btn-group{
+              float:right;
+              margin-top:20px;
+              margin-right:15%;
+            }
+
+            #lis{
+              margin-left:auto;
+              margin-right:auto;
+              margin-top:150px;
+              text-align: center;
+              display: block;
+            }
+
+            #list-command{
+              width:40%;
+              display:inline-block;
+            }
+
+            #list-buy{
+              width:30%;
+              display:inline-block;
+            }
+
+            #listes{
+              margin-top:100px;
+            }
+
+            #btnSuppr{
+              float:left;
+            }

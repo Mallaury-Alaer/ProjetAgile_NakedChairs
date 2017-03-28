@@ -22,7 +22,7 @@ public class UserResource {
 
     public UserResource() throws SQLException {
         if (!tableExist("users")) {
-            logger.debug("Crate table users");
+            logger.debug("Create table users");
             dao.createUserTable();
             dao.insert(new User(0, "dieu","admin@admin.admin", "admin","mdp"));
             dao.insert(new User(0, "Ikea","ikea@gmail.com", "fournisseur","ok1"));

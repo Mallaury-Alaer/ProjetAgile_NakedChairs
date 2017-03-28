@@ -16,7 +16,7 @@ public class Panier {
 	
 	public Panier(String dossier, String formeDossier, String accoudoir, String assise, String tissu,
 			String utilisateur, double hauteur, double largeur, double circonference, double profondeurAssise,
-			double largeurAssise, double diametre, double prix,int id) {
+			double largeurAssise, double diametre, double prix,int id,String valide) {
 		this.dossier = dossier;
 		this.formeDossier = formeDossier;
 		this.accoudoir = accoudoir;
@@ -31,6 +31,7 @@ public class Panier {
 		this.diametre = diametre;
 		this.prix = prix;
 		this.id = id;
+		this.valide = valide;
 	}
 	
 	

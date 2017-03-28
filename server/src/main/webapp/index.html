@@ -37,7 +37,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
-
+                $("#page-panier").hide();
         
         $("#idx").click(function(){
                 document.title = "Naked Chairs | Style your seats anew";
@@ -51,6 +51,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#logo-head").click(function(){
                 document.title = "Naked Chairs | Style your seats anew";
@@ -64,6 +65,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#abtus").click(function(){
             document.title = "Naked Chairs | About Us";
@@ -77,6 +79,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#blg").click(function(){
             document.title = "Naked Chairs | Forum";
@@ -90,6 +93,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#cust").click(function(){
             document.title = "Naked Chairs | Custom you seat";
@@ -103,7 +107,80 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
+        //UTILISATEUR CONNECTE
+        $("#idx2").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
+        });
+        $("#logo-head2").click(function(){
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
+        });
+        $("#abtus2").click(function(){
+            document.title = "Naked Chairs | About Us";
+                $("#page-accueil").hide();
+                $(".about").show();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
+        });
+        $("#blg2").click(function(){
+            document.title = "Naked Chairs | Forum";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").show();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
+        });
+        $("#cust2").click(function(){
+            document.title = "Naked Chairs | Custom you seat";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").show();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
+        });
+        //FIN UTILISATEUR CONNECTE
         $("#connexion").click(function(){
             document.title = "NakedChairs | Connexion";
             $('#errorconnect').hide();
@@ -117,6 +194,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#inscr").click(function(){
             document.title = "Naked Chairs | Inscription";
@@ -145,6 +223,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#annuler").click(function(){
                 document.title = "Naked Chairs | Style your seats anew";
@@ -159,6 +238,7 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
         $("#annulecustom").click(function(){
                 document.title = "Naked Chairs | Custom you seat";
@@ -184,23 +264,8 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
-        $("#validercustom").click(function(){
-                document.title = "Naked Chairs | Custom you seat";
-                alert("Je suis actuellement inutile !");
-                $("#page-accueil").hide();
-                $(".about").hide();
-                $(".forum").hide();
-                $(".categ-forum").hide();
-                $(".custom").show();
-                $(".pconnexion").hide();
-                $(".inscription").hide();
-            
-                $("#page-inscription-fournisseur").hide();
-                $("#page-inscription-collab").hide();
-                $("#page-admin").hide();
-        });
-
             $("#categ").click(function(){
                 document.title = "Naked Chairs | Forum";
                 $("#page-accueil").hide();
@@ -214,13 +279,41 @@
                 $("#page-inscription-fournisseur").hide();
                 $("#page-inscription-collab").hide();
                 $("#page-admin").hide();
+                $("#page-panier").hide();
         });
+            $('#panier').click(function(){
+                document.title = "Naked Chairs | Card";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                console.log("avant");
+                $("#page-panier").show();
+                console.log("apres");
+            });
            $('#disconnect').click(function(){
                 setLogin("");
                console.log("Login apres deconnexion: "+getLogin());
                $('.navbar-disconnect').show();
                 $('.navbar-connect').hide();
-               
+               document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+                $("#page-panier").hide();
            });
         });
     </script>
@@ -266,23 +359,23 @@
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" id="logo-head" role="button" href="#"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+              <a class="navbar-brand" id="logo-head2" role="button" href="#"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a id="idx" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a></li>
-                <li><a id="abtus" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a></li>
-                <li><a id="blg" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog Chairs in the Nude</a></li>
-                <li><a id="cust" href="#" role="button" aria-haspopup="true" aria-expanded="false">Style up your Seats</a></li>
+                <li><a id="idx2" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a></li>
+                <li><a id="abtus2" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a></li>
+                <li><a id="blg2" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog Chairs in the Nude</a></li>
+                <li><a id="cust2" href="#" role="button" aria-haspopup="true" aria-expanded="false">Style up your Seats</a></li>
                 <li class="dropdown">
-                  <a class="url-nav" id="shop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <a class="url-nav" id="shop2" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
                     <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
                     <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                   </ul>
                 </li>
-                  <li><a id = "card" href="#" role="button" aria-haspopup="true" aria-expanded="false">Card</a></li>
+                  <li><a id="panier" href="#" role="button" aria-haspopup="true" aria-expanded="false">Card</a></li>
                   <li><a id = "disconnect" href="#" role="button" aria-haspopup="true" aria-expanded="false">Log out</a></li>
               </ul>
             </div>
@@ -1401,7 +1494,153 @@
 	<div class="panel-body" id="test">
             </div>
         </div>
+             <script type="text/javascript">
+			$(document).ready(function() {
+				$("#listUser-bdd").click(function () {listOnlyUsersBdd()});
+				$("#listFournisseur-bdd").click(function () {listOnlyFournisseurBdd("fournisseur")});
+        $("#listCollaborateur-bdd").click(function () {listOnlyFournisseurBdd("collaborateur")});
+        $("#listCommandes-bdd").click(function () {listerCommandesAdmin()});
+        $("#notification-bdd").click(function () {displayNotif()});
+			});
+    </script> 
+        </div>
     <!--FIN PAGE ADMIN-->
+    
+    <!--PANIER UTILISATEUR-->
+        <div id = "page-panier">
+           <div id="listes">
+            <div id=lis>
+              <ul id="list-command">
+              </ul>
+
+              <ul id="list-buy">
+              </ul>
+            </div>
+          </div>
+
+          <div id="btn-group" role="group" aria-label="...">
+              <form action="#">
+                  <input type="submit" value="VALIDER MA COMMANDE" onclick="validerCommandes()">
+              </form>
+              <form action="#">
+                  <input type="submit" value="CONTINUER MES ACHATS" >
+              </form>
+              <div id="validation">
+              </div>
+          </div>
+            <script>
+
+      affPanier();
+      function affPanier(){
+        document.getElementById("list-command").innerHTML="";
+        document.getElementById("list-buy").innerHTML="";
+
+        $.getJSON("/v1/panier", function(data) {
+
+          var n="";
+          var nPrix="";
+          var s="";
+          var sPrix="";
+          var total=0;
+
+          for(var i=0; i<data.length;i++){  
+            if(data[i].utilisateur == "test" && data[i].valide == "Non"){
+                 s+="<li class=\"list-group-item\"><input id=\"btnSuppr\" name=\""+data[i].id+"\" type=\"button\" value=\"Supprimer\" onclick=\"supprCommande(this.name)\">";
+                 if(data[i].dossier=="oui"){
+                  s+="Chaise ";
+
+                  if(data[i].assise=="ronde"){
+                    s+="ronde ";
+                  }else{          
+                    s+="rectangulaire ";
+                  }
+
+                  if(data[i].formeDossier=="ovale"){
+                    s+="à dossier ovale ";
+                  }else{          
+                    s+="à dossier rectangulaire ";
+                  }
+
+                  if(data[i].accoudoir=="oui"){
+                    s+="avec accoudoirs";
+                  }else if(data[i].accoudoir=="non"){          
+                    s+="sans accoudoirs";
+                  }
+
+                 }else if(data[i].dossier=="non"){
+                  s+="Tabouret ";
+
+                  if(data[i].assise=="ronde"){
+                    s+="rond ";
+                  }else{          
+                    s+="rectangulaire ";
+                  }
+
+                 }
+                 s+="</li>";
+                 sPrix+="<li class=\"list-group-item\">"+data[i].prix+"€</li>";
+                 total+=data[i].prix;
+            }
+          }
+          s+="<li class=\"list-group-item\" style=\"background-color:#DCDCDC\">TOTAL</li>";
+          sPrix+="<li class=\"list-group-item\" style=\"background-color:#DCDCDC\">"+total+"€</li>";
+          n=$(s);
+          n.appendTo("#list-command");
+          nPrix=$(sPrix);
+          nPrix.appendTo("#list-buy");
+
+        });
+      }
+
+      function supprCommande(id){
+         $.ajax({
+                type : 'DELETE',
+                contentType : 'application/json',
+                url : "/v1/panier/"+id,
+                dataType : "json",
+                data : JSON.stringify({
+                    "id" : id,
+                })
+            });
+
+
+         affPanier();
+      }
+
+      function validerCommandes(){  
+        document.getElementById("validation").innerHTML="";
+        $.getJSON("/v1/panier", function(data) {
+          var n="";
+          var s="";
+          var auMoinsUneCommande=false;
+          for(var i=0; i<data.length;i++){  
+            if(data[i].utilisateur == "test" && data[i].valide =="Non"){
+              $.ajax({
+                      type : 'PUT',
+                      contentType : 'application/json',
+                      url : "/v1/panier/"+data[i].id,
+                      dataType : "json",
+                      data : JSON.stringify({
+                          "id" : data[i].id,
+                      })
+                  });
+              auMoinsUneCommande=true;
+            }
+          }
+            if(auMoinsUneCommande){
+              s+="<p style=\"color:green\">Commande validée</p>";
+              n=$(s);
+              n.appendTo("#validation");
+              affPanier();
+            }
+        });
+      }
+
+
+    </script>
+           
+        </div>
+    <!--FIN PANIER UTILISATEUR-->
  
       <!-- FOOTER -->
       <footer>

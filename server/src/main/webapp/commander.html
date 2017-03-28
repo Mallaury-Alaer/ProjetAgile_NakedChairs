@@ -108,13 +108,8 @@
               <form action="#">
                   <input type="submit" value="CONTINUER MES ACHATS" >
               </form>
-          </div>
-
-          <div id="listes">
-            <div id=lis>
-              <ul id="list-command-admin">
-              </ul>
-            </div>
+              <div id="validation">
+              </div>
           </div>
 
        
@@ -210,9 +205,13 @@
       }
 
       function validerCommandes(){  
+        document.getElementById("validation").innerHTML="";
         $.getJSON("/v1/panier", function(data) {
+          var n="";
+          var s="";
+          var auMoinsUneCommande=false;
           for(var i=0; i<data.length;i++){  
-            if(data[i].utilisateur == "test"){
+            if(data[i].utilisateur == "test" && data[i].valide =="Non"){
               $.ajax({
                       type : 'PUT',
                       contentType : 'application/json',
@@ -222,7 +221,14 @@
                           "id" : data[i].id,
                       })
                   });
-              }
+              auMoinsUneCommande=true;
+            }
+          }
+            if(auMoinsUneCommande){
+              s+="<p style=\"color:green\">Commande validée</p>";
+              n=$(s);
+              n.appendTo("#validation");
+              affPanier();
             }
         });
       }

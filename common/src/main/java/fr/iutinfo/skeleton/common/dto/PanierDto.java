@@ -1,7 +1,7 @@
 package fr.iutinfo.skeleton.common.dto;
 
 public class PanierDto {
-	String dossier,formeDossier,accoudoir,assise,tissu,utilisateur;
+	String dossier,formeDossier,accoudoir,assise,tissu,utilisateur,valide;
 	double hauteur,largeur,circonference,profondeurAssise,largeurAssise,diametre,prix;
 	int id=0;
 	public String getDossier() {
@@ -12,6 +12,12 @@ public class PanierDto {
 	}
 	public String getFormeDossier() {
 		return formeDossier;
+	}
+	public String getValide() {
+		return valide;
+	}
+	public void setValide(String valide) {
+		this.valide = valide;
 	}
 	public void setFormeDossier(String formeDossier) {
 		this.formeDossier = formeDossier;

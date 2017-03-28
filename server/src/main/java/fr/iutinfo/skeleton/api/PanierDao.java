@@ -11,10 +11,10 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface PanierDao {
-    @SqlUpdate("create table panier(id integer primary key autoincrement,utilisateur varchar(100),dossier varchar(100),formedossier varchar(100),accoudoir varchar(100),assise varchar(100),tissu varchar(100),hauteur double,largeur double,circonference double,profondeurAssise double,largeurAssise double,diametre double,prix double);")
+    @SqlUpdate("create table panier(id integer primary key autoincrement,utilisateur varchar(100),dossier varchar(100),formedossier varchar(100),accoudoir varchar(100),assise varchar(100),tissu varchar(100),hauteur double,largeur double,circonference double,profondeurAssise double,largeurAssise double,diametre double,prix double,valide varchar(100));")
     void createUserTable();
     
-    @SqlUpdate("insert into panier(utilisateur,dossier,formedossier,accoudoir,assise,tissu,hauteur,largeur,circonference,profondeurAssise,largeurAssise,diametre,prix) values (:utilisateur,:dossier,:formeDossier,:accoudoir,:assise,:tissu,:hauteur,:largeur,:circonference,:profondeurAssise,:largeurAssise,:diametre,:prix)")
+    @SqlUpdate("insert into panier(utilisateur,dossier,formedossier,accoudoir,assise,tissu,hauteur,largeur,circonference,profondeurAssise,largeurAssise,diametre,prix,valide) values (:utilisateur,:dossier,:formeDossier,:accoudoir,:assise,:tissu,:hauteur,:largeur,:circonference,:profondeurAssise,:largeurAssise,:diametre,:prix, :valide)")
     @GetGeneratedKeys
     int insert(@BindBean() Panier panier);
     
@@ -28,6 +28,9 @@ public interface PanierDao {
     
     @SqlUpdate("delete from panier where id = :id")
     void delete(@Bind("id") int id);
+    
+    @SqlUpdate("update panier set valide = \"Oui\" where id = :id")
+    void Update(@Bind("id") int id);
     
     void close();
 

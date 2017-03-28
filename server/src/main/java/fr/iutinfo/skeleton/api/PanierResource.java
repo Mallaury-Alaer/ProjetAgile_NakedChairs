@@ -68,7 +68,7 @@ public class PanierResource {
 	    @PUT
 	    @Path("/{id}")
 	    public void UpdateAssocie(@PathParam("id") int id) {
-	        dao.Update(id);
+	        dao.update(id);
 	    }
 
 }

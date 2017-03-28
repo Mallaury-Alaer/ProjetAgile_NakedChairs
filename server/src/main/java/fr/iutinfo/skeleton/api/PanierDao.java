@@ -30,7 +30,7 @@ public interface PanierDao {
     void delete(@Bind("id") int id);
     
     @SqlUpdate("update panier set valide = \"Oui\" where id = :id")
-    void Update(@Bind("id") int id);
+    void update(@Bind("id") int id);
     
     void close();
 

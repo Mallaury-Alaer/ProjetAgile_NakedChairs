@@ -377,7 +377,45 @@ function displayNotification(data){
 }
 
 function listerCommandesAdmin(){
+	document.getElementById("list-command-admin").innerHTML="";
 
+          $.getJSON("/v1/panier", function(data) {
+
+            var n="";
+            var s="";
+            var total=0;
+
+            for(var i=0; i<data.length;i++){  
+              s+="<li class=\"list-group-item\">";
+
+              s+="Utilisateur: "+data[i].utilisateur;
+
+              if(data[i].dossier=="oui"){
+                s+=" || Dossier: "+data[i].formeDossier;
+                s+=" || Hauteur du dossier: "+data[i].hauteur;
+                s+=" || Largeur du dossier: "+data[i].largeur;
+              }   
+              s+=" || Accoudoirs: "+data[i].accoudoir;
+              s+=" || Assise: "+data[i].assise;
+              s+=" || Circonférence de l'assise: "+data[i].circonference;
+              if(data[i].assise=="rectangulaire"){       
+                s+=" || Profondeur de l'assise: "+data[i].profondeurAssise;
+                s+=" || Largeur de l'assise: "+data[i].largeurAssise;
+              }else if(data[i].assise=="ronde"){
+                s+=" || Diamètre de l'assise: "+data[i].diametre;
+              }
+
+              s+=" || Tissu: "+data[i].tissu;
+              s+=" || Prix: "+data[i].prix+"€";
+
+              s+="</li>";
+
+              total+=data[i].prix;
+            }
+            s+="<li class=\"list-group-item\" style=\"background-color:#DCDCDC\">TOTAL : "+total+"€</li>"
+            n=$(s);
+            n.appendTo("#list-command-admin");
+        });
 }
 
 var login = "";

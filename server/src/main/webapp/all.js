@@ -311,7 +311,7 @@ function displayNotif() {
 function displayNotification(data){
     var html = "<h1>liste des notifications</h1>";
     var js = "<script>$(document).ready(function() {";
-    html+= "<table><tr><th>nom</th><th>rôle</th><th>adresse</th><th>ville</th><th>type de métier</th><th>statut</th><th>diplôme</th><th>anéée d'expérience</th>";
+    html+= "<table border=1><tr><th>nom</th><th>rôle</th><th>adresse</th><th>ville</th><th>type de métier</th><th>statut</th><th>diplôme</th><th>anéée d'expérience</th>";
     html+= "<th>heure par semaine</th> <th>email</th> <th>telephone</th></tr>";
    		 for (index = 0; index < data.length; ++index) {
    			if(data[index].valide==0){

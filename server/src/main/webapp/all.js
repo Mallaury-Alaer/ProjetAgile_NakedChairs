@@ -186,7 +186,7 @@ function listOnlyUsersGeneric(url) {
 
 
 function afficheOnlyUsers(data) {
-	var html = '<h1>Utilisateur</h1><table><tr><th>Nom</th><th>Email</th></tr>';
+	var html = '<h1>Utilisateur</h1><table border=1><tr><th>Nom</th><th>Email</th></tr>';
 	var js = "<script>$(document).ready(function() {";
 	var index = 0;
 	for (index = 0; index < data.length; ++index) {
@@ -239,12 +239,12 @@ function listOnlyFournisseurGeneric(url,foc) {
 function afficheOnlyFournisseur(data,foc) {
 	var html;
 	if(foc=="fournisseur"){
-		html='<h1>Fournisseur</h1>';
-		html+='<table><tr><th>Nom</th><th>Disponibilité</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Année d\'expérience</th><th>Mail</th><th>Telephone</th></tr>';
+		html='<h1>Fournisseurs</h1>';
+		html+='<table border = 1><tr><th>Nom</th><th>Disponibilité</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Année d\'expérience</th><th>Mail</th><th>Telephone</th></tr>';
 	}
 	else{
-		html='<h1>Collaborateur</h1>';
-		html+='<table><tr><th>Nom</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Diplôme</th><th>Année d\'expérience</th><th>Heure par semaine</th><th>Mail</th><th>Telephone</th></tr>';
+		html='<h1>Collaborateurs</h1>';
+		html+='<table border = 1><tr><th>Nom</th><th>Adresse</th><th>ville</th><th>Type de métier</th><th>Statut</th><th>Diplôme</th><th>Année d\'expérience</th><th>Heure par semaine</th><th>Mail</th><th>Telephone</th></tr>';
 	}
 
 	
@@ -309,7 +309,7 @@ function displayNotif() {
 }
 
 function displayNotification(data){
-    var html = "<h1>liste des notifications</h1>";
+    var html = "<h1>Liste des notifications</h1>";
     var js = "<script>$(document).ready(function() {";
     html+= "<table border=1><tr><th>nom</th><th>rôle</th><th>adresse</th><th>ville</th><th>type de métier</th><th>statut</th><th>diplôme</th><th>anéée d'expérience</th>";
     html+= "<th>heure par semaine</th> <th>email</th> <th>telephone</th></tr>";

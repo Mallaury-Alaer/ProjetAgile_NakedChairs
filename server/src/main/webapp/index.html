@@ -489,6 +489,17 @@
     <!-- PAGE ABOUT US-->
     <div id="about-us" class="about">
       <h1 class = "featurette-heading">About us</h1>
+        <p>Naked Chairs is a French company founded by Angelina Sudreau in 2017. Guided by Angelina’s creativity and will to make upholstery an instrument of modernity. Naked Chairs brings antique and period chairs to the next level in regard to design.</p><br><br>
+        <p>For Angelina, upholstery is a family tradition passed on from mother to daughter. With Naked Chairs, upholstery is reinvented in an attempt to transcend tradition and create unique pieces of design chairs and armchairs. Angelina’s passion for world textiles and sewing draws her to conceive chairs as if they were ‘haute couture’. Each seat thus has a cut and a fabric that is coherent with the story of the seat and what it wishes to express.</p>
+        <h1 class="featurette-heading">NAKED CHAIRS as a PHILOSOPHY</h1><br><br>
+        <p>Have you ever wondered what your grand parents’ seating legacy looks like under what their fabric hides? At Naked Chairs, we believe that old seats’ structures can constitute a piece of art by itself; one that deserves to be enhanced and properly displayed.</p><br><br>
+        <p>Naked Chairs proposes seating pieces through which light can travel easily reducing the effect of blocking views and space obstacles. At the same time, comfort and solidity is assured thanks to modern upholstery techniques.</p><br><br>
+        <p>The design lines that characterise Naked Chairs pieces are extremely simple and pure in an attempt to balance the carvings and detailed woodwork inherent in old seats’ structures.</p><br><br>
+        <p>The signature of Naked Chairs’ pieces is embodied by the alliance of an original wooden structure with a minimalist metallic support sublimed by textile work that reflects an effort to put upholstery at the centre of Naked Chairs design.</p>
+        <h1 class="featurette-heading">BE THE DESIGNER OF YOUR CHAIRS</h1><br><br>
+        <p>In addition to selling design chairs and armchairs, Naked Chairs offers a way for its customers to become the designer of their seats by giving them the tools to turn these wooden structures into unique pieces of furniture at home.</p><br><br>
+        <p>Naked Chairs recognizes the imperative to keep and recycle old furniture and views this as an opportunity for its creative customers to put their skills to the test. With the help of upholstery DIY kits and tutorials explaining various techniques to convert their old seats into modern Naked Chairs, customers can finally express their creative potential and tailor their seats to their interior and personality. This conversion process is also helped by the Naked Chairs’ community, which posts its creations and leaves comments on their best work or experience while modernising their seats.</p><br><br>
+        
       </div>
 
     <!--FIN PAGE ABOUT US-->
@@ -1305,7 +1316,7 @@
                     <p>
                     <form method="post" action="">
 					<h1>Inscription du fournisseur</h1>
-					<input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+					<input type="text" name="nom" id="nom2" placeholder="Nom"class="form-control" /> 
 					<input type="hidden" name="foc"id="foc" value="fournisseur" class="form-control" /> 
 					<input type="text" name="adresse"id="adresse" placeholder="adresse" class="form-control" /> 
           <input type="text" name="ville"id="ville" placeholder="ville" class="form-control" /> 
@@ -1342,7 +1353,7 @@
 			$(document).ready(function() {
 				$("#register").click(function () { 
 					postFournisseurBdd(
-				    $('#nom').val(),
+				    $('#nom2').val(),
 				    $('#foc').val(),
 				    $('#adresse').val(),
 				    $('#ville').val(),
@@ -1385,7 +1396,7 @@
           <p>
           <form method="post" action="">
           <h1>Inscription du collaborateur</h1>
-          <input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+          <input type="text" name="nom" id="nom3" placeholder="Nom"class="form-control" /> 
           <input type="hidden" name="foc"id="foc" value="collaborateur" placeholder="Surnom"class="form-control" /> 
           <input type="text" name="adresse"id="adresse" placeholder="adresse" class="form-control" /> 
           <input type="text" name="ville"id="ville" placeholder="ville" class="form-control" /> 
@@ -1431,7 +1442,7 @@
       $(document).ready(function() {
         $("#submit").click(function () {
           postFournisseurBdd(
-            $('#nom').val(),
+            $('#nom3').val(),
             $('#foc').val(),
             $('#adresse').val(),
             $('#ville').val(),
@@ -1473,16 +1484,16 @@
               <ul class="navvertical">
                 <li><button type="button" id="listUser-bdd" class="btn listerusers">Clients</button></li>
                 <li><button type="button" id="listFournisseur-bdd" class="btn listerFournisseur">Fournisseurs</button></li>
-                <li><button type="button" id="listCollaborateur-bdd" class="btn listerCollaborateur">Collaborateur</button></li>
+                <li><button type="button" id="listCollaborateur-bdd" class="btn listerCollaborateur">Collaborateurs</button></li>
                 <li><button type="button" id="listCommandes-bdd" class="btn listerCommandes">Commandes</button></li>
-                <li><button type="button" id="notification-bdd" class="btn notification">Notification</button></li>                      
+                <li><button type="button" id="notification-bdd" class="btn notification">Notifications</button></li>                      
               </ul>
            </div>
         
 
     <div class="row" style="margin-top: 1em;">
             <div class="panel-body" id="reponse">
-              <script> displayNotif();</script>  
+              <script>// displayNotif();</script>  
             </div>
         </div>
     </div>

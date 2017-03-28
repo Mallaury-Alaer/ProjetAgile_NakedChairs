@@ -19,12 +19,14 @@
     <link href="style.css" rel="stylesheet">
     <script src="all.js"></script>
   </head>
-    
+    <body>
 <!-- SCRIPT
 ================================================= -->
     <script type = 'text/javascript'>
         
         $(document).ready(function(){
+                $('.navbar-disconnect').show();
+                $('.navbar-connect').hide();
                 $("#page-accueil").show();
                 $("#about-us").hide();
                 $("#page-forum").hide();
@@ -32,6 +34,9 @@
                 $("#page-custom").hide();
                 $("#page-connexion").hide();
                 $("#page-inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
 
         
         $("#idx").click(function(){
@@ -43,6 +48,9 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#logo-head").click(function(){
                 document.title = "Naked Chairs | Style your seats anew";
@@ -53,6 +61,9 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#abtus").click(function(){
             document.title = "Naked Chairs | About Us";
@@ -63,6 +74,9 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#blg").click(function(){
             document.title = "Naked Chairs | Forum";
@@ -73,6 +87,9 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#cust").click(function(){
             document.title = "Naked Chairs | Custom you seat";
@@ -83,9 +100,13 @@
                 $(".custom").show();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#connexion").click(function(){
             document.title = "NakedChairs | Connexion";
+            $('#errorconnect').hide();
                 $("#page-accueil").hide();
                 $(".about").hide();
                 $(".forum").hide();
@@ -93,6 +114,9 @@
                 $(".custom").hide();
                 $(".pconnexion").show();
                 $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#inscr").click(function(){
             document.title = "Naked Chairs | Inscription";
@@ -103,6 +127,10 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").show();
+                
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#inscrip").click(function(){
             document.title = "Naked Chairs | Inscription";
@@ -113,6 +141,10 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").show();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#annuler").click(function(){
                 document.title = "Naked Chairs | Style your seats anew";
@@ -123,6 +155,10 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#annulecustom").click(function(){
                 document.title = "Naked Chairs | Custom you seat";
@@ -144,6 +180,10 @@
                 $("#Article1").show();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
         $("#validercustom").click(function(){
                 document.title = "Naked Chairs | Custom you seat";
@@ -155,6 +195,10 @@
                 $(".custom").show();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
 
             $("#categ").click(function(){
@@ -166,15 +210,24 @@
                 $(".custom").hide();
                 $(".pconnexion").hide();
                 $(".inscription").hide();
+                
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
-            var login = "";
-            var mdp = "";
+           $('#disconnect').click(function(){
+                setLogin("");
+               console.log("Login apres deconnexion: "+getLogin());
+               $('.navbar-disconnect').show();
+                $('.navbar-connect').hide();
+               
+           });
         });
     </script>
 
 <!-- NAVBAR
 ================================================== -->
-  <body>
+  <div class="navbar-disconnect">
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -197,20 +250,45 @@
                     <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
                   </ul>
                 </li>
-                  <script>
-                      var str="";
-                      if(login==""){
-                        str+="<li><a id = \"connexion\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Connexion</a></li>";
-                      }else{
-                          // A CONTINUER
-                          str+="<li><a id = \"connexion\" href=\"#\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Connexion</a></li>";
-                      }
-                  </script>
+                  <li><a id = "connexion" href="#" role="button" aria-haspopup="true" aria-expanded="false">Log In</a></li>
               </ul>
             </div>
           </div>
         </nav>
+        </div>
+      </div>
+    </div>
+        
+    <div class="navbar-connect">
+        <div class="navbar-wrapper">
+      <div class="container">
 
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" id="logo-head" role="button" href="#"><img src="ressources/images/logo-header.png" alt="Logo" height=30px width=110px/></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a id="idx" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome</a></li>
+                <li><a id="abtus" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a></li>
+                <li><a id="blg" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog Chairs in the Nude</a></li>
+                <li><a id="cust" href="#" role="button" aria-haspopup="true" aria-expanded="false">Style up your Seats</a></li>
+                <li class="dropdown">
+                  <a class="url-nav" id="shop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="url-nav" href="#">Naked Chairs Prenium</a></li>
+                    <li><a class="url-nav" href="#">Naked Chairs DIY Kits</a></li>
+                    <li><a class="url-nav" href="#">Choice of Fabrics</a></li>
+                  </ul>
+                </li>
+                  <li><a id = "card" href="#" role="button" aria-haspopup="true" aria-expanded="false">Card</a></li>
+                  <li><a id = "disconnect" href="#" role="button" aria-haspopup="true" aria-expanded="false">Log out</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+            </div>
       </div>
     </div>
 
@@ -986,7 +1064,9 @@
                     "profondeurAssise" : profondeurAssise,
                     "largeurAssise" : largeurAssise,
                     "diametre" : diametre,
-                    "prix" : prix
+                    "prix" : prix,
+                    "id" : 0,
+                    "valide" : "Non"
                 })
             });
         }
@@ -1012,45 +1092,38 @@
       <center>
       <div class="container" >
         <center>
-    <div class="row">
+            <div class="row">
        
-        <div class="col-md-6">
-            <h1>Connexion</h1><br>
-            <input type="text" name="userlogin" id="userlogin" placeholder="Email" class="form-control"/>
-            <input type="password" name="user" id="passwdlogin" placeholder="Password" class="form-control"/>
-            <a id="" href="">Mot de passe oublié</a>
-            <br><br>
-            <button id="validerConnexion" class="btn btn-default">Connexion</button>
-            <a id="inscrip" href="#">S'inscrire</a>
-      <br/>
-            <br/>      
-    </div>
+                <div class="col-md-6">
+                <h1>Connexion</h1>
+                <input type="text" name="userlogin" id="userlogin" placeholder="Email" class="form-control"/>
+                <input type="password" name="user" id="passwdlogin" placeholder="Password" class="form-control"/>
+			     <a href="nouveau_compte.html">Mot de passe oublié</a>
+                <br/>
+                <button id="read-forall" class="btn btn-default">Connexion</button><br>
+                <a id='inscriputil' href="#">S'inscrire en tant qu'utilisateur</a><br>
+                <a id='inscripfourni' href="#">S'inscrire en tant que fournisseur</a><br>
+                <a id='inscripcollab' href="#">S'inscrire en tant que collaborateur</a>
+			     <br/>
+                <br/>
+		</div>
     </div>
   </center>
     <div class="row" style="margin-top: 20px;">
     </div>
     <script type="text/javascript">
       $('#validerConnexion').click(function(){
-        $.ajax({
-            type:"GET",
-            url:"v1/secure/who",
-            dataType: 'json',
-            beforeSend: function(req){
-                const str = btoa($('#userlogin').val() + ":" + $('#passwdlogin').val());
-                console.log("Login: "+$('#userlogin').val()+" Password: "+$('#passwdlogin').val());
-                req.setRequestHeader("Authorization", "Basic "+str);
-            },
-            success: function(data){
-                login = $('#userlogin').val();
-                mdp = $('#passwdlogin').val();
-                console.log("Connexion réussi");
-            },
-            error: function(jqXHR, testStatus, errorThrown) {
-                console.log("Connexion fail");
-            }
-            
-        })
+          getByAnnotation();
       });
+        $('#inscriputil').click(function(){
+            affiche("utilisateur");
+        });
+        $('#inscripfourni').click(function(){
+            affiche("fournisseur");
+        });
+        $('#inscripcollab').click(function(){
+            affiche("collaborateur");
+        });
 
       $(document).ready(function() {
         $("#get-ram").click(function () {getUser($('#user').val(), $('#alias').val())});
@@ -1068,7 +1141,7 @@
         </div>
     <!-- FIN PAGE CONNEXION -->
 
-    <!--PAGE INSCRIPTON-->
+    <!--PAGE INSCRIPTION UTILISATEUR-->
       <div id = "page-inscription" class="inscription">
         <center>
           <div class="container">
@@ -1110,20 +1183,225 @@
         $("#list-bdd").click(function () {listUsersBdd()});
         $("#quitter").click(function() {
             document.title = "NakedChairs | Connexion";
-            $("#page-accueil").hide();
-            $(".about").hide();
-            $(".forum").hide();
-            $(".categ-forum").hide();
-            $(".custom").hide();
-            $(".pconnexion").show();
-            $(".inscription").hide();
+            $('#errorconnect').hide();
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").show();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
         });
       });
     </script>
       </div>
     </center>
   </div>
-    <!-- FIN PAGE INSCRIPTION-->
+    <!-- FIN PAGE INSCRIPTION UTILISATEUR-->
+        
+    <!-- PAGE INSCRIPTION FOURNISSEUR -->
+    <div id="page-inscription-fournisseur">
+        <center>
+            <div class="container">
+		      <div class="row">
+			     <div class="col-md-6">
+				    <div class="form-group">
+                    <p>
+                    <form method="post" action="">
+					<h1>Inscription du fournisseur</h1>
+					<input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+					<input type="hidden" name="foc"id="foc" value="fournisseur" class="form-control" /> 
+					<input type="text" name="adresse"id="adresse" placeholder="adresse" class="form-control" /> 
+          <input type="text" name="ville"id="ville" placeholder="ville" class="form-control" /> 
+          <label for="type">Quel est votre métier ?</label><br />
+          <select name="type" id="type">
+           <option value="menuisier">Menuisier(e)</option>
+           <option value="couturier">Couturier(e)</option>
+           <option value="tapissier">Tapissier(e)</option>
+          </select>
+          <input type="text" name="statut" id="statut" placeholder="Statut (exemple : Micro entreprise)"class="form-control" /> 
+          <input type="hidden" name="diplome" id="diplome" placeholder="diplome" value="" class="form-control" /> 
+          <input type="text" name="anneeExperience" id="anneeExperience" placeholder="année d'expérience"class="form-control" />
+          <input type="hidden" name="heuresSemaine" id="heuresSemaine" value="" placeholder="année d'expérience"class="form-control" /> 
+          <input type="text" name="email" id="email" placeholder="email"class="form-control" />
+          <p id='error'>email invalide ou existant</p> 
+          <script>
+          $('#error').hide();
+          </script>
+          <input type="text" name="telephone" id="telephone" placeholder="telephone"class="form-control" />
+          <input type="password" name="mdp" id="passwddb"placeholder="Mot de passe ?" class="form-control" />
+
+        </form></p>
+                     <div class="btn-group" role="group">
+					<button type="button" id="register" class="btn btn-default">S'enregistrer</button>
+					<button type="button" id="quitter" class="btn btn-default">Annuler</button>
+					</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+	   <script type="text/javascript">
+			$(document).ready(function() {
+				$("#register").click(function () { 
+					postFournisseurBdd(
+				    $('#nom').val(),
+				    $('#foc').val(),
+				    $('#adresse').val(),
+				    $('#ville').val(),
+            $('#type option:selected').text(),
+            $('#statut').val(),
+            $('#diplome').val(),
+            $('#anneeExperience').val(),
+            $('#heuresSemaine').val(),
+            $('#email').val(),
+            $('#telephone').val(),
+            $('#mdp').val(),
+            "oui")
+        });
+				$("#quitter").click(function() {
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();});
+			});
+            </script>      
+        </center>    
+    </div>    
+    <!--FIN PAGE INSCRIPTION FOURNISSEUR-->
+        
+    <!--PAGE INSCRIPTION COLLABORATEUR-->
+        <div id='page-inscription-collab'>
+            <center>
+                  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <p>
+          <form method="post" action="">
+          <h1>Inscription du collaborateur</h1>
+          <input type="text" name="nom" id="nom" placeholder="Nom"class="form-control" /> 
+          <input type="hidden" name="foc"id="foc" value="collaborateur" placeholder="Surnom"class="form-control" /> 
+          <input type="text" name="adresse"id="adresse" placeholder="adresse" class="form-control" /> 
+          <input type="text" name="ville"id="ville" placeholder="ville" class="form-control" /> 
+          <label for="type">Quel est votre métier ?</label><br />
+          <select name="type" id="type">
+           <option value="menuisier">Menuisier(e)</option>
+           <option value="couturier">Couturier(e)</option>
+           <option value="tapissier">Tapissier(e)</option> 
+          </select>
+          <input type="text" name="statut" id="statut" placeholder="Statut (exemple : Micro entreprise)"class="form-control" /> 
+          <input type="text" name="diplome" id="diplome" placeholder="diplome"class="form-control" /> 
+          <input type="text" name="anneeExperience" id="anneeExperience" placeholder="année d'expérience"class="form-control" />
+          <input type="text" name="heuresSemaine" id="heuresSemaine"  placeholder="heures par semaine"class="form-control" /> 
+          <input type="text" name="mail" id="mail" placeholder="mail"class="form-control" />
+          <p id='error'>mail invalide ou existant</p> 
+          <script>
+          $('#error').hide();
+          </script>
+          <input type="text" name="telephone" id="telephone" placeholder="telephone"class="form-control" />
+          <input type="password" name="mdp" id="passwddb"placeholder="Mot de passe ?" class="form-control" />
+        </form></p>
+
+
+
+        <div class="btn-group" role="group">
+          <!-- 
+          <button type="button" id="get-bdd" class="btn btn-default">Lire</button>
+          -->
+          <button type="button" id="submit" class="btn btn-default">S'enregistrer</button>
+          <button type="button" id="ragequit" class="btn btn-default">Annuler</button>
+           <!--
+          <button type="button" id="list-bdd" class="btn btn-warning">Lister</button>
+          -->
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+        $("#submit").click(function () {
+          postFournisseurBdd(
+            $('#nom').val(),
+            $('#foc').val(),
+            $('#adresse').val(),
+            $('#ville').val(),
+            $('#type option:selected').text(),
+            $('#statut').val(),
+            $('#diplome').val(),
+            $('#anneeExperience').val(),
+            $('#heuresSemaine').val(),
+            $('#mail').val(),
+            $('#telephone').val(),
+            $('#mdp').val())
+        });
+        $("#ragequit").click(function() {
+                document.title = "Naked Chairs | Style your seats anew";
+                $("#page-accueil").show();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+            
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+        });
+      });
+    </script>
+            </center>
+        </div>
+    <!--FIN PAGE INSCRIPTION COLLABORATEUR-->
+    <!--PAGE ADMIN-->
+        <div id="page-admin">
+            <div class="container">
+
+    <div class="row" style="margin-top: 13%;">
+
+          <div class="container">
+              <ul class="navvertical">
+                <li><button type="button" id="listUser-bdd" class="btn listerusers">Clients</button></li>
+                <li><button type="button" id="listFournisseur-bdd" class="btn listerFournisseur">Fournisseurs</button></li>
+                <li><button type="button" id="listCollaborateur-bdd" class="btn listerCollaborateur">Collaborateur</button></li>
+                <li><button type="button" id="listCommandes-bdd" class="btn listerCommandes">Commandes</button></li>
+                <li><button type="button" id="notification-bdd" class="btn notification">Notification</button></li>                      
+              </ul>
+           </div>
+        
+
+    <div class="row" style="margin-top: 1em;">
+            <div class="panel-body" id="reponse">
+                <table>
+              <script> displayNotif();</script>
+
+
+              </table>  
+            </div>
+        </div>
+    </div>
+	
+	<div class="panel-body" id="test">
+            </div>
+        </div>
+    <!--FIN PAGE ADMIN-->
  
       <!-- FOOTER -->
       <footer>

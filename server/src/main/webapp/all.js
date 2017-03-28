@@ -28,19 +28,29 @@ function getSecure(url) {
 				req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
 			},
 			success: function (data,jqXHR, textStatus, errorThrown) {
-				$('.connexion').hide();
-				$('.deconnexion').show();
+                setLogin($('#userlogin').val());
+                console.log(login);
+                console.log("Connexion réussi");
+                
 				if(data.role=="admin"){
-					document.location.href="admin.html"; 
+                    affiche("admin");
 				}
 				else{
-					// Probleme, on n'arrive pas a cacher connexion et montrer deconnexion apres connection réussi	
-					redirectAccueil();
-					}
+                    document.title = "Naked Chairs | Style your seats anew";
+                    $('.navbar-disconnect').hide();
+                    $('.navbar-connect').show();
+                    $("#page-accueil").show();
+                    $(".about").hide();
+                    $(".forum").hide();
+                    $(".categ-forum").hide();
+                    $(".custom").hide();
+                    $(".pconnexion").hide();
+                    $(".inscription").hide();
+				}
 				
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
-				alert('error: ' + textStatus);
+				console.log("Connexion fail!");
 			}
 		});
 	} else {
@@ -48,10 +58,6 @@ function getSecure(url) {
 			afficheUser(data);
 		});
 	}
-}
-
-function annuler(){
-	document.location.href="connexion.html"; 
 }
 
 function postUserBdd(name, role, email, pwd) {
@@ -372,4 +378,67 @@ function displayNotification(data){
 
 function listerCommandesAdmin(){
 
+}
+
+var login = "";
+var mdp = "";
+            
+function getLogin(){
+    return login;
+}
+function setLogin(newLog){
+    login=newLog;
+}
+
+function affiche(vue){
+    if(vue=="utilisateur"){
+        document.title = "Naked Chairs | Sign up";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").show();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+    }else if(vue == "fournisseur"){
+        document.title = "Naked Chairs | Sign up";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").show();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").hide();
+    }else if(vue=="collaborateur"){
+                document.title = "Naked Chairs | Sign up";
+                $("#page-accueil").hide();
+                $(".about").hide();
+                $(".forum").hide();
+                $(".categ-forum").hide();
+                $(".custom").hide();
+                $(".pconnexion").hide();
+                $(".inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").show();
+                $("#page-admin").hide();
+    }else if(vue == "admin"){
+         $('.navbar-disconnect').hide();
+                $('.navbar-connect').show();
+                $("#page-accueil").hide();
+                $("#about-us").hide();
+                $("#page-forum").hide();
+                $("#page-categories").hide();
+                $("#page-custom").hide();
+                $("#page-connexion").hide();
+                $("#page-inscription").hide();
+                $("#page-inscription-fournisseur").hide();
+                $("#page-inscription-collab").hide();
+                $("#page-admin").show();
+    }
 }

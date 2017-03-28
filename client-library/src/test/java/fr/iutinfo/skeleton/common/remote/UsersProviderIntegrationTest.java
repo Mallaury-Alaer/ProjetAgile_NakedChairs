@@ -15,7 +15,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class UsersProviderIntegrationTest extends JerseyTest {
-/*
+
     private UserDao userDao = BDDFactory.getDbi().open(UserDao.class);
     private UsersProvider usersProvider = new UsersProvider(getBaseUri().toString());
 
@@ -24,14 +24,6 @@ public class UsersProviderIntegrationTest extends JerseyTest {
         return new Api();
     }
 
-    @Test
-    public void should_read_remote_user() {
-        initDatabase();
-        createUser("Thomas");
-
-        UserDto user = usersProvider.readUser("Thomas");
-        Assert.assertEquals("Thomas", user.getName());
-    }
 
     @Test
     public void should_read_all_remote_user() {
@@ -65,5 +57,5 @@ public class UsersProviderIntegrationTest extends JerseyTest {
     private void initDatabase() {
         userDao.dropUserTable();
         userDao.createUserTable();
-    }*/
+    }
 }

@@ -11,7 +11,7 @@ import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 import static org.junit.Assert.assertEquals;
 
 public class SecureResourceWhoAmITest extends JerseyTest {
-    /*private String url = "/secure/who";
+    private String url = "/secure/who";
     private Helper h;
 
     @Override
@@ -44,5 +44,5 @@ public class SecureResourceWhoAmITest extends JerseyTest {
         String authorization = "Basic " + Base64.encodeAsString("tclavier:pasdemotdepasse");
         User utilisateur = target(url).request().header(AUTHORIZATION, authorization).get(User.class);
         assertEquals("Anonymous", utilisateur.getEmail());
-    }*/
+    }
 }

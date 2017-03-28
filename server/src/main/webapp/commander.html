@@ -103,11 +103,13 @@
 
           <div id="btn-group" role="group" aria-label="...">
               <form action="#">
-                  <input type="submit" value="VALIDER MA COMMANDE" >
+                  <input type="submit" value="VALIDER MA COMMANDE" onclick="validerCommandes()">
               </form>
               <form action="#">
                   <input type="submit" value="CONTINUER MES ACHATS" >
               </form>
+              <div id="validation">
+              </div>
           </div>
 
        
@@ -139,7 +141,7 @@
           var total=0;
 
           for(var i=0; i<data.length;i++){  
-            if(data[i].utilisateur == "test"){
+            if(data[i].utilisateur == "test" && data[i].valide == "Non"){
                  s+="<li class=\"list-group-item\"><input id=\"btnSuppr\" name=\""+data[i].id+"\" type=\"button\" value=\"Supprimer\" onclick=\"supprCommande(this.name)\">";
                  if(data[i].dossier=="oui"){
                   s+="Chaise ";
@@ -201,6 +203,36 @@
 
          affPanier();
       }
+
+      function validerCommandes(){  
+        document.getElementById("validation").innerHTML="";
+        $.getJSON("/v1/panier", function(data) {
+          var n="";
+          var s="";
+          var auMoinsUneCommande=false;
+          for(var i=0; i<data.length;i++){  
+            if(data[i].utilisateur == "test" && data[i].valide =="Non"){
+              $.ajax({
+                      type : 'PUT',
+                      contentType : 'application/json',
+                      url : "/v1/panier/"+data[i].id,
+                      dataType : "json",
+                      data : JSON.stringify({
+                          "id" : data[i].id,
+                      })
+                  });
+              auMoinsUneCommande=true;
+            }
+          }
+            if(auMoinsUneCommande){
+              s+="<p style=\"color:green\">Commande validée</p>";
+              n=$(s);
+              n.appendTo("#validation");
+              affPanier();
+            }
+        });
+      }
+
 
     </script>
 

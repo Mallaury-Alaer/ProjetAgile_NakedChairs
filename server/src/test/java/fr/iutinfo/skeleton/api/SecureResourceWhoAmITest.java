@@ -4,6 +4,7 @@ import org.glassfish.jersey.internal.util.Base64;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
 
 import javax.ws.rs.core.Application;
 
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class SecureResourceWhoAmITest extends JerseyTest {
     private String url = "/secure/who";
     private Helper h;
+    private UserDao dao = BDDFactory.getDbi().open(UserDao.class);
 
     @Override
     protected Application configure() {
@@ -44,5 +46,10 @@ public class SecureResourceWhoAmITest extends JerseyTest {
         String authorization = "Basic " + Base64.encodeAsString("tclavier:pasdemotdepasse");
         User utilisateur = target(url).request().header(AUTHORIZATION, authorization).get(User.class);
         assertEquals("Anonymous", utilisateur.getEmail());
+    }
+
+    @After
+    public void fin(){
+        dao.dropUserTable();
     }
 }

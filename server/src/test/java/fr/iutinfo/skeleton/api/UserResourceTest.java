@@ -4,6 +4,7 @@ import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 
 import javax.ws.rs.client.Entity;
@@ -70,7 +71,7 @@ public class UserResourceTest extends JerseyTest {
         User user = new User(1, "thomas");
         Entity<User> userEntity = Entity.entity(user, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(userEntity).readEntity(String.class);
-        assertEquals("{\"email\":\"thomas\",\"id\":7", json.substring(0, 24));
+        assertEquals("{\"email\":\"thomas\",\"id\":1", json.substring(0, 24));
     }
 
     @Test
@@ -131,5 +132,10 @@ public class UserResourceTest extends JerseyTest {
 
         List<UserDto> users = target(PATH + "/").queryParam("q", "fsf").request().get(listUserResponseType);
         assertEquals(2, users.size());
+    }
+
+    @After
+    public void fin(){
+        dao.dropUserTable();
     }
 }

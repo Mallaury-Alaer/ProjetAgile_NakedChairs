@@ -4,6 +4,7 @@ import org.glassfish.jersey.internal.util.Base64;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
 
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Response;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class SecureResourceByAnnotationTest extends JerseyTest {
     private Helper h;
     private String path = "/secure/byannotation";
+    private UserDao dao = BDDFactory.getDbi().open(UserDao.class);
 
     @Override
     protected Application configure() {
@@ -41,5 +43,10 @@ public class SecureResourceByAnnotationTest extends JerseyTest {
         String authorization = "Basic " + Base64.encodeAsString("tclavier:pasdemotdepasse");
         int status = target(path).request().header(AUTHORIZATION, authorization).get().getStatus();
         assertEquals(FORBIDDEN.getStatusCode(), status);
+    }
+
+    @After
+    public void fin(){
+        dao.dropUserTable();
     }
 }

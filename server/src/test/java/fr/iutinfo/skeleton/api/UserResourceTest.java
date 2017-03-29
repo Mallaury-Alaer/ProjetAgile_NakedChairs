@@ -71,7 +71,7 @@ public class UserResourceTest extends JerseyTest {
         User user = new User(1, "thomas");
         Entity<User> userEntity = Entity.entity(user, MediaType.APPLICATION_JSON);
         String json = target(PATH).request().post(userEntity).readEntity(String.class);
-        assertEquals("{\"email\":\"thomas\",\"id\":1", json.substring(0, 24));
+        assertEquals("{\"email\":\"thomas\",\"id\":7", json.substring(0, 24));
     }
 
     @Test

@@ -3,6 +3,7 @@ package fr.iutinfo.skeleton.api;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.junit.After;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;
@@ -73,5 +74,9 @@ public class Helper {
 
     static User createIan() {
         return createFullUSer("Ian Murdock", "debian", "ian@debian.org", "mot de passe");
+    }
+    @After
+    public void fin(){
+        dao.dropUserTable();
     }
 }

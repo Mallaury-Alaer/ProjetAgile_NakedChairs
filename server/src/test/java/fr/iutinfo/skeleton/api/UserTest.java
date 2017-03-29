@@ -1,6 +1,7 @@
 package fr.iutinfo.skeleton.api;
 
 import static org.junit.Assert.*;
+import org.junit.After;
 
 import javax.swing.text.AbstractDocument.LeafElement;
 import javax.validation.constraints.AssertFalse;
@@ -13,6 +14,8 @@ import fr.iutinfo.skeleton.common.dto.UserDto;
 public class UserTest {
 	User user = new User(96, "Pierre", "Pierre@pierre.caillou", "user", "rocher");
 	User ano = user.getAnonymousUser();
+  private UserDao dao = BDDFactory.getDbi().open(UserDao.class);
+
     @Test
     public void should_set_salt_at_build () {
         User user = new User();
@@ -97,5 +100,9 @@ public class UserTest {
     	User userIni = new User();
     	userIni.initFromDto(userDto);
     	assertEquals(user.toString(), userIni.toString());
+    }
+    @After
+    public void fin(){
+        dao.dropUserTable();
     }
 }

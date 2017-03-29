@@ -1,3 +1,2 @@
 Les identifiants de l'administrateur sont : 
-email = admin@admin.admin
-mot de passe = mdp 
+email = admin@admin.admin et mot de passe = mdp 
